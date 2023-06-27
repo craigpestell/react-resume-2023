@@ -19,7 +19,7 @@ import porfolioImage4 from '../images/portfolio/cooperators.png';
 import porfolioImage5 from '../images/portfolio/petro-novus.png';
 import porfolioImage6 from '../images/portfolio/manitoumtb-product-list.png';
 
-import profilepic from '../images/profilepic.jpg';
+//import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
   About,
