@@ -12,13 +12,12 @@ import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import heroImage from '../images/background-vancouver-night-grouse-2240.webp';
-import porfolioImage1 from '../images/portfolio/raceface-home-bars.png';
-import porfolioImage2 from '../images/portfolio/kali-interceptor.jpg';
-import porfolioImage3 from '../images/portfolio/hayes-homepage.png';
 import porfolioImage4 from '../images/portfolio/cooperators.png';
-import porfolioImage5 from '../images/portfolio/petro-novus.png';
+import porfolioImage3 from '../images/portfolio/hayes-homepage.png';
+import porfolioImage2 from '../images/portfolio/kali-interceptor.jpg';
 import porfolioImage6 from '../images/portfolio/manitoumtb-product-list.png';
-
+import porfolioImage5 from '../images/portfolio/petro-novus.png';
+import porfolioImage1 from '../images/portfolio/raceface-home-bars.png';
 //import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -38,7 +37,7 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Craig Pestell\'s Bio',
+  title: "Craig Pestell's Bio",
   description: "Craig Pestell's Resume, career experience, education, skills and interests",
 };
 
@@ -56,7 +55,7 @@ export const SectionId = {
   Testimonials: 'testimonials',
 } as const;
 
-export type SectionId = typeof SectionId[keyof typeof SectionId];
+export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
 /**
  * Hero section
@@ -67,10 +66,15 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a <strong className="text-stone-100">Full Stack Software Engineer</strong>, based on the west coast, jumping between the San Francisco bay area and Vancouver Canada. I've built software since 1998, first in Vancouver, then in the San Francisco bay area from 2010 to 2021. I also freelance via my Canadian business, <strong className="text-stone-100">Koansoft</strong>.
+        I'm a <strong className="text-stone-100">Full Stack Software Engineer</strong>, based on the west coast, jumping
+        between the San Francisco bay area and Vancouver Canada. I've built software since 1998, first in Vancouver,
+        then in the San Francisco bay area from 2010 to 2021. I also freelance via my Canadian business,{' '}
+        <strong className="text-stone-100">Koansoft</strong>.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can find me in Vancouver, Whistler, Lake Tahoe, Santa Cruz, or other destinations that offer great <strong className="text-stone-100">downhill mountain biking</strong> in the summer and <strong className="text-stone-100">snowboarding</strong> in the winter.
+        In my free time time, you can find me in Vancouver, Whistler, Lake Tahoe, Santa Cruz, or other destinations that
+        offer great <strong className="text-stone-100">downhill mountain biking</strong> in the summer and{' '}
+        <strong className="text-stone-100">snowboarding</strong> in the winter.
       </p>
     </>
   ),
@@ -96,12 +100,16 @@ export const aboutData: About = {
   //profileImageSrc: profilepic,
   description: `I'm a Canadian citizen, born in Vancouver. I have built software professionally and full time since I finished high school in 1998. I took Computer Science at BCIT in Burnaby, B.C. from 2005 to 2007. I moved to San Francisco in 2010, and came back to Vancouver when many businesses shuttered in 2020. I'm still freelancing in Vancouver, but I'm shooting for another opportunity in California, or possibly Washington.`,
   aboutItems: [
-    { label: 'Location', text: 'Vancouver, BC', Icon: MapIcon },
-    { label: 'Age', text: '45', Icon: CalendarIcon },
-    { label: 'Nationality', text: 'Canadian', Icon: FlagIcon },
-    { label: 'Interests', text: 'Bikes, Motorcycles, Web technology, Pen Testing, Psychology', Icon: SparklesIcon },
-    { label: 'Study', text: 'British Columbia Institute of Technology', Icon: AcademicCapIcon },
-    { label: 'Employment', text: 'Looking for a new Full Stack Javascript/Typescript role, while maintaining my client projects at Koansoft in Vancouver Canada', Icon: BuildingOffice2Icon },
+    {label: 'Location', text: 'Vancouver, BC', Icon: MapIcon},
+    {label: 'Age', text: '45', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Canadian', Icon: FlagIcon},
+    {label: 'Interests', text: 'Bikes, Motorcycles, Web technology, Pen Testing, Psychology', Icon: SparklesIcon},
+    {label: 'Study', text: 'British Columbia Institute of Technology', Icon: AcademicCapIcon},
+    {
+      label: 'Employment',
+      text: 'Looking for a new Full Stack Javascript/Typescript role, while maintaining my client projects at Koansoft in Vancouver Canada',
+      Icon: BuildingOffice2Icon,
+    },
   ],
 };
 
@@ -204,7 +212,9 @@ export const education: TimelineItem[] = [
     date: '2004 - 2006',
     location: 'British Columbia Institute of Technology',
     title: 'Associate of Computer Science',
-    content: <p>Completed a condensed 2 year Computer Science diploma program, with Data Communications option in 2nd year.</p>,
+    content: (
+      <p>Completed a condensed 2 year Computer Science diploma program, with Data Communications option in 2nd year.</p>
+    ),
   },
 ];
 
@@ -216,11 +226,10 @@ export const experience: TimelineItem[] = [
     content: (
       <span>
         <p>
-          Coordinating the design and development of a web application to provide silicon chip design teams the ability to manage chip specifications, including ongoing change management, similar to a code version control system.
+          Coordinating the design and development of a web application to provide silicon chip design teams the ability
+          to manage chip specifications, including ongoing change management, similar to a code version control system.
         </p>
-        <p>
-          Technologies used: Typescript, Angular, RxJs, SASS/CSS, plus many Google-centric tools
-        </p>
+        <p>Technologies used: Typescript, Angular, RxJs, SASS/CSS, plus many Google-centric tools</p>
       </span>
     ),
   },
@@ -231,11 +240,11 @@ export const experience: TimelineItem[] = [
     content: (
       <span>
         <p>
-          Architecting a micro-frontend ecosystem to transition e-commerce website pages from a monolithic code-base, to facilitate reusable components, built with Vue.js. Developing Vue.js components to port existing features and create new features for an e-commerce website.
+          Architecting a micro-frontend ecosystem to transition e-commerce website pages from a monolithic code-base, to
+          facilitate reusable components, built with Vue.js. Developing Vue.js components to port existing features and
+          create new features for an e-commerce website.
         </p>
-        <p>
-          Technologies used: Node.js, Vue.js, NPM, HTML5, CSS3, Jest, Yeoman, Tailwind, SASS
-        </p>
+        <p>Technologies used: Node.js, Vue.js, NPM, HTML5, CSS3, Jest, Yeoman, Tailwind, SASS</p>
       </span>
     ),
   },
@@ -246,10 +255,13 @@ export const experience: TimelineItem[] = [
     content: (
       <span>
         <p>
-          Working within a LEAN environment our team is designing the future architecture of Macys.com.  My work involves designing a componentized, loosely coupled, scalable isometric architecture, creating tools to streamline developer onboarding and website development.
+          Working within a LEAN environment our team is designing the future architecture of Macys.com. My work involves
+          designing a componentized, loosely coupled, scalable isometric architecture, creating tools to streamline
+          developer onboarding and website development.
         </p>
         <p>
-          Technologies used: Node.js, React, Backbone.js, Webpack, HTML5, CSS3, Foundation, Jasmine, Gulp, Grunt, Yeoman, SASS/SCSS, Adobe Analytics, Tealium
+          Technologies used: Node.js, React, Backbone.js, Webpack, HTML5, CSS3, Foundation, Jasmine, Gulp, Grunt,
+          Yeoman, SASS/SCSS, Adobe Analytics, Tealium
         </p>
       </span>
     ),
@@ -261,9 +273,14 @@ export const experience: TimelineItem[] = [
     content: (
       <span>
         <p>
-          As the sole developer working for Kali Protectives, I designed, developed and deployed a brand new catalog website to showcase Kali’s product line.  Using the latest tools, including ESNext Javascript, Webpack/Babel, Node.js with Express and MongoDB I designed a fully responsive website which included a product catalog and blog, administered with a custom CMS, enhanced with a customized implementation of TinyMCE        </p>
+          As the sole developer working for Kali Protectives, I designed, developed and deployed a brand new catalog
+          website to showcase Kali’s product line. Using the latest tools, including ESNext Javascript, Webpack/Babel,
+          Node.js with Express and MongoDB I designed a fully responsive website which included a product catalog and
+          blog, administered with a custom CMS, enhanced with a customized implementation of TinyMCE{' '}
+        </p>
         <p>
-          Technologies used: Custom CMS using Node.js/Express, Handlebars templates, TinyMCE, Cloudinary image management, Cloudflare
+          Technologies used: Custom CMS using Node.js/Express, Handlebars templates, TinyMCE, Cloudinary image
+          management, Cloudflare
         </p>
       </span>
     ),
@@ -275,10 +292,12 @@ export const experience: TimelineItem[] = [
     content: (
       <span>
         <p>
-          Working within an Agile team I analyze business processes to design and build new features for a web portal single-page application to allow Autodesk to sell their software using a SaaS model.
+          Working within an Agile team I analyze business processes to design and build new features for a web portal
+          single-page application to allow Autodesk to sell their software using a SaaS model.
         </p>
         <p>
-          Technologies used: jQuery, Backbone.js, Require.js, Bootstrap, Node.js, HTML5, CSS3, Jasmine, Gulp, Grunt, LESS
+          Technologies used: jQuery, Backbone.js, Require.js, Bootstrap, Node.js, HTML5, CSS3, Jasmine, Gulp, Grunt,
+          LESS
         </p>
       </span>
     ),
@@ -289,15 +308,12 @@ export const experience: TimelineItem[] = [
     title: 'Software Engineer',
     content: (
       <span>
+        <p>Google Unified Ticketing System- Work with a team to develop and maintain internal ticketing system.</p>
         <p>
-          Google Unified Ticketing System- Work with a team to develop and maintain internal ticketing system.
+          GUTS is a high performance application using several Google technologies that allows over 10,000 requests per
+          second to over 10,000,000 records while maintaining 99.9% uptime.
         </p>
-        <p>
-          GUTS is a high performance application using several Google technologies that allows over 10,000 requests per second to over 10,000,000 records while maintaining 99.9% uptime.
-        </p>
-        <p>
-          Technologies used:  Python, Javascript, Google Closures, Fava Framework, Oracle DB, BMC Remedy
-        </p>
+        <p>Technologies used: Python, Javascript, Google Closures, Fava Framework, Oracle DB, BMC Remedy</p>
       </span>
     ),
   },
@@ -307,8 +323,7 @@ export const experience: TimelineItem[] = [
     title: 'Web Developer',
     content: (
       <span>
-        <p>
-          Consult, develop and maintain Race Face's public, business and intranet web applications.</p>
+        <p>Consult, develop and maintain Race Face's public, business and intranet web applications.</p>
         <p>Manage email marketing campaigns sending to thousands of recipients</p>
         <p>Create online product catalogues for public and distributors</p>
         <p>Technologies used: PHP, MySQL, Wordpress, JQuery, XHTML, CSS, Javascript</p>
@@ -321,12 +336,8 @@ export const experience: TimelineItem[] = [
     title: 'Web Developer',
     content: (
       <span>
-        <p>
-          Product showcase / catalog 
-        </p>
-        <p>
-          http://www.hayesbicycle.com
-        </p>
+        <p>Product showcase / catalog</p>
+        <p>http://www.hayesbicycle.com</p>
         <p>Technologies used: PHP, XML, Wordpress, XHTML, CSS, Javascript</p>
       </span>
     ),
@@ -338,12 +349,14 @@ export const experience: TimelineItem[] = [
     content: (
       <span>
         <p>
-Web development for an environmental recycling web portal, used by private and local governments to reduce waste, save costs, and generate alternative energy.</p>
-<p>https://www.iwastenotsystems.com</p>
-<p>Technologies used: PHP, XML, XHTML, CSS, Javascript, SOAP</p></span>
+          Web development for an environmental recycling web portal, used by private and local governments to reduce
+          waste, save costs, and generate alternative energy.
+        </p>
+        <p>https://www.iwastenotsystems.com</p>
+        <p>Technologies used: PHP, XML, XHTML, CSS, Javascript, SOAP</p>
+      </span>
     ),
   },
-  
 ];
 
 /**
@@ -405,7 +418,7 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  { label: 'Github', Icon: GithubIcon, href: 'https://github.com/craigpestell' },
-  { label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/cpestell/' },
-  { label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/repnthew/' },
+  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/craigpestell'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/cpestell/'},
+  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/repnthew/'},
 ];

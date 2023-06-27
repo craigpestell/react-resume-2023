@@ -60,7 +60,7 @@ const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, descrip
     },
     [mobile, showOverlay],
   );
-  const href = url ? {href:url}: {};
+  const href = url ? {href: url} : {};
   return (
     <a
       className={classNames(
