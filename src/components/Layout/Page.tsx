@@ -1,6 +1,7 @@
 import {NextPage} from 'next';
 import Head from 'next/head';
 import {useRouter} from 'next/router';
+import Script from 'next/script';
 import {memo, PropsWithChildren} from 'react';
 
 import {HomepageMeta} from '../../data/dataDef';
@@ -31,6 +32,16 @@ const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, 
         <meta content={title} name="twitter:title" />
         <meta content={description} name="twitter:description" />
       </Head>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-KCFTFCTSPW" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-KCFTFCTSPW');
+        `}
+      </Script>
       {children}
     </>
   );
