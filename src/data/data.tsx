@@ -80,7 +80,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/craig pestell resume 202211.docx',
+      href: '/assets/craig pestell resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
