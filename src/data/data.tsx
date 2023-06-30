@@ -80,7 +80,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
+      href: '/assets/craig pestell resume 202211.docx',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -221,8 +221,9 @@ export const education: TimelineItem[] = [
 export const experience: TimelineItem[] = [
   {
     date: 'March 2022 - October 2022',
-    location: 'Google',
+    location: 'Mountain View, CA',
     title: 'Senior UI Developer',
+    employer: 'Google',
     content: (
       <span>
         <p>
@@ -234,9 +235,10 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2020 - 2021 -  Williams Sonoma',
+    date: '2020 - 2021',
     location: 'Remote',
     title: 'Senior UI Developer',
+    employer: 'Williams Sonoma',
     content: (
       <span>
         <p>
@@ -249,9 +251,10 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2015 - 2020 - Macys.com',
+    date: '2015 - 2020',
     location: 'San Francisco, CA',
     title: 'Senior UI Developer',
+    employer: 'Macys.com',
     content: (
       <span>
         <p>
@@ -267,9 +270,10 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2016 - 2019 - Kali Protectives',
+    date: '2016 - 2019',
     location: 'Remote',
     title: 'Full Stack Developer',
+    employer: 'Kali Protectives',
     content: (
       <span>
         <p>
@@ -286,9 +290,10 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2014 - 2015 - Autodesk',
+    date: '2014 - 2015',
     location: 'San Francisco, CA',
     title: 'UI Developer',
+    employer: 'Autodesk',
     content: (
       <span>
         <p>
@@ -303,9 +308,10 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2012 - 2014 - Google',
+    date: '2012 - 2014',
     location: 'Mountain View, CA',
     title: 'Software Engineer',
+    employer: 'Google',
     content: (
       <span>
         <p>Google Unified Ticketing System- Work with a team to develop and maintain internal ticketing system.</p>
@@ -318,9 +324,10 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2008 - 2016 - Race Face Performance Products',
+    date: '2008 - 2016',
     location: 'Remote',
     title: 'Web Developer',
+    employer: 'Race Face Performance Products',
     content: (
       <span>
         <p>Consult, develop and maintain Race Face's public, business and intranet web applications.</p>
@@ -331,9 +338,10 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2009 - Hayes Bicycle Group',
+    date: '2009',
     location: 'Remote',
     title: 'Web Developer',
+    employer: 'Hayes Bicycle',
     content: (
       <span>
         <p>Product showcase / catalog</p>
@@ -343,9 +351,10 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: '2008 - 2010 - iWasteNot Systems',
+    date: '2008 - 2010',
     location: 'Remote',
     title: 'Web Developer',
+    employer: 'iWasteNot Systems',
     content: (
       <span>
         <p>

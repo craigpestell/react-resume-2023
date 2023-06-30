@@ -1,9 +1,9 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 
-import {education, experience, SectionId, skills} from '../../../data/data';
+import { education, experience, SectionId, skills } from '../../../data/data';
 import Section from '../../Layout/Section';
 import ResumeSection from './ResumeSection';
-import {SkillGroup} from './Skills';
+import { SkillGroup } from './Skills';
 import TimelineItem from './TimelineItem';
 
 const Resume: FC = memo(() => {
@@ -16,9 +16,19 @@ const Resume: FC = memo(() => {
           ))}
         </ResumeSection>
         <ResumeSection title="Work">
-          {experience.map((item, index) => (
-            <TimelineItem item={item} key={`${item.title}-${index}`} />
-          ))}
+          {experience.filter((item) => (item.location !== 'Remote'))
+            .map((item, index) => (
+              <TimelineItem item={item} key={`${item.title}-${index}`} />
+            ))
+          }
+        </ResumeSection>
+        <ResumeSection title="Freelance">
+          {experience.filter((item) => (item.location === 'Remote'))
+            .map(item => ({...item, location:''}))
+            .map((item, index) => (
+              <TimelineItem item={item} key={`${item.title}-${index}`} />
+            ))
+          }
         </ResumeSection>
         <ResumeSection title="Skills">
           <p className="pb-8">A realistic self-appraisal of my skillset</p>
