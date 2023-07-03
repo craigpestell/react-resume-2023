@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,css,scss}'],
-  // darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       keyframes: {
         typing: {
-          '0%, 100%': {width: '0%'},
-          '30%, 70%': {width: '100%'},
+          '0%, 100%': { width: '0%' },
+          '30%, 70%': { width: '100%' },
         },
         blink: {
           '0%': {
@@ -26,10 +26,16 @@ module.exports = {
         },
       },
       screens: {
-        touch: {raw: 'only screen and (pointer: coarse)'},
+        touch: { raw: 'only screen and (pointer: coarse)' },
       },
     },
   },
   // eslint-disable-next-line no-undef
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  mode: 'jit',
+  // These paths are just examples, customize them to match your project structure
+  content: [
+    './public/**/*.html',
+    './src/**/*.{js,jsx,ts,tsx,vue}',
+  ],
 };
