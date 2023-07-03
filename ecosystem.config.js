@@ -17,7 +17,7 @@ module.exports = {
       path : '/home/repn/web/resume',
       'pre-deploy-local': 'yarn build',
       // 'pre-deploy': ' pm2 stop ecosystem.config.js --env production',
-      'post-deploy' : 'pm2 stop ecosystem.config.js production && yarn && yarn build && pm2 start ecosystem.config.js production',
+      'post-deploy' : 'pm2 stop resume && yarn && yarn build && pm2 start resume',
       'pre-setup': ''
     }
   }
