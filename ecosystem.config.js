@@ -1,7 +1,7 @@
 module.exports = {
   apps : [{
     name: 'resume',
-    cwd: '/home/repn/work/react-resume-template',
+    cwd: '/home/repn/work/resume',
     script: 'yarn',
     args: 'start',
    // interpreter: '/bin/bash',
