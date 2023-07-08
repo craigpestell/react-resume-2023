@@ -5,7 +5,7 @@
     "clean": "rm -rf build-tsc .next",
     "compile": "yarn run -T tsc --build --verbose",
     "dev": "yarn compile && yarn next dev",
-    "lint": "yarn run -T prettier --write './**/*.{js,jsx,json,ts,tsx}' && eslint './**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
+    "lint": "yarn run -T prettier --write './{components,data,hooks,images,pages}/**/*.{js,jsx,json,ts,tsx}' && eslint './{components,data,hooks,images,pages}/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
     "start": "yarn next start",
     "sitemap": "yarn next-sitemap"
   },
