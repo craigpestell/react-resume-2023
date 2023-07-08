@@ -17,9 +17,9 @@ module.exports = {
       repo: 'https://github.com/craigpestell/react-resume-2023.git',
       path: '/home/repn/web/resume',
       cwd: '/home/repn/web/resume',
-      'pre-deploy-local': 'yarn build && scp -r .next repn@24.199.76.78:/home/repn/web/resume/',
-      'pre-deploy': 'yarn install',
-      'post-deploy': 'pm2 startOrRestart ecosystem.config.js --env production',
+      'pre-deploy-local': 'yarn build && rsync -ru .next repn@24.199.76.78:/home/repn/web/resume/',
+      'pre-deploy': '',
+      'post-deploy': 'yarn install && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
