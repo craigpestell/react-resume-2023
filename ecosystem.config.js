@@ -4,7 +4,7 @@ module.exports = {
     cwd: '/home/repn/work/resume',
     script: 'yarn',
     args: 'start',
-   // interpreter: '/bin/bash',
+    interpreter: '/bin/bash',
     watch: false,
   }],
 
