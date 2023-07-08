@@ -18,7 +18,7 @@ module.exports = {
       path: '/home/repn/web/resume',
       cwd: '/home/repn/web/resume',
       'pre-deploy-local': 'yarn build && scp -r .next repn@24.199.76.78:/home/repn/web/resume/',
-      'pre-deploy': 'yarn build',
+      'pre-deploy': 'yarn install',
       'post-deploy': 'pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
