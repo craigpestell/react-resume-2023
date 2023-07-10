@@ -12,19 +12,19 @@ const Resume: FC = memo(() => {
       <Section sectionId={SectionId.Resume} />
       <Section className="bg-neutral-100" sectionId={SectionId.Resume}>
         <div className="flex flex-col divide-y-2 divide-neutral-300">
-          <ResumeSection title="Education">
+          <ResumeSection key="Education" title="Education">
             {education.map((item, index) => (
               <TimelineItem item={item} key={`${item.title}-${index}`} />
             ))}
           </ResumeSection>
-          <ResumeSection title="Work">
+          <ResumeSection key="Work" title="Work">
             {experience
               .filter(item => item.location !== 'Remote')
               .map((item, index) => (
                 <TimelineItem item={item} key={`${item.title}-${index}`} />
               ))}
           </ResumeSection>
-          <ResumeSection title="Freelance">
+          <ResumeSection key="Freelance" title="Freelance">
             {experience
               .filter(item => item.location === 'Remote')
               .map(item => ({...item, location: ''}))
@@ -32,14 +32,11 @@ const Resume: FC = memo(() => {
                 <TimelineItem item={item} key={`${item.title}-${index}`} />
               ))}
           </ResumeSection>
-          <ResumeSection title="Skills">
-            <p className="pb-8">A realistic self-appraisal of my skillset</p>
+          <ResumeSection key="Skills" title="Skills">
             <div className="grid grid-cols-5 gap-6 sm:grid-cols-6">
-              {skills.map(skillgroup =>
-                skillgroup.skills.map(skill => (
-                  <>
-                    <Skill skill={skill} />
-                  </>
+              {skills.map((skillgroup, index) =>
+                skillgroup.skills.map((skill, key) => (
+                  <Skill key={`${index}-${key}`} skill={skill} />
                 )),
               )}
             </div>

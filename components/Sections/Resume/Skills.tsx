@@ -29,23 +29,11 @@ export const Skill: FC<{skill: SkillType}> = memo(({skill}) => {
       <CircularProgressbarWithChildren
         maxValue={100}
         styles={buildStyles({
-          // Text size
-          textSize: '16px',
-          // How long animation takes to go fr  om one percentage to another, in seconds
-          pathTransitionDuration: 0.5,
-
-          // Can specify path transition in more detail, or remove it entirely
-          // pathTransition: 'none',
-
-          // Colors
-          pathColor: `#AC94FA`,
-
-          trailColor: '#d6d6d6',
-          backgroundColor: '#3e98c7',
+          pathColor: `#4A1D96`,
         })}
         value={percentage}>
         {svg}
-        <span className="iconText">{name}</span>
+        <span className="iconText hidden sm:block">{name}</span>
       </CircularProgressbarWithChildren>
     </div>
   );

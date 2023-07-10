@@ -19,7 +19,7 @@ type Image = {
 
 export const ZoomImage = memo(({src, alt}: Image) => (
   <Zoom>
-    <img alt={alt} className="hidden h-full w-full sm:block" src={src} />
+    <img alt={alt} className="hidden h-full w-full sm:block" loading="lazy" src={src} />
   </Zoom>
 ));
 
