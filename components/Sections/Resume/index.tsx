@@ -3,7 +3,7 @@ import {FC, memo} from 'react';
 import {education, experience, SectionId, skills} from '../../../data/data';
 import Section from '../../Layout/Section';
 import ResumeSection from './ResumeSection';
-import {SkillGroup} from './Skills';
+import {Skill} from './Skills';
 import TimelineItem from './TimelineItem';
 
 const Resume: FC = memo(() => {
@@ -34,10 +34,14 @@ const Resume: FC = memo(() => {
           </ResumeSection>
           <ResumeSection title="Skills">
             <p className="pb-8">A realistic self-appraisal of my skillset</p>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              {skills.map((skillgroup, index) => (
-                <SkillGroup key={`${skillgroup.name}-${index}`} skillGroup={skillgroup} />
-              ))}
+            <div className="grid grid-cols-5 gap-6 sm:grid-cols-6">
+              {skills.map(skillgroup =>
+                skillgroup.skills.map(skill => (
+                  <>
+                    <Skill skill={skill} />
+                  </>
+                )),
+              )}
             </div>
           </ResumeSection>
         </div>

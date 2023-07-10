@@ -1,5 +1,5 @@
 import {StaticImageData} from 'next/image';
-import {FC, ForwardRefExoticComponent, SVGProps} from 'react';
+import {FC, ForwardRefExoticComponent, ReactElement, SVGProps} from 'react';
 
 import {IconProps} from '../components/Icon/Icon';
 
@@ -66,6 +66,7 @@ export interface Skill {
   name: string;
   level: number;
   max?: number;
+  svg?: ReactElement;
 }
 
 export interface SkillGroup {
