@@ -1,6 +1,6 @@
 import 'react-circular-progressbar/dist/styles.css';
 
-import {FC, memo, PropsWithChildren, useMemo} from 'react';
+import {FC, memo, PropsWithChildren} from 'react';
 import {buildStyles, CircularProgressbarWithChildren} from 'react-circular-progressbar';
 
 import {Skill as SkillType, SkillGroup as SkillGroupType} from '../../../data/dataDef';
