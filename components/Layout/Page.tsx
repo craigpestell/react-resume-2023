@@ -30,6 +30,7 @@ const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, 
         {/* Twitter: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup */}
         <meta content={title} name="twitter:title" />
         <meta content={description} name="twitter:description" />
+        <meta content="#4A1D96" name="theme-color"/>
       </Head>
       {children}
     </>

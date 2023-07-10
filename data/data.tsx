@@ -170,22 +170,22 @@ export const skills: SkillGroup[] = [
                 fill="#00D8FF"
               />
               <path
-                clip-rule="evenodd"
+                clipRule="evenodd"
                 d="M128.002 90.363c25.048 0 48.317 3.594 65.862 9.635C215.003 107.275 228 118.306 228 128.295c0 10.409-13.774 22.128-36.475 29.649c-17.162 5.686-39.746 8.654-63.523 8.654c-24.378 0-47.463-2.786-64.819-8.717C41.225 150.376 28 138.506 28 128.295c0-9.908 12.41-20.854 33.252-28.12c17.61-6.14 41.453-9.812 66.746-9.812h.004Z"
                 stroke="#00D8FF"
-                stroke-width="8.911"
+                strokeWidth="8.911"
               />
               <path
-                clip-rule="evenodd"
+                clipRule="evenodd"
                 d="M94.981 109.438c12.514-21.698 27.251-40.06 41.249-52.24c16.864-14.677 32.914-20.425 41.566-15.436c9.017 5.2 12.288 22.988 7.463 46.41c-3.645 17.707-12.359 38.753-24.238 59.351c-12.179 21.118-26.124 39.724-39.931 51.792c-17.471 15.272-34.362 20.799-43.207 15.698c-8.583-4.946-11.865-21.167-7.747-42.852c3.479-18.323 12.21-40.812 24.841-62.723h.004Z"
                 stroke="#00D8FF"
-                stroke-width="8.911"
+                strokeWidth="8.911"
               />
               <path
-                clip-rule="evenodd"
+                clipRule="evenodd"
                 d="M95.012 147.578c-12.549-21.674-21.093-43.616-24.659-61.826c-4.293-21.941-1.258-38.716 7.387-43.72c9.009-5.216 26.052.834 43.934 16.712c13.52 12.004 27.403 30.061 39.316 50.639c12.214 21.098 21.368 42.473 24.929 60.461c4.506 22.764.859 40.157-7.978 45.272c-8.574 4.964-24.265-.291-40.996-14.689c-14.136-12.164-29.26-30.959-41.933-52.849Z"
                 stroke="#00D8FF"
-                stroke-width="8.911"
+                strokeWidth="8.911"
               />
             </g>
           </svg>
@@ -213,7 +213,7 @@ export const skills: SkillGroup[] = [
           <svg aspect-ratio="1 / 1" height="40%" viewBox="0 0 256 256" width="50%" xmlns="http://www.w3.org/2000/svg">
             <g fill="none">
               <rect fill="#CD6799" height="256" rx="60" width="256" />
-              <g clip-path="url(#skillIconsSass0)">
+              <g clipPath="url(#skillIconsSass0)">
                 <path
                   d="M200.107 139.163c-6.974.036-13.034 1.716-18.109 4.198c-1.862-3.687-3.724-6.973-4.053-9.383c-.365-2.811-.803-4.527-.365-7.886c.438-3.359 2.41-8.141 2.373-8.506c-.036-.366-.438-2.081-4.454-2.118c-4.016-.036-7.484.767-7.886 1.826c-.402 1.058-1.168 3.468-1.679 5.951c-.694 3.651-8.033 16.685-12.231 23.512c-1.351-2.665-2.519-5.002-2.775-6.864c-.365-2.811-.803-4.527-.365-7.886c.438-3.359 2.41-8.142 2.373-8.507c-.036-.365-.438-2.081-4.454-2.117c-4.016-.037-7.485.766-7.886 1.825c-.402 1.059-.84 3.542-1.68 5.951c-.839 2.41-10.587 24.17-13.143 29.792a168.207 168.207 0 0 1-3.249 6.754s-.037.11-.146.292a91 91 0 0 1-1.096 2.081v.037c-.547.986-1.132 1.898-1.424 1.898c-.219 0-.62-2.628.073-6.206c1.461-7.558 4.929-19.314 4.893-19.715c0-.219.657-2.264-2.264-3.323c-2.848-1.059-3.87.694-4.126.694c-.255 0-.438.621-.438.621s3.177-13.217-6.06-13.217c-5.769 0-13.728 6.316-17.67 12.012a5003.282 5003.282 0 0 0-13.437 7.338c-2.153 1.205-4.38 2.41-6.462 3.542c-.146-.146-.292-.329-.438-.475c-11.172-11.939-31.836-20.372-30.96-36.4c.329-5.842 2.337-21.176 39.686-39.796c30.741-15.151 55.203-10.953 59.438-1.643c6.06 13.29-13.107 37.97-44.87 41.548c-12.122 1.351-18.474-3.322-20.08-5.074c-1.68-1.826-1.936-1.935-2.557-1.57c-1.022.547-.365 2.19 0 3.139c.95 2.483 4.856 6.864 11.464 9.018c5.842 1.899 20.044 2.958 37.24-3.687c19.241-7.448 34.283-28.15 29.865-45.491c-4.417-17.598-33.625-23.403-61.263-13.582c-16.43 5.842-34.246 15.042-47.061 27.017c-15.225 14.24-17.634 26.616-16.648 31.8c3.541 18.401 28.915 30.376 39.065 39.248c-.511.292-.986.548-1.387.767c-5.075 2.519-24.425 12.632-29.245 23.33c-5.476 12.121.877 20.81 5.075 21.978c13.034 3.615 26.433-2.884 33.626-13.618c7.192-10.734 6.316-24.68 2.993-31.069a.762.762 0 0 0-.146-.219c1.315-.767 2.665-1.57 3.98-2.337a195.705 195.705 0 0 1 7.338-4.126c-1.241 3.396-2.154 7.448-2.592 13.29c-.547 6.864 2.264 15.772 5.951 19.277c1.643 1.533 3.578 1.57 4.82 1.57c4.308 0 6.243-3.578 8.397-7.813c2.628-5.185 5.002-11.209 5.002-11.209s-2.958 16.284 5.074 16.284c2.921 0 5.878-3.797 7.193-5.732v.036s.073-.109.219-.365c.292-.475.474-.767.474-.767v-.073c1.169-2.044 3.797-6.681 7.704-14.385c5.038-9.93 9.894-22.343 9.894-22.343s.438 3.03 1.935 8.068c.876 2.958 2.702 6.207 4.162 9.347c-1.168 1.643-1.898 2.555-1.898 2.555l.036.037c-.949 1.241-1.971 2.592-3.103 3.906c-3.98 4.747-8.726 10.187-9.383 11.757c-.767 1.862-.584 3.212.876 4.308c1.059.803 2.957.912 4.892.803c3.578-.256 6.098-1.132 7.339-1.68c1.935-.693 4.199-1.752 6.316-3.322c3.907-2.884 6.28-7.01 6.061-12.45c-.11-2.994-1.096-5.987-2.3-8.799c.365-.511.693-1.022 1.058-1.533c6.171-9.018 10.953-18.912 10.953-18.912s.438 3.03 1.935 8.069c.73 2.555 2.227 5.33 3.542 8.032c-5.805 4.71-9.383 10.186-10.661 13.764c-2.3 6.645-.511 9.638 2.884 10.332c1.534.329 3.724-.401 5.331-1.095c2.044-.657 4.454-1.789 6.754-3.469c3.906-2.884 7.667-6.9 7.448-12.34c-.11-2.482-.767-4.929-1.68-7.302c4.929-2.044 11.282-3.176 19.387-2.227c17.379 2.045 20.811 12.888 20.153 17.452c-.657 4.563-4.308 7.046-5.513 7.813c-1.204.767-1.606 1.022-1.496 1.57c.146.803.73.766 1.752.62c1.424-.255 9.127-3.687 9.456-12.084c.548-10.734-9.675-22.454-27.747-22.344ZM66.043 184.362c-5.768 6.279-13.8 8.653-17.269 6.645c-3.724-2.155-2.264-11.428 4.82-18.073c4.307-4.052 9.857-7.813 13.544-10.113c.84-.511 2.081-1.241 3.578-2.154c.256-.146.402-.219.402-.219l.876-.548c2.592 9.493.11 17.854-5.95 24.462Zm41.986-28.551c-2.008 4.893-6.206 17.415-8.762 16.722c-2.19-.585-3.541-10.077-.438-19.46c1.57-4.71 4.892-10.332 6.827-12.523c3.14-3.505 6.608-4.673 7.448-3.249c1.059 1.862-3.833 15.443-5.075 18.51Zm34.648 16.576c-.84.438-1.643.73-2.008.511c-.256-.146.365-.73.365-.73s4.345-4.674 6.061-6.791c.985-1.242 2.154-2.702 3.395-4.345v.475c0 5.586-5.403 9.346-7.813 10.88Zm26.725-6.098c-.621-.438-.511-1.898 1.57-6.462c.803-1.789 2.702-4.782 5.951-7.667c.365 1.169.621 2.3.584 3.359c-.036 7.047-5.075 9.675-8.105 10.77Z"
                   fill="#fff"
@@ -250,8 +250,8 @@ export const skills: SkillGroup[] = [
           <svg aspect-ratio="1 / 1" height="40%" viewBox="0 0 256 154" width="50%" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="logosTailwindcssIcon0" x1="-2.778%" x2="100%" y1="32%" y2="67.556%">
-                <stop offset="0%" stop-color="#2298BD" />
-                <stop offset="100%" stop-color="#0ED7B5" />
+                <stop offset="0%" stopColor="#2298BD" />
+                <stop offset="100%" stopColor="#0ED7B5" />
               </linearGradient>
             </defs>
             <path
@@ -356,12 +356,12 @@ export const skills: SkillGroup[] = [
           <svg aspect-ratio="1 / 1" height="40%" viewBox="0 0 256 255" width="50%" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="logosPython0" x1="12.959%" x2="79.639%" y1="12.039%" y2="78.201%">
-                <stop offset="0%" stop-color="#387EB8" />
-                <stop offset="100%" stop-color="#366994" />
+                <stop offset="0%" stopColor="#387EB8" />
+                <stop offset="100%" stopColor="#366994" />
               </linearGradient>
               <linearGradient id="logosPython1" x1="19.128%" x2="90.742%" y1="20.579%" y2="88.429%">
-                <stop offset="0%" stop-color="#FFE052" />
-                <stop offset="100%" stop-color="#FFC331" />
+                <stop offset="0%" stopColor="#FFE052" />
+                <stop offset="100%" stopColor="#FFC331" />
               </linearGradient>
             </defs>
             <path
@@ -411,10 +411,10 @@ export const skills: SkillGroup[] = [
                 gradientUnits="userSpaceOnUse"
                 id="deviconPhp0"
                 r="1">
-                <stop stop-color="#AEB2D5" />
-                <stop offset=".3" stop-color="#AEB2D5" />
-                <stop offset=".75" stop-color="#484C89" />
-                <stop offset="1" stop-color="#484C89" />
+                <stop stopColor="#AEB2D5" />
+                <stop offset=".3" stopColor="#AEB2D5" />
+                <stop offset=".75" stopColor="#484C89" />
+                <stop offset="1" stopColor="#484C89" />
               </radialGradient>
             </defs>
           </svg>
@@ -444,84 +444,84 @@ export const skills: SkillGroup[] = [
           <svg aspect-ratio="1 / 1" height="40%" viewBox="0 0 256 295" width="50%" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="logosLinuxTux0" x1="48.548%" x2="51.047%" y1="115.276%" y2="41.364%">
-                <stop offset="0%" stop-color="#FFEED7" />
-                <stop offset="100%" stop-color="#BDBFC2" />
+                <stop offset="0%" stopColor="#FFEED7" />
+                <stop offset="100%" stopColor="#BDBFC2" />
               </linearGradient>
               <linearGradient id="logosLinuxTux1" x1="54.407%" x2="46.175%" y1="2.404%" y2="90.542%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".8" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".8" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTux2" x1="51.86%" x2="47.947%" y1="88.248%" y2="9.748%">
-                <stop offset="0%" stop-color="#FFEED7" />
-                <stop offset="100%" stop-color="#BDBFC2" />
+                <stop offset="0%" stopColor="#FFEED7" />
+                <stop offset="100%" stopColor="#BDBFC2" />
               </linearGradient>
               <linearGradient id="logosLinuxTux3" x1="49.925%" x2="49.924%" y1="85.49%" y2="13.811%">
-                <stop offset="0%" stop-color="#FFEED7" />
-                <stop offset="100%" stop-color="#BDBFC2" />
+                <stop offset="0%" stopColor="#FFEED7" />
+                <stop offset="100%" stopColor="#BDBFC2" />
               </linearGradient>
               <linearGradient id="logosLinuxTux4" x1="53.901%" x2="45.956%" y1="3.102%" y2="93.895%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTux5" x1="45.593%" x2="54.811%" y1="5.475%" y2="93.524%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTux6" x1="49.984%" x2="49.984%" y1="89.845%" y2="40.632%">
-                <stop offset="0%" stop-color="#FFEED7" />
-                <stop offset="100%" stop-color="#BDBFC2" />
+                <stop offset="0%" stopColor="#FFEED7" />
+                <stop offset="100%" stopColor="#BDBFC2" />
               </linearGradient>
               <linearGradient id="logosLinuxTux7" x1="53.505%" x2="42.746%" y1="99.975%" y2="23.545%">
-                <stop offset="0%" stop-color="#FFEED7" />
-                <stop offset="100%" stop-color="#BDBFC2" />
+                <stop offset="0%" stopColor="#FFEED7" />
+                <stop offset="100%" stopColor="#BDBFC2" />
               </linearGradient>
               <linearGradient id="logosLinuxTux8" x1="49.841%" x2="50.241%" y1="13.229%" y2="94.673%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".8" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".8" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTux9" x1="49.927%" x2="50.727%" y1="37.327%" y2="92.782%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxa" x1="49.876%" x2="49.876%" y1="2.299%" y2="81.204%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxb" x1="49.833%" x2="49.824%" y1="2.272%" y2="71.799%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxc" x1="53.467%" x2="38.949%" y1="48.921%" y2="98.1%">
-                <stop offset="0%" stop-color="#FFA63F" />
-                <stop offset="100%" stop-color="#FF0" />
+                <stop offset="0%" stopColor="#FFA63F" />
+                <stop offset="100%" stopColor="#FF0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxd" x1="52.373%" x2="47.579%" y1="143.009%" y2="-64.622%">
-                <stop offset="0%" stop-color="#FFEED7" />
-                <stop offset="100%" stop-color="#BDBFC2" />
+                <stop offset="0%" stopColor="#FFEED7" />
+                <stop offset="100%" stopColor="#BDBFC2" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxe" x1="30.581%" x2="65.887%" y1="34.024%" y2="89.175%">
-                <stop offset="0%" stop-color="#FFA63F" />
-                <stop offset="100%" stop-color="#FF0" />
+                <stop offset="0%" stopColor="#FFA63F" />
+                <stop offset="100%" stopColor="#FF0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxf" x1="59.572%" x2="48.361%" y1="-17.216%" y2="66.118%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxg" x1="47.769%" x2="51.373%" y1="1.565%" y2="104.313%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxh" x1="43.55%" x2="57.114%" y1="4.533%" y2="92.827%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxi" x1="49.733%" x2="50.558%" y1="17.609%" y2="99.385%">
-                <stop offset="0%" stop-color="#FFA63F" />
-                <stop offset="100%" stop-color="#FF0" />
+                <stop offset="0%" stopColor="#FFA63F" />
+                <stop offset="100%" stopColor="#FF0" />
               </linearGradient>
               <linearGradient id="logosLinuxTuxj" x1="50.17%" x2="49.68%" y1="2.89%" y2="94.17%">
-                <stop offset="0%" stop-color="#FFF" stop-opacity=".65" />
-                <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+                <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
+                <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
               </linearGradient>
               <filter filterUnits="objectBoundingBox" height="200%" id="logosLinuxTuxk" width="200%" x="-50%" y="-50%">
                 <feOffset in="SourceAlpha" result="shadowOffsetOuter1" />
@@ -532,7 +532,7 @@ export const skills: SkillGroup[] = [
               <path
                 d="M235.125 249.359c0 17.355-52.617 31.497-117.54 31.497S.044 266.806.044 249.359c0-17.356 52.618-31.498 117.54-31.498c64.924 0 117.45 14.142 117.541 31.498Z"
                 fill="#000"
-                fill-opacity=".2"
+                fillOpacity=".2"
                 filter="url(#logosLinuxTuxk)"
                 transform="translate(10)"
               />
@@ -549,7 +549,7 @@ export const skills: SkillGroup[] = [
                 d="M176.805 117.86c13.59 11.02 38.292 49.587 2.204 74.748c-11.846 7.806 10.468 32.508 23.049 19.927c43.618-43.894-1.102-94.308-16.53-111.664c-13.774-15.151-25.987 3.49-8.723 16.989Z"
                 fill="#000"
                 stroke="#000"
-                stroke-width=".977"
+                strokeWidth=".977"
               />
               <path
                 d="M147.245 25.02c-.459 12.581-14.325 23.51-30.946 24.52c-16.621 1.01-29.66-8.54-29.202-21.121c.46-12.581 14.326-23.509 30.947-24.519c16.62-.918 29.66 8.54 29.201 21.12Z"
@@ -594,7 +594,7 @@ export const skills: SkillGroup[] = [
                 d="M79.925 122.727c-8.907 14.509-30.211 48.669-1.652 66.484c38.384 23.6 27.548 47.108-7.53 25.895c-49.404-29.568-5.97-89.257 13.774-112.03c22.59-25.529 4.316 4.683-4.592 19.65Z"
                 fill="#000"
                 stroke="#000"
-                stroke-width="1.25"
+                strokeWidth="1.25"
               />
               <path
                 d="M156.428 151.285c0 16.162-15.519 37.1-42.15 36.916c-27.456.183-39.118-20.754-39.118-36.916c0-16.161 18.182-29.293 40.588-29.293c22.498.092 40.68 13.132 40.68 29.293Z"
@@ -620,7 +620,7 @@ export const skills: SkillGroup[] = [
                 d="M51.835 258.542c-20.57-10.928-50.414 2.112-39.578-27.457c2.204-6.704-3.214-16.805.275-23.325c4.133-7.989 13.04-6.244 18.366-11.57c5.234-5.51 8.54-15.06 18.366-13.59c9.734 1.468 16.254 13.406 23.049 28.099c5.05 10.468 22.865 25.253 21.672 37.007c-1.47 17.998-21.948 21.396-42.15 10.836Z"
                 fill="url(#logosLinuxTuxc)"
                 stroke="#E68C3F"
-                stroke-width="6.25"
+                strokeWidth="6.25"
                 transform="translate(10)"
               />
               <path
@@ -632,7 +632,7 @@ export const skills: SkillGroup[] = [
                 d="M194.445 253.49c15.06-18.273 48.578-14.508 25.988-39.577c-4.775-5.418-3.306-16.989-9.183-21.947c-6.887-6.061-14.509-1.102-21.488-4.224c-6.979-3.398-14.325-9.918-22.865-5.327c-8.54 4.684-9.459 16.805-10.285 32.783c-.735 11.479-11.203 30.671-5.602 41.231c8.081 16.346 29.11 14.142 43.435-2.938Z"
                 fill="url(#logosLinuxTuxe)"
                 stroke="#E68C3F"
-                stroke-width="6.251"
+                strokeWidth="6.251"
                 transform="translate(10)"
               />
               <path
@@ -658,13 +658,13 @@ export const skills: SkillGroup[] = [
                 d="M97.107 66.344c3.673-3.398 12.58-13.774 29.477-2.939c3.122 2.02 5.693 2.204 11.662 4.775c12.03 4.96 6.336 16.897-6.52 20.937c-5.51 1.745-10.468 8.449-20.386 7.806c-8.54-.46-10.744-6.06-15.978-9.091c-9.275-5.234-10.652-12.305-5.602-16.07c5.051-3.765 6.98-5.143 7.347-5.418Z"
                 fill="url(#logosLinuxTuxi)"
                 stroke="#E68C3F"
-                stroke-width="3.75"
+                strokeWidth="3.75"
                 transform="translate(10)"
               />
               <path
                 d="M148.43 75.986c-5.05.275-15.979 11.203-27.457 11.203c-11.479 0-18.366-10.652-20.11-10.652"
                 stroke="#E68C3F"
-                stroke-width="2.5"
+                strokeWidth="2.5"
               />
               <path
                 d="M102.8 65.426c1.837-1.653 7.622-6.153 15.244-1.562c1.653.919 3.306 1.929 5.693 3.306c4.867 2.847 2.48 6.98-3.398 9.55c-2.663 1.102-7.07 3.49-10.376 3.306c-3.673-.367-6.153-2.755-8.54-4.316c-4.5-2.938-4.224-5.418-2.112-7.346c1.56-1.47 3.305-2.847 3.49-2.938Z"

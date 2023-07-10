@@ -23,15 +23,14 @@ SkillGroup.displayName = 'SkillGroup';
 
 export const Skill: FC<{skill: SkillType}> = memo(({skill}) => {
   const {name, level, max = 10, svg = ''} = skill;
-  const percentage = useMemo(() => Math.round((level / max) * 100), [level, max]);
   return (
     <div className="col-span-1 flex items-center gap-x-2">
       <CircularProgressbarWithChildren
-        maxValue={100}
+        maxValue={max}
         styles={buildStyles({
           pathColor: `#4A1D96`,
         })}
-        value={percentage}>
+        value={level}>
         {svg}
         <span className="iconText hidden sm:block">{name}</span>
       </CircularProgressbarWithChildren>
