@@ -6,6 +6,7 @@ import Header from '../components/Sections/Header';
 import Hero from '../components/Sections/Hero';
 import Portfolio from '../components/Sections/Portfolio';
 import Resume from '../components/Sections/Resume';
+import Skills from '../components/Sections/Skills';
 import Testimonials from '../components/Sections/Testimonials';
 import {homePageMeta} from '../data/data';
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
+      <Skills />
       <Resume />
       <Portfolio />
       {false && <Testimonials />}
