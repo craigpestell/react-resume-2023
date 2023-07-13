@@ -8,7 +8,7 @@ import TimelineItem from './TimelineItem';
 const Resume: FC = memo(() => {
   return (
     <>
-      <Section sectionId={SectionId.Resume} />
+      <section id="resume"></section>
       <Section className="bg-neutral-100" sectionId={SectionId.Resume}>
         <div className="flex flex-col divide-y-2 divide-neutral-300">
           <ResumeSection key="Education" title="Education">
