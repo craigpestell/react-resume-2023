@@ -4,6 +4,7 @@ import {FC, memo} from 'react';
 import {buildStyles, CircularProgressbarWithChildren} from 'react-circular-progressbar';
 
 import {SectionId, skills} from '../../../data/data';
+import {Skill} from '../../../data/dataDef';
 import Section from '../../Layout/Section';
 
 export const Skills: FC = memo(() => {
@@ -31,7 +32,7 @@ export const Skills: FC = memo(() => {
   );
 });
 
-export const Skill: FC<{skill}> = memo(({skill}) => {
+const Skill: FC<{skill: Skill}> = memo(({skill}) => {
   const {name, level, max = 10, svg = ''} = skill;
   return (
     <div className="col-span-1 flex items-center gap-x-2">
