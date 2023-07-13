@@ -19,7 +19,7 @@ export const Skills: FC = memo(() => {
               <span className="absolute inset-x-0 -bottom-1 border-b-2 border-purple-500" />
             </div>
           </div>
-          <div class="col-span-1 flex flex-col md:col-span-3">
+          <div className="col-span-1 flex flex-col md:col-span-3">
             <div className="grid grid-cols-5 gap-6 sm:grid-cols-6">
               {skills.map((skillgroup, index) =>
                 skillgroup.skills.map((skill, key) => <Skill key={`${index}-${key}`} skill={skill} />),
