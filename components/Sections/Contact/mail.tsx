@@ -76,6 +76,7 @@ const Contact = React.memo(() => {
           }
         } catch (error) {
           // show error toast
+          console.log({error});
         }
       }
     },
