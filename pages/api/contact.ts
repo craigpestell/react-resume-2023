@@ -13,6 +13,7 @@ const contactAPI = async (
   },
   res: any,
 ) => {
+  console.log('inside contact API', process.env);
   const {firstName, lastName, email, message} = req.body;
   const OAuth2 = google.auth.OAuth2;
   const oauth2Client = new OAuth2(

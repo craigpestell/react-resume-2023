@@ -84,7 +84,7 @@ const ContactForm: FC = memo(() => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-          },
+          },  
           body: JSON.stringify(data),
         });
 
@@ -104,6 +104,7 @@ const ContactForm: FC = memo(() => {
         }
       } catch (error) {
         // show error toast
+        console.log('error posting to app', {error});
       }
     },
     [data],
