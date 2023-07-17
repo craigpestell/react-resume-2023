@@ -29,6 +29,48 @@ const ContactForm: FC = memo(() => {
     [data],
   );
 
+  /**
+   *   const handleSubmit = React.useCallback(
+    async (e: any) => {
+      e.preventDefault();
+      const errors = checkErrors();
+      const hasAnyErrors = errors.email || errors.message || errors.firstName || errors.lastName;
+      setHasError(checkErrors());
+      if (hasAnyErrors) return;
+      if (!hasAnyErrors) {
+        try {
+          const res = await fetch(`api/contact`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(form),
+          });
+
+          const {error} = await res.json();
+
+          if (error) {
+            // show error toast
+            return;
+          } else {
+            // show success toast
+            setForm({
+              firstName: '',
+              lastName: '',
+              email: '',
+              message: '',
+            });
+          }
+        } catch (error) {
+          // show error toast
+        }
+      }
+    },
+    [checkErrors, form],
+  );
+
+   */
+
   const handleSendMessage = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -36,6 +78,33 @@ const ContactForm: FC = memo(() => {
        * This is a good starting point to wire up your form submission logic
        * */
       console.log('Data to send: ', data);
+
+      try {
+        const res = await fetch(`api/contact`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const {error} = await res.json();
+
+        if (error) {
+          // show error toast
+          return;
+        } else {
+          // show success toast
+          /*setForm({
+            firstName: '',
+            lastName: '',
+            email: '',
+            message: '',
+          });*/
+        }
+      } catch (error) {
+        // show error toast
+      }
     },
     [data],
   );

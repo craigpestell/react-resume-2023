@@ -1,5 +1,9 @@
 // Modules
 
+declare module 'nodemailer' {
+  const value: {createTransport};
+  export default value;
+}
 declare module '*.jpg' {
   const value: string;
   export default value;
