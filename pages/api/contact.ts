@@ -5,8 +5,7 @@ import nodemailer from 'nodemailer';
 const contactAPI = async (
   req: {
     body: {
-      firstName: string;
-      lastName: string;
+      name: string;
       email: string;
       message: string;
     };
@@ -14,7 +13,7 @@ const contactAPI = async (
   res: any,
 ) => {
   console.log('inside contact API', process.env);
-  const {firstName, lastName, email, message} = req.body;
+  const {name, email, message} = req.body;
   const OAuth2 = google.auth.OAuth2;
   const oauth2Client = new OAuth2(
     process.env.CLIENT_ID,
@@ -84,7 +83,7 @@ const contactAPI = async (
     const response = await sendEmail({
       from: email,
       to: 'craigpestell@gmail.com',
-      subject: `Contact form submission from ${lastName}, ${firstName}`,
+      subject: `Contact form submission from ${name}`,
       html: `<p>You have a contact form submission</p><br>
         <p><strong>Email: </strong> ${email}</p><br>
         <p><strong>Message: </strong> ${message}</p><br>
