@@ -26,7 +26,18 @@ export default async function userHandler(
       {
         const {name, email, message} = req.body;
         const OAuth2 = google.auth.OAuth2;
+        const oauth2Client = new OAuth2(
+          process.env.CLIENT_ID,
+          process.env.CLIENT_SECRET,
+          'https://developers.google.com/oauthplayground',
+        );
 
+        console.log({
+          refresh_token: process.env.REFRESH_TOKEN,
+        });
+        oauth2Client.setCredentials({
+          refresh_token: process.env.REFRESH_TOKEN,
+        });
         const createTransporter = async () => {
           const oauth2Client = new OAuth2(
             process.env.CLIENT_ID,
@@ -37,11 +48,8 @@ export default async function userHandler(
           oauth2Client.setCredentials({
             refresh_token: process.env.REFRESH_TOKEN,
           });
-          console.log({
-            refresh_token: process.env.REFRESH_TOKEN,
-          });
 
-          /*const accessToken = await new Promise((resolve, reject) => {
+          const accessToken = await new Promise((resolve, reject) => {
             oauth2Client.getAccessToken((err, token) => {
               if (err) {
                 reject(`Failed to create access token :(\n${err}`);
@@ -49,13 +57,13 @@ export default async function userHandler(
               resolve(token);
             });
           }).catch(err => console.log('Access Token Error: ', err));
-          */
+
           const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
               type: 'OAuth2',
               user: process.env.EMAIL,
-              accessToken: "ya29.a0AbVbY6MAZHK1QOJlURjT7Nagsquqc8pKR0nzrjpUuwz1xqiHkzKQtToUfrEU8bSiC4gJmiY60jfHbr3NBPasCunHNPjZDfzkSF6ql__f0-cQRGUdYATdN2TFmYl3Om3Ed_3xmTnbluafkl3ka9xCHJafmfTwxTUaCgYKAUUSARMSFQFWKvPlE49fOH8YNjXO45jBrEbeog0166",
+              accessToken,
               clientId: process.env.CLIENT_ID,
               clientSecret: process.env.CLIENT_SECRET,
               refreshToken: process.env.REFRESH_TOKEN,
