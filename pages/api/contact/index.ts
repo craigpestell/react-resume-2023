@@ -1,8 +1,12 @@
+import dotenv from 'dotenv';
 import {google} from 'googleapis';
 import type {NextApiRequest, NextApiResponse} from 'next';
 import nodemailer from 'nodemailer';
 
-import type {Email} from '../../interfaces';
+import type {Email} from '../../../interfaces';
+
+dotenv.config();
+export const runtime = process.env.RUNTIME;
 
 export default async function userHandler(
   req: NextApiRequest,
@@ -14,10 +18,11 @@ export default async function userHandler(
     case 'POST':
       // Update or create data in your database
       //res.status(200).json({name: name || `Name ${name}`});
-      console.log('inside contact API', process.env);
       if (req.method !== 'POST') {
         return;
       }
+      console.log('CLIENT_ID', process.env.CLIENT_ID)
+      console.log('CLIENT_ID', process.env.CLIENT_SECRET)
       {
         const {name, email, message} = req.body;
         const OAuth2 = google.auth.OAuth2;
@@ -27,6 +32,9 @@ export default async function userHandler(
           'https://developers.google.com/oauthplayground',
         );
 
+        console.log({
+          refresh_token: process.env.REFRESH_TOKEN,
+        });
         oauth2Client.setCredentials({
           refresh_token: process.env.REFRESH_TOKEN,
         });
