@@ -19,7 +19,7 @@ module.exports = {
       cwd: '/home/repn/web/resume',
       'pre-deploy-local': 'yarn build && rsync -ru .next repn@24.199.76.78:/home/repn/web/resume/',
       'pre-deploy': '',
-      'post-deploy': 'yarn install && pm2 startOrRestart ecosystem.config.js --env production',
+      'post-deploy': 'yarn install && pm2 startOrRestart ecosystem.config.js production',
     },
   },
 };
