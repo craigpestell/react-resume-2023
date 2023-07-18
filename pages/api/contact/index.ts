@@ -21,23 +21,12 @@ export default async function userHandler(
       if (req.method !== 'POST') {
         return;
       }
-      console.log('CLIENT_ID', process.env.CLIENT_ID)
-      console.log('CLIENT_ID', process.env.CLIENT_SECRET)
+      console.log('CLIENT_ID', process.env.CLIENT_ID);
+      console.log('CLIENT_SECRET', process.env.CLIENT_SECRET);
       {
         const {name, email, message} = req.body;
         const OAuth2 = google.auth.OAuth2;
-        const oauth2Client = new OAuth2(
-          process.env.CLIENT_ID,
-          process.env.CLIENT_SECRET,
-          'https://developers.google.com/oauthplayground',
-        );
 
-        console.log({
-          refresh_token: process.env.REFRESH_TOKEN,
-        });
-        oauth2Client.setCredentials({
-          refresh_token: process.env.REFRESH_TOKEN,
-        });
         const createTransporter = async () => {
           const oauth2Client = new OAuth2(
             process.env.CLIENT_ID,
@@ -46,6 +35,9 @@ export default async function userHandler(
           );
 
           oauth2Client.setCredentials({
+            refresh_token: process.env.REFRESH_TOKEN,
+          });
+          console.log({
             refresh_token: process.env.REFRESH_TOKEN,
           });
 
