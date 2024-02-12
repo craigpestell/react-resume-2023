@@ -10,6 +10,7 @@
     "sitemap": "yarn next-sitemap"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.1.0",
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",
     "autoprefixer": "^10.4.14",
