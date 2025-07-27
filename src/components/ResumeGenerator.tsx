@@ -181,6 +181,11 @@ const ResumeDocument = ({ data }: { data: PortfolioData }) => {
                   ))}
                 </View>
               )}
+              {exp.technologies.length > 0 && (
+                <Text style={styles.technologies}>
+                  Technologies: {exp.technologies.join(', ')}
+                </Text>
+              )}
             </View>
           ))}
         </View>

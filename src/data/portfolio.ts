@@ -71,7 +71,7 @@ export const portfolioData: PortfolioData = {
     website: "https://craigpestell.com",
     github: "https://github.com/craigpestell",
     linkedin: "https://linkedin.com/in/craigpestell",
-    profileImage: "/images/profilepic.jpg",
+    profileImage: "/images/profile.png",
     summary: "Senior Software Engineer with 15+ years of experience architecting and delivering mission-critical enterprise applications for industry leaders including Apple, Google, Macy's, and Williams Sonoma. Proven expertise in full-stack development, micro-frontend architecture, and AI platform integration. Currently leading development of enterprise hardware testing solutions at Apple while maintaining a track record of transforming complex technical challenges into scalable, user-centric products that drive measurable business value."
   },
   skills: [
