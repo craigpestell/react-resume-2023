@@ -14,7 +14,6 @@ import {
   Plus_Jakarta_Sans,
   Outfit
 } from 'next/font/google';
-import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 // Configure Google Fonts
@@ -92,13 +91,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth dark" data-theme="default">
       <body
         className={`${nunito.className} ${GeistSans.className} ${inter.variable} ${roboto.variable} ${openSans.variable} ${poppins.variable} ${montserrat.variable} ${sourceSans.variable} ${nunito.variable} ${lato.variable} ${workSans.variable} ${dmSans.variable} ${plusJakarta.variable} ${outfit.variable} tracking-wide antialiased`}
       >
-        <ThemeProvider defaultTheme="light">
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

@@ -23,8 +23,32 @@ export default function Header({ onDownloadResume }: HeaderProps) {
 
   useEffect(() => {
     // Load saved dark mode preference
-    const savedDarkMode = localStorage.getItem('selected-dark-mode') === 'true';
-    setIsDarkMode(savedDarkMode);
+    const savedDarkMode = localStorage.getItem('selected-dark-mode');
+    const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : true;
+    setIsDarkMode(defaultDarkMode);
+  }, []);
+
+  useEffect(() => {
+    // Listen for theme changes from other components
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === 'selected-dark-mode' && event.newValue !== null) {
+        setIsDarkMode(event.newValue === 'true');
+      }
+    };
+
+    // Listen for custom theme sync events (for same-tab changes)
+    const handleThemeSync = (event: CustomEvent) => {
+      const { darkMode } = event.detail;
+      setIsDarkMode(darkMode);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('themeSync', handleThemeSync as EventListener);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('themeSync', handleThemeSync as EventListener);
+    };
   }, []);
 
   const toggleDarkMode = () => {
@@ -33,7 +57,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
     localStorage.setItem('selected-dark-mode', newDarkMode.toString());
     
     // Apply dark mode to current theme
-    const currentTheme = localStorage.getItem('selected-theme') || 'light';
+    const currentTheme = localStorage.getItem('selected-theme') || 'default';
     const html = document.documentElement;
     
     if (newDarkMode) {
@@ -42,12 +66,20 @@ export default function Header({ onDownloadResume }: HeaderProps) {
       html.classList.remove('dark');
     }
     
-    // Maintain the current theme
-    if (currentTheme !== 'light') {
-      html.setAttribute('data-theme', currentTheme);
-    } else if (!newDarkMode) {
-      html.removeAttribute('data-theme');
-    }
+    // Always maintain the current theme
+    html.setAttribute('data-theme', currentTheme);
+    
+    // Sync with other theme selectors
+    window.dispatchEvent(new CustomEvent('themeSync', {
+      detail: { theme: currentTheme, darkMode: newDarkMode }
+    }));
+    
+    // Trigger storage event manually for same-tab synchronization
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: 'selected-dark-mode',
+      newValue: newDarkMode.toString(),
+      storageArea: localStorage
+    }));
   };
 
   const getThemeIcon = () => {

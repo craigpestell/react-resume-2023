@@ -14,18 +14,46 @@ const themeOptions = [
 ];
 
 export default function ThemeSelector() {
-  const [selectedTheme, setSelectedTheme] = useState('light');
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState('default');
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Load saved preferences
     const savedTheme = localStorage.getItem('selected-theme') || 'default';
-    const savedDarkMode = localStorage.getItem('selected-dark-mode') === 'true';
+    const savedDarkMode = localStorage.getItem('selected-dark-mode');
+    const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : true;
     setSelectedTheme(savedTheme);
-    setIsDarkMode(savedDarkMode);
-    applyTheme(savedTheme, savedDarkMode);
+    setIsDarkMode(defaultDarkMode);
+    applyTheme(savedTheme, defaultDarkMode);
+  }, []);
+
+  useEffect(() => {
+    // Listen for theme changes from other components
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === 'selected-theme' && event.newValue) {
+        setSelectedTheme(event.newValue);
+      }
+      if (event.key === 'selected-dark-mode' && event.newValue !== null) {
+        setIsDarkMode(event.newValue === 'true');
+      }
+    };
+
+    // Listen for custom theme sync events (for same-tab changes)
+    const handleThemeSync = (event: CustomEvent) => {
+      const { theme, darkMode } = event.detail;
+      setSelectedTheme(theme);
+      setIsDarkMode(darkMode);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('themeSync', handleThemeSync as EventListener);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('themeSync', handleThemeSync as EventListener);
+    };
   }, []);
 
   useEffect(() => {
@@ -52,10 +80,8 @@ export default function ThemeSelector() {
     html.removeAttribute('data-theme');
     html.classList.remove('dark');
     
-    // Apply the selected theme
-    if (themeValue !== 'light' || darkMode) {
-      html.setAttribute('data-theme', themeValue);
-    }
+    // Apply the selected theme (always set data-theme for all themes)
+    html.setAttribute('data-theme', themeValue);
     
     // Apply dark mode
     if (darkMode) {
@@ -68,6 +94,18 @@ export default function ThemeSelector() {
     localStorage.setItem('selected-theme', themeValue);
     applyTheme(themeValue, isDarkMode);
     setIsOpen(false);
+    
+    // Sync with other theme selectors
+    window.dispatchEvent(new CustomEvent('themeSync', {
+      detail: { theme: themeValue, darkMode: isDarkMode }
+    }));
+    
+    // Trigger storage event manually for same-tab synchronization
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: 'selected-theme',
+      newValue: themeValue,
+      storageArea: localStorage
+    }));
   };
 
   const toggleDarkMode = () => {
@@ -75,6 +113,18 @@ export default function ThemeSelector() {
     setIsDarkMode(newDarkMode);
     localStorage.setItem('selected-dark-mode', newDarkMode.toString());
     applyTheme(selectedTheme, newDarkMode);
+    
+    // Sync with other theme selectors
+    window.dispatchEvent(new CustomEvent('themeSync', {
+      detail: { theme: selectedTheme, darkMode: newDarkMode }
+    }));
+    
+    // Trigger storage event manually for same-tab synchronization
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: 'selected-dark-mode',
+      newValue: newDarkMode.toString(),
+      storageArea: localStorage
+    }));
   };
 
   const currentTheme = themeOptions.find(theme => theme.value === selectedTheme);
