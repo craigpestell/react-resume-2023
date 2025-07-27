@@ -57,7 +57,7 @@ export default function Contact({ personalInfo }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
+    <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -66,10 +66,10 @@ export default function Contact({ personalInfo }: ContactProps) {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Get In Touch
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? I&apos;d love to hear from you!
           </p>
         </motion.div>
@@ -85,10 +85,10 @@ export default function Contact({ personalInfo }: ContactProps) {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-semibold mb-6 text-foreground">
                   Let&apos;s Connect
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                <p className="text-muted-foreground mb-8 leading-relaxed">
                   I&apos;m always open to discussing new opportunities, interesting projects, 
                   or just having a chat about technology and development. Feel free to reach out!
                 </p>
@@ -102,14 +102,14 @@ export default function Contact({ personalInfo }: ContactProps) {
                   viewport={{ once: true }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 dark:text-white">Email</h4>
+                    <h4 className="font-medium text-foreground">Email</h4>
                     <a 
                       href={`mailto:${personalInfo.email}`}
-                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       {personalInfo.email}
                     </a>
@@ -123,14 +123,14 @@ export default function Contact({ personalInfo }: ContactProps) {
                   viewport={{ once: true }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-green-600 dark:text-green-400" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-success" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 dark:text-white">Phone</h4>
+                    <h4 className="font-medium text-foreground">Phone</h4>
                     <a 
                       href={`tel:${personalInfo.phone}`}
-                      className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                      className="text-muted-foreground hover:text-success transition-colors"
                     >
                       {personalInfo.phone}
                     </a>
@@ -144,12 +144,12 @@ export default function Contact({ personalInfo }: ContactProps) {
                   viewport={{ once: true }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 dark:text-white">Location</h4>
-                    <p className="text-gray-600 dark:text-gray-300">{personalInfo.location}</p>
+                    <h4 className="font-medium text-foreground">Location</h4>
+                    <p className="text-muted-foreground">{personalInfo.location}</p>
                   </div>
                 </motion.div>
               </div>
@@ -160,9 +160,9 @@ export default function Contact({ personalInfo }: ContactProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="pt-8 border-t border-gray-200 dark:border-gray-700"
+                className="pt-8 border-t border-border"
               >
-                <h4 className="font-medium text-gray-900 dark:text-white mb-4">
+                <h4 className="font-medium text-foreground mb-4">
                   Other ways to connect:
                 </h4>
                 <div className="flex space-x-4">
@@ -170,7 +170,7 @@ export default function Contact({ personalInfo }: ContactProps) {
                     href={personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                    className="text-primary hover:text-primary/80 transition-colors"
                   >
                     LinkedIn
                   </a>
@@ -178,7 +178,7 @@ export default function Contact({ personalInfo }: ContactProps) {
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     GitHub
                   </a>
@@ -186,7 +186,7 @@ export default function Contact({ personalInfo }: ContactProps) {
                     href={personalInfo.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors"
+                    className="text-accent hover:text-accent/80 transition-colors"
                   >
                     Website
                   </a>
@@ -200,16 +200,16 @@ export default function Contact({ personalInfo }: ContactProps) {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8"
+              className="bg-card rounded-2xl p-8"
             >
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">
                 Send a Message
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                       Name
                     </label>
                     <input
@@ -219,13 +219,13 @@ export default function Contact({ personalInfo }: ContactProps) {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors placeholder-muted-foreground"
                       placeholder="Your name"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                       Email
                     </label>
                     <input
@@ -235,14 +235,14 @@ export default function Contact({ personalInfo }: ContactProps) {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors placeholder-muted-foreground"
                       placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
                     Subject
                   </label>
                   <input
@@ -252,13 +252,13 @@ export default function Contact({ personalInfo }: ContactProps) {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors placeholder-muted-foreground"
                     placeholder="What's this about?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message
                   </label>
                   <textarea
@@ -268,7 +268,7 @@ export default function Contact({ personalInfo }: ContactProps) {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground transition-colors resize-none placeholder-muted-foreground"
                     placeholder="Tell me about your project or just say hello!"
                   />
                 </div>
@@ -276,7 +276,7 @@ export default function Contact({ personalInfo }: ContactProps) {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2"
+                  className="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 disabled:cursor-not-allowed text-primary-foreground font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2"
                 >
                   <Send className={`w-5 h-5 ${isLoading ? 'animate-spin' : ''}`} />
                   <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
@@ -284,16 +284,16 @@ export default function Contact({ personalInfo }: ContactProps) {
 
                 {/* Status Messages */}
                 {submitStatus === 'success' && (
-                  <div className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg">
-                    <p className="text-green-800 dark:text-green-200 text-sm font-medium">
+                  <div className="p-4 bg-success/10 border border-success/20 rounded-lg">
+                    <p className="text-success text-sm font-medium">
                       ✅ Message sent successfully! I&apos;ll get back to you soon.
                     </p>
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
-                  <div className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg">
-                    <p className="text-red-800 dark:text-red-200 text-sm font-medium">
+                  <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+                    <p className="text-destructive text-sm font-medium">
                       ❌ Failed to send message. Please try again or email me directly.
                     </p>
                   </div>

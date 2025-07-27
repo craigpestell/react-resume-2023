@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Calendar } from 'lucide-react';
+import { Github, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import { Project } from '@/data/portfolio';
 
@@ -24,10 +24,10 @@ export default function Projects({ projects }: ProjectsProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className={`bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group`}
+      className={`bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group`}
     >
             {/* Project Image */}
-      <div className="relative h-48 md:h-56 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-700 dark:to-gray-600 overflow-hidden">
+      <div className="relative h-48 md:h-56 bg-gradient-to-br from-muted to-secondary overflow-hidden">
         <Image
           src={project.imageUrl}
           alt={project.title}
@@ -36,24 +36,14 @@ export default function Projects({ projects }: ProjectsProps) {
         />
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="flex space-x-4">
-            {project.projectUrl && (
-              <a
-                href={project.projectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-white/90 rounded-full hover:bg-white transition-colors"
-              >
-                <ExternalLink className="w-5 h-5 text-gray-900" />
-              </a>
-            )}
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white/90 rounded-full hover:bg-white transition-colors"
+                className="p-3 bg-background/90 rounded-full hover:bg-background transition-colors"
               >
-                <Github className="w-5 h-5 text-gray-900" />
+                <Github className="w-5 h-5 text-foreground" />
               </a>
             )}
           </div>
@@ -63,17 +53,17 @@ export default function Projects({ projects }: ProjectsProps) {
       {/* Project Content */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          <h3 className="text-xl font-semibold text-card-foreground group-hover:text-primary transition-colors">
             {project.title}
           </h3>
-          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex items-center text-sm text-muted-foreground">
             <Calendar className="w-4 h-4 mr-1" />
             {formatDate(project.startDate)}
             {project.endDate && ` - ${formatDate(project.endDate)}`}
           </div>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+        <p className="text-muted-foreground mb-4 leading-relaxed">
           {featured ? project.longDescription : project.description}
         </p>
 
@@ -82,7 +72,7 @@ export default function Projects({ projects }: ProjectsProps) {
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm rounded-full"
+              className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
             >
               {tech}
             </span>
@@ -91,23 +81,12 @@ export default function Projects({ projects }: ProjectsProps) {
 
         {/* Links */}
         <div className="flex space-x-4">
-          {project.projectUrl && (
-            <a
-              href={project.projectUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-            >
-              <ExternalLink className="w-4 h-4" />
-              <span>Live Demo</span>
-            </a>
-          )}
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Github className="w-4 h-4" />
               <span>Source Code</span>
@@ -119,7 +98,7 @@ export default function Projects({ projects }: ProjectsProps) {
   );
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+    <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -128,10 +107,10 @@ export default function Projects({ projects }: ProjectsProps) {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work and side projects
           </p>
         </motion.div>
@@ -160,7 +139,7 @@ export default function Projects({ projects }: ProjectsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-2xl font-semibold text-center mb-12 text-gray-900 dark:text-white"
+              className="text-2xl font-semibold text-center mb-12 text-foreground"
             >
               Other Projects
             </motion.h3>
@@ -186,14 +165,14 @@ export default function Projects({ projects }: ProjectsProps) {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+          <p className="text-lg text-muted-foreground mb-6">
             Want to see more of my work?
           </p>
           <a
             href="https://github.com/craigpestell"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-3 rounded-lg font-medium hover:bg-foreground/90 transition-colors"
           >
             <Github className="w-5 h-5" />
             <span>View All Projects on GitHub</span>

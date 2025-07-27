@@ -41,49 +41,49 @@ export default function ExperienceSection({ experience, education }: ExperienceP
       className="relative pl-8 pb-12"
     >
       {/* Timeline dot */}
-      <div className="absolute left-0 top-2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"></div>
+      <div className="absolute left-0 top-2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg"></div>
       
       {/* Timeline line */}
       {index < experience.length - 1 && (
-        <div className="absolute left-2 top-6 w-0.5 h-full bg-gray-300 dark:bg-gray-600 -translate-x-0.5"></div>
+        <div className="absolute left-2 top-6 w-0.5 h-full bg-border -translate-x-0.5"></div>
       )}
 
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+      <div className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+            <h3 className="text-xl font-semibold text-card-foreground mb-1">
               {exp.position}
             </h3>
-            <div className="flex items-center text-blue-600 dark:text-blue-400 mb-2">
+            <div className="flex items-center text-primary mb-2">
               <Building className="w-4 h-4 mr-2" />
               <span className="font-medium">{exp.company}</span>
             </div>
           </div>
           
-          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex items-center text-sm text-muted-foreground">
             <Calendar className="w-4 h-4 mr-2" />
             <span>
               {formatDate(exp.startDate)} - {exp.endDate ? formatDate(exp.endDate) : 'Present'}
             </span>
-            <span className="ml-2 text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+            <span className="ml-2 text-xs bg-muted px-2 py-1 rounded">
               {calculateDuration(exp.startDate, exp.endDate)}
             </span>
           </div>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
+        <p className="text-muted-foreground mb-4">
           {exp.description}
         </p>
 
         {/* Achievements */}
         {exp.achievements.length > 0 && (
           <div className="mb-4">
-            <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">
+            <h4 className="text-sm font-medium text-card-foreground mb-2">
               Key Achievements:
             </h4>
             <ul className="list-disc list-inside space-y-1">
               {exp.achievements.map((achievement, i) => (
-                <li key={i} className="text-gray-600 dark:text-gray-300 text-sm">
+                <li key={i} className="text-muted-foreground text-sm">
                   {achievement}
                 </li>
               ))}
@@ -96,7 +96,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
           {exp.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded"
+              className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
             >
               {tech}
             </span>
@@ -112,29 +112,29 @@ export default function ExperienceSection({ experience, education }: ExperienceP
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+      className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
     >
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+          <h3 className="text-xl font-semibold text-foreground mb-1">
             {edu.degree}
           </h3>
-          <p className="text-blue-600 dark:text-blue-400 font-medium mb-1">
+          <p className="text-primary font-medium mb-1">
             {edu.field}
           </p>
-          <div className="flex items-center text-gray-600 dark:text-gray-300 mb-2">
+          <div className="flex items-center text-muted-foreground mb-2">
             <Building className="w-4 h-4 mr-2" />
             <span>{edu.institution}</span>
           </div>
         </div>
         
         <div className="text-right">
-          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-1">
+          <div className="flex items-center text-sm text-muted-foreground mb-1">
             <Calendar className="w-4 h-4 mr-2" />
             <span>{formatDate(edu.startDate)} - {formatDate(edu.endDate)}</span>
           </div>
           {edu.gpa && (
-            <div className="text-sm text-gray-600 dark:text-gray-300">
+            <div className="text-sm text-muted-foreground">
               GPA: {edu.gpa}
             </div>
           )}
@@ -143,12 +143,12 @@ export default function ExperienceSection({ experience, education }: ExperienceP
 
       {edu.achievements && edu.achievements.length > 0 && (
         <div>
-          <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">
+          <h4 className="text-sm font-medium text-foreground mb-2">
             Achievements:
           </h4>
           <ul className="list-disc list-inside space-y-1">
             {edu.achievements.map((achievement, i) => (
-              <li key={i} className="text-gray-600 dark:text-gray-300 text-sm">
+              <li key={i} className="text-muted-foreground text-sm">
                 {achievement}
               </li>
             ))}
@@ -159,7 +159,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
   );
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="experience" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -168,10 +168,10 @@ export default function ExperienceSection({ experience, education }: ExperienceP
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Experience & Education
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             My professional journey and educational background
           </p>
         </motion.div>
@@ -185,7 +185,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="text-2xl font-semibold mb-8 text-gray-900 dark:text-white"
+                className="text-2xl font-semibold mb-8 text-foreground"
               >
                 Professional Experience
               </motion.h3>
@@ -204,7 +204,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="text-2xl font-semibold mb-8 text-gray-900 dark:text-white"
+                className="text-2xl font-semibold mb-8 text-foreground"
               >
                 Education
               </motion.h3>

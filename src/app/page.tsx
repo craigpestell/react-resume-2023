@@ -15,7 +15,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background text-foreground">
       <Header onDownloadResume={handleDownloadResume} />
       <Hero personalInfo={portfolioData.personalInfo} />
       <Skills skills={portfolioData.skills} />
@@ -24,12 +24,13 @@ export default function Home() {
         experience={portfolioData.experience} 
         education={portfolioData.education} 
       />
+      
       <Contact personalInfo={portfolioData.personalInfo} />
       
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
+      <footer className="bg-card text-card-foreground py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
+          <p className="text-muted-foreground">
             © 2025 {portfolioData.personalInfo.name}. Built with Next.js and TailwindCSS.
           </p>
         </div>
