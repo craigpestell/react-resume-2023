@@ -146,13 +146,22 @@ export default function Header({ onDownloadResume }: HeaderProps) {
               {getThemeIcon()}
             </button>
 
-            {/* Download Resume Button */}
+            {/* Download Resume Button - Full text for larger screens */}
             <button
               onClick={onDownloadResume}
-              className="hidden md:flex items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
+              className="hidden xl:flex items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
             >
               <Download className="w-4 h-4" />
               <span>Download Resume</span>
+            </button>
+
+            {/* Resume Button - Short text for medium screens */}
+            <button
+              onClick={onDownloadResume}
+              className="hidden md:flex xl:hidden items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              <span>Resume</span>
             </button>
 
             {/* Mobile Menu Button */}
