@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Portfolio Website
+
+A responsive portfolio website built with Next.js 15 and TailwindCSS, featuring dynamic resume generation and modern animations.
+
+## Features
+
+- **Modern Design**: Clean, responsive design with dark/light mode toggle
+- **Dynamic Resume Generation**: Click to download a professionally formatted PDF resume
+- **Smooth Animations**: Framer Motion animations for enhanced user experience  
+- **Responsive Layout**: Optimized for all devices and screen sizes
+- **SEO Optimized**: Built with Next.js 15 for optimal performance
+- **Easy Customization**: Centralized data source for easy content updates
+
+## Sections
+
+- **Hero**: Animated introduction with call-to-action buttons
+- **Skills**: Interactive skill bars organized by category
+- **Projects**: Showcase of featured and other projects
+- **Experience**: Timeline view of professional experience and education
+- **Contact**: Contact form and social links
+
+## Technologies Used
+
+- **Framework**: Next.js 15 with App Router
+- **Styling**: TailwindCSS
+- **Animations**: Framer Motion
+- **PDF Generation**: @react-pdf/renderer
+- **Icons**: Lucide React
+- **TypeScript**: Full type safety
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd portfolio-website
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Customization
+
+### 1. Update Your Information
+
+Edit `src/data/portfolio.ts` to customize all content:
+
+- Personal information (name, title, contact details)
+- Skills and proficiency levels
+- Project details and links
+- Work experience and achievements
+- Education history
+
+### 2. Customize Styling
+
+- **Colors**: Update `tailwind.config.js` for custom color scheme
+- **Fonts**: Modify `src/app/layout.tsx` for different fonts
+- **Components**: Edit individual components in `src/components/`
+
+### 3. Add Images
+
+Place project images in the `public/images/` directory and update the `imageUrl` fields in your project data.
+
+### 4. Resume Customization
+
+Modify `src/components/ResumeGenerator.tsx` to:
+- Change PDF styling and layout
+- Add/remove sections
+- Modify formatting and colors
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with fonts and metadata
+│   ├── page.tsx            # Main page component
+│   └── globals.css         # Global styles
+├── components/
+│   ├── Header.tsx          # Navigation header with theme toggle
+│   ├── Hero.tsx            # Hero section with introduction
+│   ├── Skills.tsx          # Skills showcase with progress bars
+│   ├── Projects.tsx        # Project portfolio grid
+│   ├── Experience.tsx      # Experience timeline and education
+│   ├── Contact.tsx         # Contact form and information
+│   └── ResumeGenerator.tsx # PDF resume generation
+└── data/
+    └── portfolio.ts        # All portfolio data and types
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Vercel (Recommended)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push your code to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Deploy with zero configuration
 
-## Learn More
+### Other Platforms
 
-To learn more about Next.js, take a look at the following resources:
+The site works on any platform that supports Next.js:
+- Netlify
+- Railway  
+- Digital Ocean App Platform
+- AWS Amplify
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Performance Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Turbopack**: Ultra-fast development builds
+- **Image Optimization**: Automatic image optimization
+- **Code Splitting**: Automatic code splitting for optimal loading
+- **SEO**: Built-in SEO optimization
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Built with ❤️ using Next.js and TailwindCSS**
