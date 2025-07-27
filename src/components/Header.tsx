@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Download, Menu, X, Moon, Sun, Monitor } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
+import { Download, Menu, X, Moon, Sun } from 'lucide-react';
 
 interface HeaderProps {
   onDownloadResume: () => void;
@@ -11,7 +10,7 @@ interface HeaderProps {
 export default function Header({ onDownloadResume }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,22 +21,41 @@ export default function Header({ onDownloadResume }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const getThemeIcon = () => {
-    switch (theme) {
-      case 'light':
-        return <Sun className="w-5 h-5" />;
-      case 'dark':
-        return <Moon className="w-5 h-5" />;
-      case 'system':
-        return <Monitor className="w-5 h-5" />;
-      default:
-        return <Sun className="w-5 h-5" />;
+  useEffect(() => {
+    // Load saved dark mode preference
+    const savedDarkMode = localStorage.getItem('selected-dark-mode') === 'true';
+    setIsDarkMode(savedDarkMode);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    localStorage.setItem('selected-dark-mode', newDarkMode.toString());
+    
+    // Apply dark mode to current theme
+    const currentTheme = localStorage.getItem('selected-theme') || 'light';
+    const html = document.documentElement;
+    
+    if (newDarkMode) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+    
+    // Maintain the current theme
+    if (currentTheme !== 'light') {
+      html.setAttribute('data-theme', currentTheme);
+    } else if (!newDarkMode) {
+      html.removeAttribute('data-theme');
     }
   };
 
+  const getThemeIcon = () => {
+    return isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />;
+  };
+
   const getThemeLabel = () => {
-    const nextTheme = theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light';
-    return `Switch to ${nextTheme} theme`;
+    return isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
   };
 
   const navLinks = [
@@ -88,10 +106,10 @@ export default function Header({ onDownloadResume }: HeaderProps) {
           <div className="flex items-center space-x-4">
             {/* Theme Toggle */}
             <button
-              onClick={toggleTheme}
+              onClick={toggleDarkMode}
               className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
               aria-label={getThemeLabel()}
-              title={`Current: ${theme} theme. Click to switch.`}
+              title={getThemeLabel()}
             >
               {getThemeIcon()}
             </button>

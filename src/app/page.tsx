@@ -6,6 +6,9 @@ import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
+import FontSelector from '@/components/FontSelector';
+import LetterSpacingSelector from '@/components/LetterSpacingSelector';
+import ThemeSelector from '@/components/ThemeSelector';
 import { portfolioData } from '@/data/portfolio';
 import { generateResume } from '@/components/ResumeGenerator';
 
@@ -29,10 +32,26 @@ export default function Home() {
       
       {/* Footer */}
       <footer className="bg-card text-card-foreground py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground">
-            © 2025 {portfolioData.personalInfo.name}. Built with Next.js and TailwindCSS.
-          </p>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-muted-foreground text-center md:text-left">
+              © 2025 {portfolioData.personalInfo.name}. Built with Next.js and TailwindCSS.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-muted-foreground">Theme:</span>
+                <ThemeSelector />
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-muted-foreground">Font:</span>
+                <FontSelector />
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-muted-foreground">Spacing:</span>
+                <LetterSpacingSelector />
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
