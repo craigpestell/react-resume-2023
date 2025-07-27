@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { PersonalInfo } from '@/data/portfolio';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 interface ContactProps {
   personalInfo: PersonalInfo;
@@ -16,14 +17,36 @@ export default function Contact({ personalInfo }: ContactProps) {
     subject: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link
-    const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoLink;
+    setIsLoading(true);
+    setSubmitStatus('idle');
+
+    try {
+      await emailjs.send(
+        'service_xm9bqxy', // Your service ID
+        'template_uq22k5j', // Your template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: personalInfo.email,
+        },
+        'CQgadqY444YV2lQI8' // Your public key
+      );
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -252,11 +275,29 @@ export default function Contact({ personalInfo }: ContactProps) {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2"
+                  disabled={isLoading}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2"
                 >
-                  <Send className="w-5 h-5" />
-                  <span>Send Message</span>
+                  <Send className={`w-5 h-5 ${isLoading ? 'animate-spin' : ''}`} />
+                  <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
                 </button>
+
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-green-800 dark:text-green-200 text-sm font-medium">
+                      ✅ Message sent successfully! I&apos;ll get back to you soon.
+                    </p>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg">
+                    <p className="text-red-800 dark:text-red-200 text-sm font-medium">
+                      ❌ Failed to send message. Please try again or email me directly.
+                    </p>
+                  </div>
+                )}
               </form>
             </motion.div>
           </div>
