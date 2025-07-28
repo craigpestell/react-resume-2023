@@ -169,7 +169,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
           <h4 className="text-sm font-medium text-foreground mb-2">
             Achievements:
           </h4>
-          <ul className="list-disc list-inside space-y-1">
+          <ul className="mx-4 list-disc list-outside space-y-1">
             {edu.achievements.map((achievement, i) => (
               <li key={i} className="text-muted-foreground text-sm">
                 {achievement}

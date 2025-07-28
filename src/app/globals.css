@@ -1,20 +1,8 @@
 @import "tailwindcss";
 
 /* Import all theme files */
-@import "./themes/default.css";
-@import "./themes/dark.css";
-@import "./themes/ocean.css";
-@import "./themes/forest.css";
-@import "./themes/sunset.css";
-@import "./themes/purple.css";
-@import "./themes/rose.css";
-@import "./themes/midnight.css";
-@import "./themes/darkula.css";
-@import "./themes/matrix.css";
-@import "./themes/cyberpunk.css";
-@import "./themes/dracula.css";
-@import "./themes/nord.css";
-@import "./themes/monokai.css";
+@import "./themes/index.css";
+
 
 /* Default fallback styles (when no theme is explicitly set) */
 :root {
@@ -182,6 +170,11 @@
   --font-dmsans: var(--font-dmsans), ui-sans-serif, system-ui, sans-serif;
   --font-plusjakarta: var(--font-plusjakarta), ui-sans-serif, system-ui, sans-serif;
   --font-outfit: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-jetbrains: var(--font-jetbrains), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-firacode: var(--font-firacode), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-ubuntu: var(--font-ubuntu), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-spacemono: var(--font-spacemono), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-inconsolata: var(--font-inconsolata), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 }
 
 /* Font family classes */
@@ -231,6 +224,26 @@
 
 .font-outfit {
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-jetbrains {
+  font-family: var(--font-jetbrains), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+.font-firacode {
+  font-family: var(--font-firacode), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+.font-ubuntu {
+  font-family: var(--font-ubuntu), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+.font-spacemono {
+  font-family: var(--font-spacemono), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+.font-inconsolata {
+  font-family: var(--font-inconsolata), ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 }
 
 body {

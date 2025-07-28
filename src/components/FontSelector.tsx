@@ -5,8 +5,11 @@ import { Type } from 'lucide-react';
 
 const fontOptions = [
   { name: 'DM Sans', value: 'dmsans', className: 'font-dmsans' },
+  { name: 'Fira Code', value: 'firacode', className: 'font-firacode' },
   { name: 'Geist', value: 'geist', className: 'font-sans' },
+  { name: 'Inconsolata', value: 'inconsolata', className: 'font-inconsolata' },
   { name: 'Inter', value: 'inter', className: 'font-inter' },
+  { name: 'JetBrains Mono', value: 'jetbrains', className: 'font-jetbrains' },
   { name: 'Lato', value: 'lato', className: 'font-lato' },
   { name: 'Montserrat', value: 'montserrat', className: 'font-montserrat' },
   { name: 'Nunito', value: 'nunito', className: 'font-nunito' },
@@ -16,6 +19,8 @@ const fontOptions = [
   { name: 'Poppins', value: 'poppins', className: 'font-poppins' },
   { name: 'Roboto', value: 'roboto', className: 'font-roboto' },
   { name: 'Source Sans 3', value: 'sourcesans', className: 'font-sourcesans' },
+  { name: 'Space Mono', value: 'spacemono', className: 'font-spacemono' },
+  { name: 'Ubuntu Mono', value: 'ubuntu', className: 'font-ubuntu' },
   { name: 'Work Sans', value: 'worksans', className: 'font-worksans' },
 ];
 
@@ -123,6 +128,11 @@ function getFontFamily(fontValue: string): string {
     dmsans: 'DM Sans, ui-sans-serif, system-ui, sans-serif',
     plusjakarta: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif',
     outfit: 'Outfit, ui-sans-serif, system-ui, sans-serif',
+    jetbrains: 'JetBrains Mono, ui-monospace, Menlo, Monaco, monospace',
+    firacode: 'Fira Code, ui-monospace, Menlo, Monaco, monospace',
+    ubuntu: 'Ubuntu Mono, ui-monospace, Menlo, Monaco, monospace',
+    spacemono: 'Space Mono, ui-monospace, Menlo, Monaco, monospace',
+    inconsolata: 'Inconsolata, ui-monospace, Menlo, Monaco, monospace',
   };
   
   return fontFamilies[fontValue] || 'ui-sans-serif, system-ui, sans-serif';

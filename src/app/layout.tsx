@@ -12,7 +12,12 @@ import {
   Work_Sans,
   DM_Sans,
   Plus_Jakarta_Sans,
-  Outfit
+  Outfit,
+  JetBrains_Mono,
+  Fira_Code,
+  Ubuntu_Mono,
+  Space_Mono,
+  Inconsolata
 } from 'next/font/google';
 import "./globals.css";
 
@@ -78,6 +83,33 @@ const plusJakarta = Plus_Jakarta_Sans({
 const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-outfit',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-firacode',
+});
+
+const ubuntuMono = Ubuntu_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-ubuntu',
+});
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-spacemono',
+});
+
+const inconsolata = Inconsolata({
+  subsets: ['latin'],
+  variable: '--font-inconsolata',
 });
 
 export const metadata: Metadata = {
@@ -156,7 +188,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth dark" data-theme="default">
       <body
-        className={`${nunito.className} ${GeistSans.className} ${inter.variable} ${roboto.variable} ${openSans.variable} ${poppins.variable} ${montserrat.variable} ${sourceSans.variable} ${nunito.variable} ${lato.variable} ${workSans.variable} ${dmSans.variable} ${plusJakarta.variable} ${outfit.variable} tracking-wide antialiased`}
+        className={`${nunito.className} ${GeistSans.className} ${inter.variable} ${roboto.variable} ${openSans.variable} ${poppins.variable} ${montserrat.variable} ${sourceSans.variable} ${nunito.variable} ${lato.variable} ${workSans.variable} ${dmSans.variable} ${plusJakarta.variable} ${outfit.variable} ${jetbrainsMono.variable} ${firaCode.variable} ${ubuntuMono.variable} ${spaceMono.variable} ${inconsolata.variable} tracking-wide antialiased`}
       >
         {children}
       </body>

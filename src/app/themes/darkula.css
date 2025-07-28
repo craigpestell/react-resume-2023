@@ -1,51 +1,103 @@
-/* Darkula Theme - Light (inspired by JetBrains IDEs) */
+/* Darkula Theme - Light variant (inspired by JetBrains IDEs) */
 html[data-theme="darkula"] {
   /* Primary colors */
-  --background: #2b2b2b;
-  --foreground: #a9b7c6;
-  --primary: #6897bb;
+  --background: #f7f7f7;
+  --foreground: #2b2b2b;
+  --primary: #0066cc;
   --primary-foreground: #ffffff;
   
   /* Secondary colors */
-  --secondary: #3c3f41;
-  --secondary-foreground: #a9b7c6;
+  --secondary: #eeeeee;
+  --secondary-foreground: #2b2b2b;
   
   /* Accent colors */
-  --accent: #ffc66d;
-  --accent-foreground: #2b2b2b;
+  --accent: #ed9d13;
+  --accent-foreground: #ffffff;
   
   /* Muted colors */
-  --muted: #3c3f41;
-  --muted-foreground: #808080;
+  --muted: #f2f2f2;
+  --muted-foreground: #666666;
   
   /* Border and input colors */
-  --border: #515151;
-  --input: #3c3f41;
-  --ring: #6897bb;
+  --border: #cccccc;
+  --input: #ffffff;
+  --ring: #0066cc;
   
   /* Card colors */
-  --card: #3c3f41;
-  --card-foreground: #a9b7c6;
+  --card: #ffffff;
+  --card-foreground: #2b2b2b;
   
   /* Popover colors */
-  --popover: #3c3f41;
-  --popover-foreground: #a9b7c6;
+  --popover: #ffffff;
+  --popover-foreground: #2b2b2b;
   
   /* Destructive colors */
-  --destructive: #bc3f3c;
+  --destructive: #d73a49;
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #5f8a5f;
+  --success: #28a745;
   --success-foreground: #ffffff;
   
   /* Warning colors */
-  --warning: #bbaa66;
+  --warning: #ffc107;
   --warning-foreground: #2b2b2b;
   
   /* Info colors */
-  --info: #6897bb;
+  --info: #0066cc;
   --info-foreground: #ffffff;
+}
+
+/* Darkula Theme - Dark variant (inspired by JetBrains IDEs) */
+@media (prefers-color-scheme: dark) {
+  html[data-theme="darkula"] {
+    /* Primary colors */
+    --background: #2b2b2b;
+    --foreground: #a9b7c6;
+    --primary: #6897bb;
+    --primary-foreground: #ffffff;
+    
+    /* Secondary colors */
+    --secondary: #3c3f41;
+    --secondary-foreground: #a9b7c6;
+    
+    /* Accent colors */
+    --accent: #ffc66d;
+    --accent-foreground: #2b2b2b;
+    
+    /* Muted colors */
+    --muted: #3c3f41;
+    --muted-foreground: #808080;
+    
+    /* Border and input colors */
+    --border: #515151;
+    --input: #3c3f41;
+    --ring: #6897bb;
+    
+    /* Card colors */
+    --card: #3c3f41;
+    --card-foreground: #a9b7c6;
+    
+    /* Popover colors */
+    --popover: #3c3f41;
+    --popover-foreground: #a9b7c6;
+    
+    /* Destructive colors */
+    --destructive: #bc3f3c;
+    --destructive-foreground: #ffffff;
+    
+    /* Success colors */
+    --success: #5f8a5f;
+    --success-foreground: #ffffff;
+    
+    /* Warning colors */
+    --warning: #bbaa66;
+    --warning-foreground: #2b2b2b;
+    
+    /* Info colors */
+    --info: #6897bb;
+    --info-foreground: #ffffff;
+  }
 }
 
 /* Darkula Theme - Dark */
