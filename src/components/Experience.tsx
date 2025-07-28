@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, Building } from 'lucide-react';
+import { Calendar, Building, ChevronDown, ChevronRight } from 'lucide-react';
 import { Experience, Education } from '@/data/portfolio';
+import { useState } from 'react';
 
 interface ExperienceProps {
   experience: Experience[];
@@ -32,79 +33,101 @@ export default function ExperienceSection({ experience, education }: ExperienceP
     }
   };
 
-  const ExperienceCard = ({ exp, index }: { exp: Experience; index: number }) => (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="relative pl-8 pb-12"
-    >
-      {/* Timeline dot */}
-      <div className="absolute left-0 top-2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg"></div>
-      
-      {/* Timeline line */}
-      {index < experience.length - 1 && (
-        <div className="absolute left-2 top-6 w-0.5 h-full bg-border -translate-x-0.5"></div>
-      )}
-
-      <div className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-          <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-1">
-              {exp.position}
-            </h3>
-            <div className="flex items-center text-primary mb-2">
-              <Building className="w-4 h-4 mr-2" />
-              <span className="font-medium">{exp.company}</span>
-            </div>
-          </div>
-          
-          <div className="flex items-center text-sm text-muted-foreground">
-            <Calendar className="w-4 h-4 mr-2" />
-            <span>
-              {formatDate(exp.startDate)} - {exp.endDate ? formatDate(exp.endDate) : 'Present'}
-            </span>
-            <span className="ml-2 text-xs bg-muted px-2 py-1 rounded">
-              {calculateDuration(exp.startDate, exp.endDate)}
-            </span>
-          </div>
-        </div>
-
-        <p className="text-muted-foreground mb-4">
-          {exp.description}
-        </p>
-
-        {/* Achievements */}
-        {exp.achievements.length > 0 && (
-          <div className="mb-4">
-            <h4 className="text-sm font-medium text-card-foreground mb-2">
-              Key Achievements:
-            </h4>
-            <ul className="list-disc list-inside space-y-1">
-              {exp.achievements.map((achievement, i) => (
-                <li key={i} className="text-muted-foreground text-sm">
-                  {achievement}
-                </li>
-              ))}
-            </ul>
-          </div>
+  const ExperienceCard = ({ exp, index }: { exp: Experience; index: number }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        viewport={{ once: true }}
+        className="relative pl-8 pb-12"
+      >
+        {/* Timeline dot */}
+        <div className="absolute left-0 top-2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg"></div>
+        
+        {/* Timeline line */}
+        {index < experience.length - 1 && (
+          <div className="absolute left-2 top-6 w-0.5 h-full bg-border -translate-x-0.5"></div>
         )}
 
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2">
-          {exp.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
-            >
-              {tech}
-            </span>
-          ))}
+        <div className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <div>
+              <h3 className="text-xl font-semibold text-card-foreground mb-1">
+                {exp.position}
+              </h3>
+              <div className="flex items-center text-primary mb-2">
+                <Building className="w-4 h-4 mr-2" />
+                <span className="font-medium">{exp.company}</span>
+              </div>
+            </div>
+            
+            <div className="flex items-center text-sm text-muted-foreground">
+              <Calendar className="w-4 h-4 mr-2" />
+              <span>
+                {formatDate(exp.startDate)} - {exp.endDate ? formatDate(exp.endDate) : 'Present'}
+              </span>
+              <span className="ml-2 text-xs bg-muted px-2 py-1 rounded">
+                {calculateDuration(exp.startDate, exp.endDate)}
+              </span>
+            </div>
+          </div>
+
+          <p className="text-muted-foreground mb-4">
+            {exp.description}
+          </p>
+
+          {/* Achievements */}
+          {exp.achievements.length > 0 && (
+            <div className="mb-4">
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="flex items-center text-sm font-medium text-card-foreground hover:text-primary transition-colors mb-2"
+              >
+                {isExpanded ? (
+                  <ChevronDown className="w-4 h-4 mr-1" />
+                ) : (
+                  <ChevronRight className="w-4 h-4 mr-1" />
+                )}
+                Key Achievements ({exp.achievements.length})
+              </button>
+              
+              {isExpanded && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ul className="list-disc list-inside space-y-1">
+                    {exp.achievements.map((achievement, i) => (
+                      <li key={i} className="text-muted-foreground text-sm">
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </div>
+          )}
+
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-2">
+            {exp.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-    </motion.div>
-  );
+      </motion.div>
+    );
+  };
 
   const EducationCard = ({ edu, index }: { edu: Education; index: number }) => (
     <motion.div
