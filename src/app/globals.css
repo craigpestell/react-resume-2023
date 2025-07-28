@@ -9,6 +9,12 @@
 @import "./themes/purple.css";
 @import "./themes/rose.css";
 @import "./themes/midnight.css";
+@import "./themes/darkula.css";
+@import "./themes/matrix.css";
+@import "./themes/cyberpunk.css";
+@import "./themes/dracula.css";
+@import "./themes/nord.css";
+@import "./themes/monokai.css";
 
 /* Default fallback styles (when no theme is explicitly set) */
 :root {

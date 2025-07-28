@@ -1,0 +1,100 @@
+/* Cyberpunk Theme - Light (neon cyberpunk aesthetic) */
+html[data-theme="cyberpunk"] {
+  /* Primary colors */
+  --background: #0a0a0a;
+  --foreground: #00f5ff;
+  --primary: #ff00ff;
+  --primary-foreground: #000000;
+  
+  /* Secondary colors */
+  --secondary: #1a0a1a;
+  --secondary-foreground: #ff00aa;
+  
+  /* Accent colors */
+  --accent: #00ffff;
+  --accent-foreground: #000000;
+  
+  /* Muted colors */
+  --muted: #1a0a1a;
+  --muted-foreground: #aa00aa;
+  
+  /* Border and input colors */
+  --border: #330a33;
+  --input: #1a0a1a;
+  --ring: #ff00ff;
+  
+  /* Card colors */
+  --card: #1a0a1a;
+  --card-foreground: #00f5ff;
+  
+  /* Popover colors */
+  --popover: #1a0a1a;
+  --popover-foreground: #00f5ff;
+  
+  /* Destructive colors */
+  --destructive: #ff073a;
+  --destructive-foreground: #000000;
+  
+  /* Success colors */
+  --success: #39ff14;
+  --success-foreground: #000000;
+  
+  /* Warning colors */
+  --warning: #ffff00;
+  --warning-foreground: #000000;
+  
+  /* Info colors */
+  --info: #00f5ff;
+  --info-foreground: #000000;
+}
+
+/* Cyberpunk Theme - Dark */
+html[data-theme="cyberpunk"].dark,
+html[data-theme="cyberpunk"]:is(.dark *) {
+  /* Primary colors */
+  --background: #f5f0ff;
+  --foreground: #4a0a5a;
+  --primary: #8a2be2;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #e6d9ff;
+  --secondary-foreground: #3a0a4a;
+  
+  /* Accent colors */
+  --accent: #9932cc;
+  --accent-foreground: #ffffff;
+  
+  /* Muted colors */
+  --muted: #f0e6ff;
+  --muted-foreground: #666666;
+  
+  /* Border and input colors */
+  --border: #d9b3ff;
+  --input: #e6d9ff;
+  --ring: #8a2be2;
+  
+  /* Card colors */
+  --card: #ffffff;
+  --card-foreground: #4a0a5a;
+  
+  /* Popover colors */
+  --popover: #ffffff;
+  --popover-foreground: #4a0a5a;
+  
+  /* Destructive colors */
+  --destructive: #dc143c;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #32cd32;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #ffa500;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #00bfff;
+  --info-foreground: #ffffff;
+}

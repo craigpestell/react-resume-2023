@@ -1,0 +1,100 @@
+/* Nord Theme - Light (inspired by the Nordic color palette) */
+html[data-theme="nord"] {
+  /* Primary colors */
+  --background: #2e3440;
+  --foreground: #d8dee9;
+  --primary: #5e81ac;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #3b4252;
+  --secondary-foreground: #e5e9f0;
+  
+  /* Accent colors */
+  --accent: #88c0d0;
+  --accent-foreground: #2e3440;
+  
+  /* Muted colors */
+  --muted: #3b4252;
+  --muted-foreground: #81a1c1;
+  
+  /* Border and input colors */
+  --border: #434c5e;
+  --input: #3b4252;
+  --ring: #5e81ac;
+  
+  /* Card colors */
+  --card: #3b4252;
+  --card-foreground: #d8dee9;
+  
+  /* Popover colors */
+  --popover: #3b4252;
+  --popover-foreground: #d8dee9;
+  
+  /* Destructive colors */
+  --destructive: #bf616a;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #a3be8c;
+  --success-foreground: #2e3440;
+  
+  /* Warning colors */
+  --warning: #ebcb8b;
+  --warning-foreground: #2e3440;
+  
+  /* Info colors */
+  --info: #81a1c1;
+  --info-foreground: #2e3440;
+}
+
+/* Nord Theme - Dark */
+html[data-theme="nord"].dark,
+html[data-theme="nord"]:is(.dark *) {
+  /* Primary colors */
+  --background: #eceff4;
+  --foreground: #2e3440;
+  --primary: #5e81ac;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #e5e9f0;
+  --secondary-foreground: #3b4252;
+  
+  /* Accent colors */
+  --accent: #88c0d0;
+  --accent-foreground: #ffffff;
+  
+  /* Muted colors */
+  --muted: #f0f3f6;
+  --muted-foreground: #5e6c7e;
+  
+  /* Border and input colors */
+  --border: #d8dee9;
+  --input: #e5e9f0;
+  --ring: #5e81ac;
+  
+  /* Card colors */
+  --card: #ffffff;
+  --card-foreground: #2e3440;
+  
+  /* Popover colors */
+  --popover: #ffffff;
+  --popover-foreground: #2e3440;
+  
+  /* Destructive colors */
+  --destructive: #bf616a;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #a3be8c;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #ebcb8b;
+  --warning-foreground: #2e3440;
+  
+  /* Info colors */
+  --info: #81a1c1;
+  --info-foreground: #ffffff;
+}

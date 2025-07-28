@@ -5,12 +5,18 @@ import { Palette, Sun, Moon } from 'lucide-react';
 
 const themeOptions = [
   { name: 'Default', value: 'default', preview: '#ffffff' },
-  { name: 'Ocean', value: 'ocean', preview: '#0891b2' },
+  { name: 'Cyberpunk', value: 'cyberpunk', preview: '#ff00ff' },
+  { name: 'Darkula', value: 'darkula', preview: '#6897bb' },
+  { name: 'Dracula', value: 'dracula', preview: '#bd93f9' },
   { name: 'Forest', value: 'forest', preview: '#16a34a' },
-  { name: 'Sunset', value: 'sunset', preview: '#ea580c' },
+  { name: 'Matrix', value: 'matrix', preview: '#00ff00' },
+  { name: 'Midnight', value: 'midnight', preview: '#6366f1' },
+  { name: 'Monokai', value: 'monokai', preview: '#66d9ef' },
+  { name: 'Nord', value: 'nord', preview: '#5e81ac' },
+  { name: 'Ocean', value: 'ocean', preview: '#0891b2' },
   { name: 'Purple', value: 'purple', preview: '#9333ea' },
   { name: 'Rose', value: 'rose', preview: '#e11d48' },
-  { name: 'Midnight', value: 'midnight', preview: '#6366f1' },
+  { name: 'Sunset', value: 'sunset', preview: '#ea580c' },
 ];
 
 export default function ThemeSelector() {

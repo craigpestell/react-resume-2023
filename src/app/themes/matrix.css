@@ -1,0 +1,100 @@
+/* Matrix Theme - Light (green matrix-inspired) */
+html[data-theme="matrix"] {
+  /* Primary colors */
+  --background: #000000;
+  --foreground: #00ff00;
+  --primary: #00cc00;
+  --primary-foreground: #000000;
+  
+  /* Secondary colors */
+  --secondary: #001100;
+  --secondary-foreground: #00ff00;
+  
+  /* Accent colors */
+  --accent: #00ff41;
+  --accent-foreground: #000000;
+  
+  /* Muted colors */
+  --muted: #001100;
+  --muted-foreground: #008800;
+  
+  /* Border and input colors */
+  --border: #003300;
+  --input: #001100;
+  --ring: #00cc00;
+  
+  /* Card colors */
+  --card: #001100;
+  --card-foreground: #00ff00;
+  
+  /* Popover colors */
+  --popover: #001100;
+  --popover-foreground: #00ff00;
+  
+  /* Destructive colors */
+  --destructive: #ff0000;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #00ff00;
+  --success-foreground: #000000;
+  
+  /* Warning colors */
+  --warning: #ffff00;
+  --warning-foreground: #000000;
+  
+  /* Info colors */
+  --info: #00ffff;
+  --info-foreground: #000000;
+}
+
+/* Matrix Theme - Dark */
+html[data-theme="matrix"].dark,
+html[data-theme="matrix"]:is(.dark *) {
+  /* Primary colors */
+  --background: #f0fff0;
+  --foreground: #006600;
+  --primary: #008800;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #e6ffe6;
+  --secondary-foreground: #004400;
+  
+  /* Accent colors */
+  --accent: #00aa00;
+  --accent-foreground: #ffffff;
+  
+  /* Muted colors */
+  --muted: #f0fff0;
+  --muted-foreground: #666666;
+  
+  /* Border and input colors */
+  --border: #ccffcc;
+  --input: #e6ffe6;
+  --ring: #008800;
+  
+  /* Card colors */
+  --card: #ffffff;
+  --card-foreground: #006600;
+  
+  /* Popover colors */
+  --popover: #ffffff;
+  --popover-foreground: #006600;
+  
+  /* Destructive colors */
+  --destructive: #cc0000;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #008800;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #cc8800;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #0088cc;
+  --info-foreground: #ffffff;
+}

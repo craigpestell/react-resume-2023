@@ -1,0 +1,100 @@
+/* Darkula Theme - Light (inspired by JetBrains IDEs) */
+html[data-theme="darkula"] {
+  /* Primary colors */
+  --background: #2b2b2b;
+  --foreground: #a9b7c6;
+  --primary: #6897bb;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #3c3f41;
+  --secondary-foreground: #a9b7c6;
+  
+  /* Accent colors */
+  --accent: #ffc66d;
+  --accent-foreground: #2b2b2b;
+  
+  /* Muted colors */
+  --muted: #3c3f41;
+  --muted-foreground: #808080;
+  
+  /* Border and input colors */
+  --border: #515151;
+  --input: #3c3f41;
+  --ring: #6897bb;
+  
+  /* Card colors */
+  --card: #3c3f41;
+  --card-foreground: #a9b7c6;
+  
+  /* Popover colors */
+  --popover: #3c3f41;
+  --popover-foreground: #a9b7c6;
+  
+  /* Destructive colors */
+  --destructive: #bc3f3c;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #5f8a5f;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #bbaa66;
+  --warning-foreground: #2b2b2b;
+  
+  /* Info colors */
+  --info: #6897bb;
+  --info-foreground: #ffffff;
+}
+
+/* Darkula Theme - Dark */
+html[data-theme="darkula"].dark,
+html[data-theme="darkula"]:is(.dark *) {
+  /* Primary colors */
+  --background: #f5f5f5;
+  --foreground: #2b2b2b;
+  --primary: #0078d4;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #e1e1e1;
+  --secondary-foreground: #323130;
+  
+  /* Accent colors */
+  --accent: #106ebe;
+  --accent-foreground: #ffffff;
+  
+  /* Muted colors */
+  --muted: #f3f2f1;
+  --muted-foreground: #605e5c;
+  
+  /* Border and input colors */
+  --border: #d1d1d1;
+  --input: #ffffff;
+  --ring: #0078d4;
+  
+  /* Card colors */
+  --card: #ffffff;
+  --card-foreground: #2b2b2b;
+  
+  /* Popover colors */
+  --popover: #ffffff;
+  --popover-foreground: #2b2b2b;
+  
+  /* Destructive colors */
+  --destructive: #d13438;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #107c10;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #ff8c00;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #0078d4;
+  --info-foreground: #ffffff;
+}
