@@ -1,0 +1,50 @@
+/* Dark Theme */
+html[data-theme="dark"], 
+html.dark {
+  /* Primary colors */
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #334155;
+  --secondary-foreground: #cbd5e1;
+  
+  /* Accent colors */
+  --accent: #60a5fa;
+  --accent-foreground: #1e293b;
+  
+  /* Muted colors */
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  
+  /* Border and input colors */
+  --border: #334155;
+  --input: #1e293b;
+  --ring: #3b82f6;
+  
+  /* Card colors */
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  
+  /* Popover colors */
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  
+  /* Destructive colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #fbbf24;
+  --warning-foreground: #1a1a1a;
+  
+  /* Info colors */
+  --info: #38bdf8;
+  --info-foreground: #1a1a1a;
+}

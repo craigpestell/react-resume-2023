@@ -1,0 +1,100 @@
+/* Rose Theme - Light */
+html[data-theme="rose"] {
+  /* Primary colors */
+  --background: #1f1113;
+  --foreground: #fecdd3;
+  --primary: #f43f5e;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #881337;
+  --secondary-foreground: #fda4af;
+  
+  /* Accent colors */
+  --accent: #fb7185;
+  --accent-foreground: #1f1113;
+  
+  /* Muted colors */
+  --muted: #881337;
+  --muted-foreground: #94a3b8;
+  
+  /* Border and input colors */
+  --border: #be185d;
+  --input: #881337;
+  --ring: #f43f5e;
+  
+  /* Card colors */
+  --card: #881337;
+  --card-foreground: #fecdd3;
+  
+  /* Popover colors */
+  --popover: #881337;
+  --popover-foreground: #fecdd3;
+  
+  /* Destructive colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #06b6d4;
+  --info-foreground: #ffffff;
+}
+
+/* Rose Theme - Dark */
+html[data-theme="rose"].dark,
+html[data-theme="rose"]:is(.dark *) {
+  /* Primary colors */
+  --background: #fff1f2;
+  --foreground: #881337;
+  --primary: #e11d48;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #fecdd3;
+  --secondary-foreground: #881337;
+  
+  /* Accent colors */
+  --accent: #f43f5e;
+  --accent-foreground: #ffffff;
+  
+  /* Muted colors */
+  --muted: #fff1f2;
+  --muted-foreground: #6b7280;
+  
+  /* Border and input colors */
+  --border: #fecdd3;
+  --input: #ffe4e6;
+  --ring: #e11d48;
+  
+  /* Card colors */
+  --card: #ffffff;
+  --card-foreground: #881337;
+  
+  /* Popover colors */
+  --popover: #ffffff;
+  --popover-foreground: #881337;
+  
+  /* Destructive colors */
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #0891b2;
+  --info-foreground: #ffffff;
+}

@@ -1,0 +1,100 @@
+/* Purple Theme - Light */
+html[data-theme="purple"] {
+  /* Primary colors */
+  --background: #1e1b4b;
+  --foreground: #e5e7eb;
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #581c87;
+  --secondary-foreground: #c4b5fd;
+  
+  /* Accent colors */
+  --accent: #a855f7;
+  --accent-foreground: #1e1b4b;
+  
+  /* Muted colors */
+  --muted: #6b21a8;
+  --muted-foreground: #94a3b8;
+  
+  /* Border and input colors */
+  --border: #7c3aed;
+  --input: #581c87;
+  --ring: #8b5cf6;
+  
+  /* Card colors */
+  --card: #581c87;
+  --card-foreground: #e5e7eb;
+  
+  /* Popover colors */
+  --popover: #581c87;
+  --popover-foreground: #e5e7eb;
+  
+  /* Destructive colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #06b6d4;
+  --info-foreground: #ffffff;
+}
+
+/* Purple Theme - Dark */
+html[data-theme="purple"].dark,
+html[data-theme="purple"]:is(.dark *) {
+  /* Primary colors */
+  --background: #faf5ff;
+  --foreground: #581c87;
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #e9d5ff;
+  --secondary-foreground: #581c87;
+  
+  /* Accent colors */
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  
+  /* Muted colors */
+  --muted: #f3e8ff;
+  --muted-foreground: #4b5563;
+  
+  /* Border and input colors */
+  --border: #c4b5fd;
+  --input: #e9d5ff;
+  --ring: #7c3aed;
+  
+  /* Card colors */
+  --card: #ffffff;
+  --card-foreground: #581c87;
+  
+  /* Popover colors */
+  --popover: #ffffff;
+  --popover-foreground: #581c87;
+  
+  /* Destructive colors */
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #0891b2;
+  --info-foreground: #ffffff;
+}

@@ -1,0 +1,9 @@
+/* Theme Index - Import all themes */
+@import "./default.css";
+@import "./dark.css";
+@import "./ocean.css";
+@import "./forest.css";
+@import "./sunset.css";
+@import "./purple.css";
+@import "./rose.css";
+@import "./midnight.css";
