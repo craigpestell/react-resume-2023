@@ -6,6 +6,7 @@ import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
+import StructuredData from '@/components/StructuredData';
 import FontSelector from '@/components/FontSelector';
 import LetterSpacingSelector from '@/components/LetterSpacingSelector';
 import ThemeSelector from '@/components/ThemeSelector';
@@ -19,6 +20,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <StructuredData personalInfo={portfolioData.personalInfo} />
       <Header onDownloadResume={handleDownloadResume} />
       <Hero personalInfo={portfolioData.personalInfo} />
       <Skills skills={portfolioData.skills} />

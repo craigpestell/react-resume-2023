@@ -30,7 +30,7 @@ export default function Projects({ projects }: ProjectsProps) {
       <div className="relative h-48 md:h-56 bg-gradient-to-br from-muted to-secondary overflow-hidden">
         <Image
           src={project.imageUrl}
-          alt={project.title}
+          alt={`${project.title} - ${project.description}. Built with ${project.technologies.join(', ')}`}
           fill
           className="object-cover"
         />
@@ -108,10 +108,10 @@ export default function Projects({ projects }: ProjectsProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Featured Projects
+            Enterprise Projects & Portfolio
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work and side projects
+            Mission-critical applications built for Apple, Google, and Fortune 500 companies using React, TypeScript, and modern web technologies
           </p>
         </motion.div>
 

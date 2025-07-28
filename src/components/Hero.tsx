@@ -32,10 +32,11 @@ export default function Hero({ personalInfo }: HeroProps) {
               {personalInfo.profileImage ? (
                 <Image 
                   src={personalInfo.profileImage} 
-                  alt={personalInfo.name}
+                  alt={`${personalInfo.name} - ${personalInfo.title} | Professional headshot of senior software engineer with experience at Apple, Google, and Williams Sonoma`}
                   width={192}
                   height={192}
                   className="w-full h-full rounded-full object-cover"
+                  priority
                 />
               ) : (
                 <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-4xl font-bold text-muted-foreground">
@@ -82,6 +83,7 @@ export default function Hero({ personalInfo }: HeroProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              aria-label={`Visit ${personalInfo.name}'s GitHub profile`}
             >
               <Github className="w-6 h-6 text-card-foreground" />
             </a>
@@ -90,12 +92,14 @@ export default function Hero({ personalInfo }: HeroProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              aria-label={`Connect with ${personalInfo.name} on LinkedIn`}
             >
               <Linkedin className="w-6 h-6 text-card-foreground" />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
               className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              aria-label={`Send email to ${personalInfo.name}`}
             >
               <Mail className="w-6 h-6 text-card-foreground" />
             </a>
@@ -104,6 +108,7 @@ export default function Hero({ personalInfo }: HeroProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              aria-label={`Visit ${personalInfo.name}'s portfolio website`}
             >
               <ExternalLink className="w-6 h-6 text-card-foreground" />
             </a>

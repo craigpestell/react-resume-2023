@@ -42,10 +42,10 @@ export default function Skills({ skills }: SkillsProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Skills & Expertise
+            Technical Skills & Enterprise Expertise
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Technologies and tools I work with to bring ideas to life
+            15+ years of hands-on experience with modern technologies, enterprise platforms, and scalable solutions at Fortune 500 companies
           </p>
         </motion.div>
 
