@@ -144,7 +144,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Replace with actual verification code
+    google: 'hAqHzu_K3PfENU9q8cAvUnrUkR4i9mICr47ijQr3qgY',
   },
 };
 
