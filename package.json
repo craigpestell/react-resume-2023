@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@next/font": "^14.2.15",
     "@react-pdf/renderer": "^4.3.0",
     "framer-motion": "^12.23.9",
     "geist": "^1.4.2",

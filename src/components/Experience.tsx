@@ -101,7 +101,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ul className="list-disc list-inside space-y-1">
+                  <ul className="mx-4 list-disc list-outside space-y-1">
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="text-muted-foreground text-sm">
                         {achievement}
