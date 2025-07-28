@@ -108,7 +108,7 @@ export default function Projects({ projects }: ProjectsProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Enterprise Projects & Portfolio
+            Enterprise Projects
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Mission-critical applications built for Apple, Google, and Fortune 500 companies using React, TypeScript, and modern web technologies

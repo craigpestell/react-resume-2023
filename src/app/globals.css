@@ -1015,6 +1015,11 @@ html {
   background-color: var(--card) !important;
 }
 
+/* Fix line-height for text-5xl to prevent descender cutoff */
+.text-5xl {
+  line-height: 1.2 !important;
+}
+
 /* Smooth transitions for theme changes */
 *,
 *::before,
