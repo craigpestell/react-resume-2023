@@ -117,17 +117,17 @@ export default function Header({ onDownloadResume }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl text-primary">
+          <div className="font-bold text-xl text-primary flex-shrink-0">
             Portfolio
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-foreground hover:text-primary transition-colors whitespace-nowrap"
               >
                 {link.label}
               </button>
@@ -135,7 +135,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 flex-shrink-0">
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
