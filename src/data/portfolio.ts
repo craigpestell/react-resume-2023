@@ -147,6 +147,17 @@ export const portfolioData: PortfolioData = {
       featured: false
     },
     {
+      id: "project-4a",
+      title: "Context-Agnostic Component Library",
+      description: "Multi-brand component system serving Williams Sonoma's portfolio with configurable behaviors and CSS variable theming",
+      longDescription: "Architected a context-agnostic component library serving Williams Sonoma's brand portfolio (Pottery Barn, West Elm, Mark and Graham). Components adapt to each brand's design language through CSS variables while maintaining consistent functionality. Implemented configurable behaviors allowing customization of component orientation, initial states, and interaction patterns while preserving accessibility and performance standards.",
+      technologies: ["Vue.js", "JavaScript", "SASS", "CSS Variables", "Storybook", "Jest"],
+      imageUrl: "/images/portfolio-10.jpg",
+      startDate: "2020-12",
+      endDate: "2021-11",
+      featured: true
+    },
+    {
       id: "project-5",
       title: "High-Performance E-commerce Platform",
       description: "Scalable micro-frontend architecture with advanced performance optimization for enterprise e-commerce",

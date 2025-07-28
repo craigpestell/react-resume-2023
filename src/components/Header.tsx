@@ -117,17 +117,17 @@ export default function Header({ onDownloadResume }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl text-primary flex-shrink-0">
+          <div className="font-bold text-xl text-primary">
             Portfolio
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-foreground hover:text-primary transition-colors whitespace-nowrap"
+                className="text-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </button>
@@ -135,7 +135,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center space-x-4 flex-shrink-0">
+          <div className="flex items-center space-x-4">
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
@@ -146,19 +146,10 @@ export default function Header({ onDownloadResume }: HeaderProps) {
               {getThemeIcon()}
             </button>
 
-            {/* Download Resume Button - Full text for larger screens */}
+            {/* Download Resume Button */}
             <button
               onClick={onDownloadResume}
-              className="hidden xl:flex items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Resume</span>
-            </button>
-
-            {/* Resume Button - Short text for medium screens */}
-            <button
-              onClick={onDownloadResume}
-              className="hidden md:flex xl:hidden items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
+              className="hidden md:flex items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
             >
               <Download className="w-4 h-4" />
               <span>Resume</span>
@@ -194,7 +185,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
               ))}
               <button
                 onClick={onDownloadResume}
-                className="flex items-center space-x-2 w-full px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors mx-4 mt-4"
+                className="flex items-center space-x-2 px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors ml-4/*  */ mt-4"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Resume</span>
