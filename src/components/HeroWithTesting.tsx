@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ExternalLink, Download } from 'lucide-react';
 import Image from 'next/image';
 import { PersonalInfo } from '@/data/portfolio';
-import { useABTest } from '@/hooks/useExperiment';
-import { trackConversion } from '@/lib/experiments';
+import { useEdgeABTest } from '@/hooks/useEdgeExperiment';
 
 interface HeroProps {
   personalInfo: PersonalInfo;
@@ -14,18 +13,24 @@ interface HeroProps {
 
 export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
   // A/B test for CTA buttons
-  const ctaConfig = useABTest('hero-cta-test', {
+  const { config, trackConversion, variantId } = useEdgeABTest('hero-cta-test', {
     ctaText: 'Download Resume',
     ctaStyle: 'primary' as 'primary' | 'gradient' | 'outline',
     showSecondaryButton: false,
     secondaryText: 'View Online'
   });
 
+  // Type-safe config access
+  const ctaText = (config.ctaText as string) || 'Download Resume';
+  const ctaStyle = (config.ctaStyle as 'primary' | 'gradient' | 'outline') || 'primary';
+  const showSecondaryButton = (config.showSecondaryButton as boolean) || false;
+  const secondaryText = (config.secondaryText as string) || 'View Online';
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      trackConversion('section_navigation', { section: href, variant: ctaConfig.variant?.id });
+      trackConversion('section_navigation', { section: href, variant: variantId });
     }
   };
 
@@ -33,15 +38,15 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
     if (onDownloadResume) {
       onDownloadResume();
       trackConversion('resume_download', { 
-        variant: ctaConfig.variant?.id,
-        buttonText: ctaConfig.ctaText 
+        variant: variantId,
+        buttonText: ctaText 
       });
     }
   };
 
   const handleContactClick = () => {
     scrollToSection('#contact');
-    trackConversion('contact_click', { variant: ctaConfig.variant?.id });
+    trackConversion('contact_click', { variant: variantId });
   };
 
   const getButtonStyles = (style: string, isPrimary = true) => {
@@ -51,7 +56,7 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
       case 'gradient':
         return isPrimary 
           ? `${baseClasses} bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground`
-          : `${baseClasses} border-2 border-transparent bg-gradient-to-r from-primary to-accent bg-clip-border text-transparent hover:text-primary-foreground`;
+          : `${baseClasses} border-2 border-primary/50 text-primary hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-primary-foreground hover:border-transparent`;
       case 'outline':
         return isPrimary
           ? `${baseClasses} border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground`
@@ -130,7 +135,7 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
               rel="noopener noreferrer"
               className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
               aria-label={`Visit ${personalInfo.name}'s GitHub profile`}
-              onClick={() => trackConversion('social_click', { platform: 'github', variant: ctaConfig.variant?.id })}
+              onClick={() => trackConversion('social_click', { platform: 'github', variant: variantId })}
             >
               <Github className="w-6 h-6 text-card-foreground" />
             </a>
@@ -140,7 +145,7 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
               rel="noopener noreferrer"
               className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
               aria-label={`Connect with ${personalInfo.name} on LinkedIn`}
-              onClick={() => trackConversion('social_click', { platform: 'linkedin', variant: ctaConfig.variant?.id })}
+              onClick={() => trackConversion('social_click', { platform: 'linkedin', variant: variantId })}
             >
               <Linkedin className="w-6 h-6 text-card-foreground" />
             </a>
@@ -148,7 +153,7 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
               href={`mailto:${personalInfo.email}`}
               className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
               aria-label={`Send email to ${personalInfo.name}`}
-              onClick={() => trackConversion('social_click', { platform: 'email', variant: ctaConfig.variant?.id })}
+              onClick={() => trackConversion('social_click', { platform: 'email', variant: variantId })}
             >
               <Mail className="w-6 h-6 text-card-foreground" />
             </a>
@@ -158,7 +163,7 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
               rel="noopener noreferrer"
               className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
               aria-label={`Visit ${personalInfo.name}'s portfolio website`}
-              onClick={() => trackConversion('social_click', { platform: 'website', variant: ctaConfig.variant?.id })}
+              onClick={() => trackConversion('social_click', { platform: 'website', variant: variantId })}
             >
               <ExternalLink className="w-6 h-6 text-card-foreground" />
             </a>
@@ -174,21 +179,21 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
             {/* Primary CTA - varies based on experiment */}
             <button
               onClick={handleDownloadResume}
-              className={getButtonStyles(ctaConfig.ctaStyle, true)}
+              className={getButtonStyles(ctaStyle, true)}
               data-testid="primary-cta"
             >
               <Download className="w-4 h-4" />
-              {ctaConfig.ctaText}
+              {ctaText}
             </button>
 
             {/* Secondary button or alternative action */}
-            {ctaConfig.showSecondaryButton ? (
+            {showSecondaryButton ? (
               <button
                 onClick={() => scrollToSection('#projects')}
-                className={getButtonStyles(ctaConfig.ctaStyle, false)}
+                className={getButtonStyles(ctaStyle, false)}
                 data-testid="secondary-cta"
               >
-                {ctaConfig.secondaryText}
+                {secondaryText}
               </button>
             ) : (
               <>
@@ -209,14 +214,14 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
           </motion.div>
 
           {/* Experiment indicator (only in development) */}
-          {process.env.NODE_ENV === 'development' && ctaConfig.variant && (
+          {process.env.NODE_ENV === 'development' && variantId && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
               className="mt-4 text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block"
             >
-              Experiment: {ctaConfig.variant.name}
+              Experiment: {variantId}
             </motion.div>
           )}
         </div>

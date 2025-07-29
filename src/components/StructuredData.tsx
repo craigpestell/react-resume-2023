@@ -1,6 +1,7 @@
 'use client';
 
 import { PersonalInfo } from '@/data/portfolio';
+import { obfuscatePhoneNumber } from '@/lib/phoneUtils';
 
 interface StructuredDataProps {
   personalInfo: PersonalInfo;
@@ -15,7 +16,7 @@ export default function StructuredData({ personalInfo }: StructuredDataProps) {
     "description": personalInfo.summary,
     "url": personalInfo.website,
     "email": personalInfo.email,
-    "telephone": personalInfo.phone,
+    "telephone": obfuscatePhoneNumber(personalInfo.phone),
     "address": {
       "@type": "PostalAddress",
       "addressLocality": personalInfo.location

@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Eye, EyeOff } from 'lucide-react';
 import { PersonalInfo } from '@/data/portfolio';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { createRevealablePhone } from '@/lib/phoneUtils';
 
 interface ContactProps {
   personalInfo: PersonalInfo;
@@ -19,6 +20,9 @@ export default function Contact({ personalInfo }: ContactProps) {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showFullPhone, setShowFullPhone] = useState(false);
+
+  const phoneData = createRevealablePhone(personalInfo.phone);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,14 +130,40 @@ export default function Contact({ personalInfo }: ContactProps) {
                   <div className="flex-shrink-0 w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center">
                     <Phone className="w-6 h-6 text-success" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h4 className="font-medium text-foreground">Phone</h4>
-                    <a 
-                      href={`tel:${personalInfo.phone}`}
-                      className="text-muted-foreground hover:text-success transition-colors"
-                    >
-                      {personalInfo.phone}
-                    </a>
+                    <div className="flex items-center gap-2">
+                      <a 
+                        href={showFullPhone ? phoneData.telLink : '#'}
+                        className="text-muted-foreground hover:text-success transition-colors"
+                        onClick={showFullPhone ? undefined : (e) => {
+                          e.preventDefault();
+                          setShowFullPhone(true);
+                        }}
+                      >
+                        {showFullPhone ? phoneData.original : phoneData.obfuscated}
+                      </a>
+                      {!showFullPhone && (
+                        <button
+                          onClick={() => setShowFullPhone(true)}
+                          className="text-xs text-muted-foreground hover:text-success transition-colors flex items-center gap-1"
+                          aria-label="Reveal full phone number"
+                        >
+                          <Eye className="w-3 h-3" />
+                          Show
+                        </button>
+                      )}
+                      {showFullPhone && (
+                        <button
+                          onClick={() => setShowFullPhone(false)}
+                          className="text-xs text-muted-foreground hover:text-success transition-colors flex items-center gap-1"
+                          aria-label="Hide phone number"
+                        >
+                          <EyeOff className="w-3 h-3" />
+                          Hide
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
 

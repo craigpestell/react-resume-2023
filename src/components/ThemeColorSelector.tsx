@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Palette } from 'lucide-react';
-import { useExperiment } from '@/hooks/useExperiment';
+import { useEdgeABTest } from '@/hooks/useEdgeExperiment';
 
 const themeOptions = [
   { name: 'Default', value: 'default', preview: '#ffffff' },
@@ -26,7 +26,10 @@ export default function ThemeColorSelector() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   
   // Use experiment for default theme
-  const { config: themeExperiment } = useExperiment('theme-default-test');
+  const { config: themeExperiment } = useEdgeABTest('theme-default-test', {
+    defaultTheme: 'default',
+    defaultDarkMode: true
+  });
 
   useEffect(() => {
     // Load saved preferences or use experiment defaults

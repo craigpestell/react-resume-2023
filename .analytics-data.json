@@ -1,0 +1,84 @@
+[
+  {
+    "experimentId": "hero-cta-test",
+    "variantId": "control",
+    "eventType": "test_persistent_storage",
+    "userId": "user-1753773675009",
+    "timestamp": 1753773675009,
+    "data": {
+      "test": true
+    }
+  },
+  {
+    "experimentId": "hero-cta-test",
+    "variantId": "variant-a",
+    "eventType": "resume_download",
+    "userId": "user-1753773741656",
+    "timestamp": 1753773741656,
+    "data": {
+      "buttonText": "Get My Resume",
+      "source": "hero"
+    }
+  },
+  {
+    "experimentId": "hero-cta-test",
+    "variantId": "control",
+    "eventType": "social_click",
+    "userId": "user-1753773741676",
+    "timestamp": 1753773741676,
+    "data": {
+      "platform": "linkedin",
+      "source": "hero"
+    }
+  },
+  {
+    "experimentId": "hero-cta-test",
+    "variantId": "variant-a",
+    "eventType": "section_navigation",
+    "userId": "user-1753773741697",
+    "timestamp": 1753773741697,
+    "data": {
+      "section": "#contact",
+      "buttonType": "secondary"
+    }
+  },
+  {
+    "experimentId": "hero-cta-test",
+    "variantId": "variant-a",
+    "eventType": "resume_download",
+    "userId": "user-1753773845565",
+    "timestamp": 1753773845565,
+    "data": {
+      "variant": "variant-a",
+      "buttonText": "Get My Resume",
+      "user_id": "dd6209a5-1c20-4a76-8f59-37d3497e737d",
+      "experiments": []
+    }
+  },
+  {
+    "experimentId": "hero-cta-test",
+    "variantId": "variant-a",
+    "eventType": "resume_download",
+    "userId": "user-1753773850985",
+    "timestamp": 1753773850985,
+    "data": {
+      "variant": "variant-a",
+      "buttonText": "Get My Resume",
+      "user_id": "dd6209a5-1c20-4a76-8f59-37d3497e737d",
+      "experiments": []
+    }
+  },
+  {
+    "experimentId": "hero-cta-test",
+    "variantId": "variant-a",
+    "eventType": "section_navigation",
+    "userId": "user-1753773852521",
+    "timestamp": 1753773852521,
+    "data": {
+      "section": "#projects",
+      "variant": "variant-a",
+      "user_id": "dd6209a5-1c20-4a76-8f59-37d3497e737d",
+      "experiments": []
+    }
+  }
+]

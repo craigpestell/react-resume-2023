@@ -2,6 +2,7 @@
 
 import { Document, Page, Text, View, StyleSheet, pdf } from '@react-pdf/renderer';
 import { PortfolioData } from '@/data/portfolio';
+import { formatPhoneForDisplay } from '@/lib/phoneUtils';
 
 // Define styles for the PDF
 const styles = StyleSheet.create({
@@ -150,7 +151,7 @@ const ResumeDocument = ({ data }: { data: PortfolioData }) => {
           <Text style={styles.title}>{data.personalInfo.title}</Text>
           <View style={styles.contactInfo}>
             <Text>{data.personalInfo.email}</Text>
-            <Text>{data.personalInfo.phone}</Text>
+            <Text>{formatPhoneForDisplay(data.personalInfo.phone)}</Text>
             <Text>{data.personalInfo.location}</Text>
           </View>
         </View>
