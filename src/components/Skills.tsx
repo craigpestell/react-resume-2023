@@ -16,6 +16,8 @@ export default function Skills({ skills }: SkillsProps) {
     other: 'Other'
   };
 
+  const categoryOrder = ['frontend', 'backend', 'languages', 'tools', 'other'];
+
   const groupedSkills = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = [];
@@ -50,18 +52,20 @@ export default function Skills({ skills }: SkillsProps) {
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
-          {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                {skillCategories[category as keyof typeof skillCategories]}
-              </h3>
+          {categoryOrder.filter(category => groupedSkills[category]).map((category, categoryIndex) => {
+            const categorySkills = groupedSkills[category];
+            return (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <h3 className="text-2xl font-semibold mb-6 text-foreground">
+                  {skillCategories[category as keyof typeof skillCategories]}
+                </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {categorySkills.map((skill, index) => (
@@ -95,7 +99,8 @@ export default function Skills({ skills }: SkillsProps) {
                 ))}
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Skills Summary */}
@@ -106,9 +111,9 @@ export default function Skills({ skills }: SkillsProps) {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
             <div className="bg-card rounded-lg p-6 shadow-md">
-              <div className="text-3xl font-bold text-primary mb-2">
+              <div className="text-3xl font-bold text-accent mb-2">
                 {skills.length}
               </div>
               <div className="text-muted-foreground">
@@ -117,7 +122,7 @@ export default function Skills({ skills }: SkillsProps) {
             </div>
             
             <div className="bg-card rounded-lg p-6 shadow-md">
-              <div className="text-3xl font-bold text-success mb-2">
+              <div className="text-3xl font-bold text-accent mb-2">
                 {skills.filter(s => s.level >= 8).length}
               </div>
               <div className="text-muted-foreground">
@@ -125,23 +130,22 @@ export default function Skills({ skills }: SkillsProps) {
               </div>
             </div>
             
-            <div className="bg-card rounded-lg p-6 shadow-md">
-              <div className="text-3xl font-bold text-accent mb-2">
-                {Object.keys(groupedSkills).length}
-              </div>
-              <div className="text-muted-foreground">
-                Categories
-              </div>
-            </div>
-            
-            <div className="bg-card rounded-lg p-6 shadow-md">
-              <div className="text-3xl font-bold text-warning mb-2">
-                {Math.round(skills.reduce((acc, skill) => acc + skill.level, 0) / skills.length * 10)}%
-              </div>
-              <div className="text-muted-foreground">
-                Avg. Proficiency
-              </div>
-            </div>
+            {categoryOrder.filter(category => groupedSkills[category]).map((category) => {
+              const categorySkills = groupedSkills[category];
+              const avgLevel = categorySkills.reduce((acc, skill) => acc + skill.level, 0) / categorySkills.length;
+              const avgProficiency = Math.round(avgLevel * 10);
+              const colorClass = getSkillColor(avgLevel).replace('bg-', 'text-');
+              return (
+                <div key={category} className="bg-card rounded-lg p-6 shadow-md">
+                  <div className={`text-3xl font-bold ${colorClass} mb-2`}>
+                    {avgProficiency}%
+                  </div>
+                  <div className="text-muted-foreground text-sm">
+                    {skillCategories[category as keyof typeof skillCategories]}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
