@@ -11,7 +11,7 @@ html[data-theme="default"] {
   --secondary-foreground: #475569;
   
   /* Accent colors */
-  --accent: #3b82f6;
+  --accent: #2563eb;
   --accent-foreground: #ffffff;
   
   /* Muted colors */
@@ -36,15 +36,15 @@ html[data-theme="default"] {
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #16a34a;
+  --success: #047857;
   --success-foreground: #ffffff;
   
   /* Warning colors */
-  --warning: #f59e0b;
+  --warning: #b45309;
   --warning-foreground: #ffffff;
   
   /* Info colors */
-  --info: #0ea5e9;
+  --info: #0369a1;
   --info-foreground: #ffffff;
 }
 
@@ -54,7 +54,7 @@ html[data-theme="default"]:is(.dark *) {
   /* Primary colors */
   --background: #0f172a;
   --foreground: #f1f5f9;
-  --primary: #3b82f6;
+  --primary: #2563eb;
   --primary-foreground: #ffffff;
   
   /* Secondary colors */
@@ -72,7 +72,7 @@ html[data-theme="default"]:is(.dark *) {
   /* Border and input colors */
   --border: #334155;
   --input: #1e293b;
-  --ring: #3b82f6;
+  --ring: #2563eb;
   
   /* Card colors */
   --card: #1e293b;
@@ -83,11 +83,11 @@ html[data-theme="default"]:is(.dark *) {
   --popover-foreground: #f1f5f9;
   
   /* Destructive colors */
-  --destructive: #ef4444;
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #22c55e;
+  --success: #047857;
   --success-foreground: #ffffff;
   
   /* Warning colors */
