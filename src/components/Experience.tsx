@@ -38,21 +38,13 @@ export default function ExperienceSection({ experience, education }: ExperienceP
     
     return (
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         viewport={{ once: true }}
-        className="relative pl-8 pb-12"
+        className="h-full"
       >
-        {/* Timeline dot */}
-        <div className="absolute left-0 top-2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg"></div>
-        
-        {/* Timeline line */}
-        {index < experience.length - 1 && (
-          <div className="absolute left-2 top-6 w-0.5 h-full bg-border -translate-x-0.5"></div>
-        )}
-
-        <div className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+        <div className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow h-full">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <div>
               <h3 className="text-xl font-semibold text-card-foreground mb-1">
@@ -64,12 +56,15 @@ export default function ExperienceSection({ experience, education }: ExperienceP
               </div>
             </div>
             
-            <div className="flex items-center text-sm text-muted-foreground">
-              <Calendar className="w-4 h-4 mr-2" />
-              <span>
-                {formatDate(exp.startDate)} - {exp.endDate ? formatDate(exp.endDate) : 'Present'}
-              </span>
-              <span className="ml-2 text-xs bg-muted px-2 py-1 rounded">
+            <div className="text-sm text-muted-foreground">
+              <div className="flex items-center mb-1">
+                <Calendar className="w-4 h-4 mr-3" />
+                <div className="flex flex-col text-primary">
+                  <span className="text-right text-nowrap">{formatDate(exp.startDate)}</span>
+                  <span className="text-right text-nowrap">{exp.endDate ? formatDate(exp.endDate) : 'Present'}</span>
+                </div>
+              </div>
+              <span className="text-xs bg-muted px-2 py-1 rounded block text-center">
                 {calculateDuration(exp.startDate, exp.endDate)}
               </span>
             </div>
@@ -131,53 +126,58 @@ export default function ExperienceSection({ experience, education }: ExperienceP
 
   const EducationCard = ({ edu, index }: { edu: Education; index: number }) => (
     <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+      className="h-full"
     >
-      <div className="flex items-start justify-between mb-4">
-        <div>
-          <h3 className="text-xl font-semibold text-foreground mb-1">
-            {edu.degree}
-          </h3>
-          <p className="text-primary font-medium mb-1">
-            {edu.field}
-          </p>
-          <div className="flex items-center text-muted-foreground mb-2">
-            <Building className="w-4 h-4 mr-2" />
-            <span>{edu.institution}</span>
-          </div>
-        </div>
-        
-        <div className="text-right">
-          <div className="flex items-center text-sm text-muted-foreground mb-1">
-            <Calendar className="w-4 h-4 mr-2" />
-            <span>{formatDate(edu.startDate)} - {formatDate(edu.endDate)}</span>
-          </div>
-          {edu.gpa && (
-            <div className="text-sm text-muted-foreground">
-              GPA: {edu.gpa}
+      <div className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow h-full">
+        <div className="flex items-start justify-between mb-4">
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-1">
+              {edu.degree}
+            </h3>
+            <p className="text-primary font-medium mb-1">
+              {edu.field}
+            </p>
+            <div className="flex items-center text-muted-foreground mb-2">
+              <Building className="w-4 h-4 mr-2" />
+              <span>{edu.institution}</span>
             </div>
-          )}
+          </div>
+          
+          <div className="text-right">
+            <div className="flex items-center text-sm text-muted-foreground mb-1">
+              <Calendar className="w-4 h-4 mr-3" />
+              <div className="flex flex-col text-right text-primary">
+                <span className="text-right text-nowrap">{formatDate(edu.startDate)}</span>
+                <span className="text-right text-nowrap">{formatDate(edu.endDate)}</span>
+              </div>
+            </div>
+            {edu.gpa && (
+              <div className="text-sm text-muted-foreground text-center">
+                GPA: {edu.gpa}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
-      {edu.achievements && edu.achievements.length > 0 && (
-        <div>
-          <h4 className="text-sm font-medium text-foreground mb-2">
-            Achievements:
-          </h4>
-          <ul className="mx-4 list-disc list-outside space-y-1">
-            {edu.achievements.map((achievement, i) => (
-              <li key={i} className="text-muted-foreground text-sm">
-                {achievement}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+        {edu.achievements && edu.achievements.length > 0 && (
+          <div>
+            <h4 className="text-sm font-medium text-foreground mb-2">
+              Achievements:
+            </h4>
+            <ul className="mx-4 list-disc list-outside space-y-1">
+              {edu.achievements.map((achievement, i) => (
+                <li key={i} className="text-muted-foreground text-sm">
+                  {achievement}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </motion.div>
   );
 
@@ -200,43 +200,43 @@ export default function ExperienceSection({ experience, education }: ExperienceP
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Experience Section */}
-            <div>
-              <motion.h3
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="text-2xl font-semibold mb-8 text-foreground"
-              >
-                Professional Experience
-              </motion.h3>
-              
-              <div className="relative">
-                {experience.map((exp, index) => (
-                  <ExperienceCard key={exp.id} exp={exp} index={index} />
-                ))}
-              </div>
+          {/* Experience Section */}
+          <div className="mb-16">
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="text-2xl font-semibold mb-8 text-foreground"
+            >
+              Professional Experience
+            </motion.h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {experience.map((exp, index) => (
+                <div key={exp.id} className="relative">
+                  <ExperienceCard exp={exp} index={index} />
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* Education Section */}
-            <div>
-              <motion.h3
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="text-2xl font-semibold mb-8 text-foreground"
-              >
-                Education
-              </motion.h3>
-              
-              <div className="space-y-6">
-                {education.map((edu, index) => (
-                  <EducationCard key={edu.id} edu={edu} index={index} />
-                ))}
-              </div>
+          {/* Education Section */}
+          <div>
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="text-2xl font-semibold mb-8 text-foreground"
+            >
+              Education
+            </motion.h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {education.map((edu, index) => (
+                <EducationCard key={edu.id} edu={edu} index={index} />
+              ))}
             </div>
           </div>
         </div>

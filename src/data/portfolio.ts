@@ -71,7 +71,7 @@ export const portfolioData: PortfolioData = {
     website: "https://www.craigpestell.com",
     github: "https://github.com/craigpestell",
     linkedin: "https://linkedin.com/in/craigpestell",
-    profileImage: "/images/profile.png",
+    profileImage: "/images/icons8-eggman-robotnik-480.png",
     summary: "Senior Software Engineer with 15+ years of experience building enterprise applications for Apple, Google, Macy's, and Williams Sonoma. I specialize in full-stack development and turning complex problems into simple, effective solutions."
   },
   skills: [
@@ -110,6 +110,7 @@ export const portfolioData: PortfolioData = {
       technologies: ["TypeScript", "Next.js", "React", "Python"],
       imageUrl: "/images/portfolio-1.jpg",
       startDate: "2024-08",
+      endDate: "2025-09",
       featured: true
     },
     {
@@ -170,7 +171,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "project-6",
-      title: "Custom E-commerce Platform & CMS",
+      title: "Custom E-commerce Platform",
       description: "End-to-end development of responsive product catalog with integrated content management system",
       longDescription: "Independently designed and developed a comprehensive e-commerce platform for Kali Protectives, delivering a fully responsive product catalog with custom content management capabilities. Implemented Node.js REST API architecture, integrated Cloudinary for optimized image delivery, and established complete DevOps pipeline across development, staging, and production environments.",
       technologies: ["Node.js", "Express", "PostgreSQL", "Handlebars", "TinyMCE"],

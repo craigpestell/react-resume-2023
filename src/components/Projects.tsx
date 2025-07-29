@@ -24,7 +24,7 @@ export default function Projects({ projects }: ProjectsProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className={`bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group`}
+      className={`bg-card rounded-xl overflow-hidden shadow-lg transition-all duration-300`}
     >
             {/* Project Image */}
       <div className="relative h-48 md:h-56 bg-gradient-to-br from-muted to-secondary overflow-hidden">
@@ -34,14 +34,14 @@ export default function Projects({ projects }: ProjectsProps) {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
           <div className="flex space-x-4">
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-background/90 rounded-full hover:bg-background transition-colors"
+                className="p-3 bg-background/90 rounded-full transition-colors"
               >
                 <Github className="w-5 h-5 text-foreground" />
               </a>
@@ -53,13 +53,15 @@ export default function Projects({ projects }: ProjectsProps) {
       {/* Project Content */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-semibold text-card-foreground group-hover:text-primary transition-colors">
+          <h3 className="text-xl font-semibold text-card-foreground transition-colors">
             {project.title}
           </h3>
           <div className="flex items-center text-sm text-muted-foreground">
-            <Calendar className="w-4 h-4 mr-1" />
-            {formatDate(project.startDate)}
-            {project.endDate && ` - ${formatDate(project.endDate)}`}
+            <Calendar className="w-4 h-4 mr-3" />
+            <div className="flex flex-col text-right text-primary">
+              <span className="text-right text-nowrap">{formatDate(project.startDate)}</span>
+              {project.endDate && <span className="text-right text-nowrap">{formatDate(project.endDate)}</span>}
+            </div>
           </div>
         </div>
 
@@ -86,7 +88,7 @@ export default function Projects({ projects }: ProjectsProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center space-x-2 text-muted-foreground transition-colors"
             >
               <Github className="w-4 h-4" />
               <span>Source Code</span>
@@ -172,7 +174,7 @@ export default function Projects({ projects }: ProjectsProps) {
             href="https://github.com/craigpestell"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-3 rounded-lg font-medium hover:bg-foreground/90 transition-colors"
+            className="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-3 rounded-lg font-medium transition-colors"
           >
             <Github className="w-5 h-5" />
             <span>View All Projects on GitHub</span>
