@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Palette } from 'lucide-react';
+import { useExperiment } from '@/hooks/useExperiment';
 
 const themeOptions = [
   { name: 'Default', value: 'default', preview: '#ffffff' },
@@ -23,15 +24,24 @@ export default function ThemeColorSelector() {
   const [selectedTheme, setSelectedTheme] = useState('default');
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  // Use experiment for default theme
+  const { config: themeExperiment } = useExperiment('theme-default-test');
 
   useEffect(() => {
-    // Load saved preferences
-    const savedTheme = localStorage.getItem('selected-theme') || 'default';
+    // Load saved preferences or use experiment defaults
+    const savedTheme = localStorage.getItem('selected-theme');
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
-    const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : true;
-    setSelectedTheme(savedTheme);
-    applyTheme(savedTheme, defaultDarkMode);
-  }, []);
+    
+    // Use experiment config if no saved preference
+    const defaultTheme = savedTheme || (themeExperiment as { defaultTheme?: string })?.defaultTheme || 'default';
+    const defaultDarkMode = savedDarkMode !== null 
+      ? savedDarkMode === 'true' 
+      : (themeExperiment as { defaultDarkMode?: boolean })?.defaultDarkMode ?? true;
+    
+    setSelectedTheme(defaultTheme);
+    applyTheme(defaultTheme, defaultDarkMode);
+  }, [themeExperiment]);
 
   useEffect(() => {
     // Listen for theme changes from other components

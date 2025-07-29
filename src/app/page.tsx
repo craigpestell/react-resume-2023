@@ -1,7 +1,7 @@
 'use client';
 
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
+import Hero from '@/components/HeroWithTesting';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
@@ -22,7 +22,7 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground">
       <StructuredData personalInfo={portfolioData.personalInfo} />
       <Header onDownloadResume={handleDownloadResume} />
-      <Hero personalInfo={portfolioData.personalInfo} />
+      <Hero personalInfo={portfolioData.personalInfo} onDownloadResume={handleDownloadResume} />
       <Skills skills={portfolioData.skills} />
       <Projects projects={portfolioData.projects} />
       <Experience 
