@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Download, Menu, X } from 'lucide-react';
 import DarkThemeToggle from './DarkThemeToggle';
 
@@ -49,7 +50,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="font-bold text-xl text-primary">
-            Portfolio
+            <Link href="/">Portfolio</Link>
           </div>
 
           {/* Desktop Navigation */}

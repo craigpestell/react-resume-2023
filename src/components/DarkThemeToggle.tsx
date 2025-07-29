@@ -92,7 +92,7 @@ export default function DarkThemeToggle({
   };
 
   const getButtonClasses = () => {
-    const baseClasses = 'inline-flex items-center justify-center rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2';
+    const baseClasses = 'inline-flex items-center justify-center rounded-lg transition-colors focus:outline-none';
     
     let sizeClasses = '';
     switch (size) {
