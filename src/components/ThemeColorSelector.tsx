@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Palette, Sun, Moon } from 'lucide-react';
+import { Palette } from 'lucide-react';
 
 const themeOptions = [
   { name: 'Default', value: 'default', preview: '#ffffff' },
@@ -19,9 +19,8 @@ const themeOptions = [
   { name: 'Sunset', value: 'sunset', preview: '#ea580c' },
 ];
 
-export default function ThemeSelector() {
+export default function ThemeColorSelector() {
   const [selectedTheme, setSelectedTheme] = useState('default');
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -31,7 +30,6 @@ export default function ThemeSelector() {
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
     const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : true;
     setSelectedTheme(savedTheme);
-    setIsDarkMode(defaultDarkMode);
     applyTheme(savedTheme, defaultDarkMode);
   }, []);
 
@@ -41,16 +39,12 @@ export default function ThemeSelector() {
       if (event.key === 'selected-theme' && event.newValue) {
         setSelectedTheme(event.newValue);
       }
-      if (event.key === 'selected-dark-mode' && event.newValue !== null) {
-        setIsDarkMode(event.newValue === 'true');
-      }
     };
 
     // Listen for custom theme sync events (for same-tab changes)
     const handleThemeSync = (event: CustomEvent) => {
-      const { theme, darkMode } = event.detail;
+      const { theme } = event.detail;
       setSelectedTheme(theme);
-      setIsDarkMode(darkMode);
     };
 
     window.addEventListener('storage', handleStorageChange);
@@ -98,12 +92,17 @@ export default function ThemeSelector() {
   const handleThemeChange = (themeValue: string) => {
     setSelectedTheme(themeValue);
     localStorage.setItem('selected-theme', themeValue);
-    applyTheme(themeValue, isDarkMode);
+    
+    // Get current dark mode setting
+    const savedDarkMode = localStorage.getItem('selected-dark-mode');
+    const currentDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : true;
+    
+    applyTheme(themeValue, currentDarkMode);
     setIsOpen(false);
     
     // Sync with other theme selectors
     window.dispatchEvent(new CustomEvent('themeSync', {
-      detail: { theme: themeValue, darkMode: isDarkMode }
+      detail: { theme: themeValue, darkMode: currentDarkMode }
     }));
     
     // Trigger storage event manually for same-tab synchronization
@@ -114,48 +113,18 @@ export default function ThemeSelector() {
     }));
   };
 
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    localStorage.setItem('selected-dark-mode', newDarkMode.toString());
-    applyTheme(selectedTheme, newDarkMode);
-    
-    // Sync with other theme selectors
-    window.dispatchEvent(new CustomEvent('themeSync', {
-      detail: { theme: selectedTheme, darkMode: newDarkMode }
-    }));
-    
-    // Trigger storage event manually for same-tab synchronization
-    window.dispatchEvent(new StorageEvent('storage', {
-      key: 'selected-dark-mode',
-      newValue: newDarkMode.toString(),
-      storageArea: localStorage
-    }));
-  };
-
   const currentTheme = themeOptions.find(theme => theme.value === selectedTheme);
 
   return (
-    <div className="flex items-center space-x-2">
-      {/* Dark mode toggle */}
+    <div className="relative" ref={dropdownRef}>
       <button
-        onClick={toggleDarkMode}
-        className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted"
-        aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center space-x-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted"
+        aria-label="Select theme"
       >
-        {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        <Palette className="w-4 h-4" />
+        <span>{currentTheme?.name || 'Light'}</span>
       </button>
-      
-      {/* Theme selector */}
-      <div className="relative" ref={dropdownRef}>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center space-x-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted"
-          aria-label="Select theme"
-        >
-          <Palette className="w-4 h-4" />
-          <span>{currentTheme?.name || 'Light'}</span>
-        </button>
 
         {isOpen && (
           <div className="absolute bottom-full left-0 mb-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden min-w-[140px] z-50">
@@ -180,7 +149,6 @@ export default function ThemeSelector() {
             </div>
           </div>
         )}
-      </div>
     </div>
   );
 }

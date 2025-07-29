@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Download, Menu, X, Moon, Sun } from 'lucide-react';
+import { Download, Menu, X } from 'lucide-react';
+import DarkThemeToggle from './DarkThemeToggle';
 
 interface HeaderProps {
   onDownloadResume: () => void;
@@ -10,7 +11,6 @@ interface HeaderProps {
 export default function Header({ onDownloadResume }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,75 +20,6 @@ export default function Header({ onDownloadResume }: HeaderProps) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    // Load saved dark mode preference
-    const savedDarkMode = localStorage.getItem('selected-dark-mode');
-    const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : true;
-    setIsDarkMode(defaultDarkMode);
-  }, []);
-
-  useEffect(() => {
-    // Listen for theme changes from other components
-    const handleStorageChange = (event: StorageEvent) => {
-      if (event.key === 'selected-dark-mode' && event.newValue !== null) {
-        setIsDarkMode(event.newValue === 'true');
-      }
-    };
-
-    // Listen for custom theme sync events (for same-tab changes)
-    const handleThemeSync = (event: CustomEvent) => {
-      const { darkMode } = event.detail;
-      setIsDarkMode(darkMode);
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('themeSync', handleThemeSync as EventListener);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('themeSync', handleThemeSync as EventListener);
-    };
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    localStorage.setItem('selected-dark-mode', newDarkMode.toString());
-    
-    // Apply dark mode to current theme
-    const currentTheme = localStorage.getItem('selected-theme') || 'default';
-    const html = document.documentElement;
-    
-    if (newDarkMode) {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-    
-    // Always maintain the current theme
-    html.setAttribute('data-theme', currentTheme);
-    
-    // Sync with other theme selectors
-    window.dispatchEvent(new CustomEvent('themeSync', {
-      detail: { theme: currentTheme, darkMode: newDarkMode }
-    }));
-    
-    // Trigger storage event manually for same-tab synchronization
-    window.dispatchEvent(new StorageEvent('storage', {
-      key: 'selected-dark-mode',
-      newValue: newDarkMode.toString(),
-      storageArea: localStorage
-    }));
-  };
-
-  const getThemeIcon = () => {
-    return isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />;
-  };
-
-  const getThemeLabel = () => {
-    return isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
-  };
 
   const navLinks = [
     { href: '#about', label: 'About' },
@@ -137,14 +68,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
           {/* Action Buttons */}
           <div className="flex items-center space-x-4">
             {/* Theme Toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
-              aria-label={getThemeLabel()}
-              title={getThemeLabel()}
-            >
-              {getThemeIcon()}
-            </button>
+            <DarkThemeToggle size="md" variant="secondary" />
 
             {/* Download Resume Button */}
             <button
