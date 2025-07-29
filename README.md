@@ -1,14 +1,16 @@
-# Modern Portfolio Website
+# Craig Pestell - Portfolio Website
 
-A responsive portfolio website built with Next.js 15 and TailwindCSS, featuring dynamic resume generation and modern animations.
+A modern, responsive portfolio website for Craig Pestell, Senior Software Engineer, built with Next.js 15 and TailwindCSS. Features dynamic resume generation, theme customization, and modern animations.
 
 ## Features
 
-- **Modern Design**: Clean, responsive design with dark/light mode toggle
+- **Modern Design**: Clean, responsive design with multiple theme options and dark/light mode toggle
 - **Dynamic Resume Generation**: Click to download a professionally formatted PDF resume
+- **Theme Customization**: Multiple theme variants, font selection, and letter spacing controls
 - **Smooth Animations**: Framer Motion animations for enhanced user experience  
 - **Responsive Layout**: Optimized for all devices and screen sizes
-- **SEO Optimized**: Built with Next.js 15 for optimal performance
+- **SEO Optimized**: Built with Next.js 15 for optimal performance with structured data
+- **Email Integration**: Contact form with EmailJS integration
 - **Easy Customization**: Centralized data source for easy content updates
 
 ## Sections
@@ -22,25 +24,29 @@ A responsive portfolio website built with Next.js 15 and TailwindCSS, featuring 
 ## Technologies Used
 
 - **Framework**: Next.js 15 with App Router
-- **Styling**: TailwindCSS
+- **Styling**: TailwindCSS v4
 - **Animations**: Framer Motion
 - **PDF Generation**: @react-pdf/renderer
+- **Email Service**: EmailJS
 - **Icons**: Lucide React
+- **Typography**: Geist font family
 - **TypeScript**: Full type safety
+- **Development**: Storybook for component development
+- **Testing**: Vitest with browser testing capabilities
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 22+ (specified in package.json engines)
 - npm, yarn, pnpm, or bun
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
-   cd portfolio-website
+   git clone https://github.com/craigpestell/resume-2025.git
+   cd craigpestell.com
    ```
 
 2. Install dependencies:
@@ -62,7 +68,18 @@ A responsive portfolio website built with Next.js 15 and TailwindCSS, featuring 
    pnpm dev
    ```
 
+   The development server uses Turbopack for ultra-fast builds.
+
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Available Scripts
+
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build the application for production
+- `npm start` - Start the production server
+- `npm run lint` - Run ESLint for code linting
+- `npm run storybook` - Start Storybook development server
+- `npm run build-storybook` - Build Storybook for production
 
 ## Customization
 
@@ -78,8 +95,9 @@ Edit `src/data/portfolio.ts` to customize all content:
 
 ### 2. Customize Styling
 
-- **Colors**: Update `tailwind.config.js` for custom color scheme
-- **Fonts**: Modify `src/app/layout.tsx` for different fonts
+- **Colors**: Update `tailwind.config.js` for custom color scheme (using TailwindCSS v4)
+- **Fonts**: The project uses Geist font family, modify `src/app/layout.tsx` for different fonts
+- **Themes**: Multiple theme variants available in `src/components/ThemeChooser.tsx`
 - **Components**: Edit individual components in `src/components/`
 
 ### 3. Add Images
@@ -100,17 +118,30 @@ src/
 ├── app/
 │   ├── layout.tsx          # Root layout with fonts and metadata
 │   ├── page.tsx            # Main page component
-│   └── globals.css         # Global styles
+│   ├── globals.css         # Global styles
+│   ├── sitemap.ts          # Dynamic sitemap generation
+│   ├── api/                # API routes
+│   ├── dashboard/          # Dashboard routes
+│   └── themes/             # Theme-related routes
 ├── components/
 │   ├── Header.tsx          # Navigation header with theme toggle
 │   ├── Hero.tsx            # Hero section with introduction
 │   ├── Skills.tsx          # Skills showcase with progress bars
 │   ├── Projects.tsx        # Project portfolio grid
 │   ├── Experience.tsx      # Experience timeline and education
-│   ├── Contact.tsx         # Contact form and information
-│   └── ResumeGenerator.tsx # PDF resume generation
-└── data/
-    └── portfolio.ts        # All portfolio data and types
+│   ├── Contact.tsx         # Contact form with EmailJS
+│   ├── ResumeGenerator.tsx # PDF resume generation
+│   ├── ThemeChooser.tsx    # Theme selection component
+│   ├── FontSelector.tsx    # Font customization
+│   ├── LetterSpacingSelector.tsx # Typography controls
+│   ├── StructuredData.tsx  # SEO structured data
+│   └── ...                 # Other components
+├── data/
+│   └── portfolio.ts        # All portfolio data and types
+├── hooks/                  # Custom React hooks
+├── lib/                    # Utility functions
+├── stories/                # Storybook stories
+└── middleware.ts           # Next.js middleware
 ```
 
 ## Deployment
@@ -121,6 +152,8 @@ src/
 2. Connect your repository to [Vercel](https://vercel.com)
 3. Deploy with zero configuration
 
+The site is currently deployed at: [https://www.craigpestell.com](https://www.craigpestell.com)
+
 ### Other Platforms
 
 The site works on any platform that supports Next.js:
@@ -129,11 +162,38 @@ The site works on any platform that supports Next.js:
 - Digital Ocean App Platform
 - AWS Amplify
 
+## Development Tools
+
+### Storybook
+
+Run Storybook for component development:
+
+```bash
+npm run storybook
+# or
+yarn storybook
+```
+
+### Testing
+
+Run tests with Vitest:
+
+```bash
+npm test
+# or
+yarn test
+```
+
 ## Performance Features
 
 - **Turbopack**: Ultra-fast development builds
-- **Image Optimization**: Automatic image optimization
+- **Image Optimization**: Automatic image optimization with Next.js
 - **Code Splitting**: Automatic code splitting for optimal loading
-- **SEO**: Built-in SEO optimization
+- **SEO**: Built-in SEO optimization with structured data
+- **Edge Config**: Vercel Edge Config integration for dynamic content
 
-**Built with ❤️ using Next.js and TailwindCSS**
+**Built with ❤️ by Craig Pestell using Next.js, TailwindCSS, and TypeScript**
+
+---
+
+*This portfolio showcases modern web development practices and serves as both a personal website and a demonstration of technical skills in React, Next.js, and full-stack development.*
