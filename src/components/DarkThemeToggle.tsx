@@ -19,10 +19,15 @@ export default function DarkThemeToggle({
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Load saved dark mode preference
+    // Only set dark mode state if user has explicitly saved preferences
+    // Otherwise, let the CSS defaults (light mode) take precedence
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
-    const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : false;
-    setIsDarkMode(defaultDarkMode);
+    if (savedDarkMode !== null) {
+      setIsDarkMode(savedDarkMode === 'true');
+    } else {
+      // No saved preference, default to light mode (false)
+      setIsDarkMode(false);
+    }
   }, []);
 
   useEffect(() => {

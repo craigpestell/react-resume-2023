@@ -32,18 +32,23 @@ export default function ThemeColorSelector() {
   });
 
   useEffect(() => {
-    // Load saved preferences or use experiment defaults
+    // Only apply theme if user has explicitly saved preferences
+    // Otherwise, let the CSS defaults (Nord theme) take precedence
     const savedTheme = localStorage.getItem('selected-theme');
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
     
-    // Use experiment config if no saved preference
-    const defaultTheme = savedTheme || (themeExperiment as { defaultTheme?: string })?.defaultTheme || 'nord';
-    const defaultDarkMode = savedDarkMode !== null 
-      ? savedDarkMode === 'true' 
-      : (themeExperiment as { defaultDarkMode?: boolean })?.defaultDarkMode ?? false;
-    
-    setSelectedTheme(defaultTheme);
-    applyTheme(defaultTheme, defaultDarkMode);
+    if (savedTheme || savedDarkMode !== null) {
+      // User has saved preferences, apply them
+      const defaultTheme = savedTheme || 'nord';
+      const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : false;
+      
+      setSelectedTheme(defaultTheme);
+      applyTheme(defaultTheme, defaultDarkMode);
+    } else {
+      // No saved preferences, just set the state to match CSS defaults
+      // but don't call applyTheme to avoid overriding CSS
+      setSelectedTheme('nord');
+    }
   }, [themeExperiment]);
 
   useEffect(() => {
