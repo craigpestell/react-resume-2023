@@ -1,57 +1,6 @@
 /* Midnight Theme - Light */
 html[data-theme="midnight"] {
   /* Primary colors */
-  --background: #0c0a09;
-  --foreground: #fafaf9;
-  --primary: #7c3aed;
-  --primary-foreground: #ffffff;
-  
-  /* Secondary colors */
-  --secondary: #1c1917;
-  --secondary-foreground: #d6d3d1;
-  
-  /* Accent colors */
-  --accent: #8b5cf6;
-  --accent-foreground: #ffffff;
-  
-  /* Muted colors */
-  --muted: #1c1917;
-  --muted-foreground: #a8a29e;
-  
-  /* Border and input colors */
-  --border: #292524;
-  --input: #1c1917;
-  --ring: #7c3aed;
-  
-  /* Card colors */
-  --card: #1c1917;
-  --card-foreground: #fafaf9;
-  
-  /* Popover colors */
-  --popover: #1c1917;
-  --popover-foreground: #fafaf9;
-  
-  /* Destructive colors */
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  
-  /* Success colors */
-  --success: #22c55e;
-  --success-foreground: #ffffff;
-  
-  /* Warning colors */
-  --warning: #f59e0b;
-  --warning-foreground: #ffffff;
-  
-  /* Info colors */
-  --info: #06b6d4;
-  --info-foreground: #ffffff;
-}
-
-/* Midnight Theme - Dark */
-html[data-theme="midnight"].dark,
-html[data-theme="midnight"]:is(.dark *) {
-  /* Primary colors */
   --background: #f8fafc;
   --foreground: #1e1b4b;
   --primary: #4f46e5;
@@ -96,5 +45,56 @@ html[data-theme="midnight"]:is(.dark *) {
   
   /* Info colors */
   --info: #0369a1;
+  --info-foreground: #ffffff;
+}
+
+/* Midnight Theme - Dark */
+html[data-theme="midnight"].dark,
+html[data-theme="midnight"]:is(.dark *) {
+  /* Primary colors */
+  --background: #0c0a09;
+  --foreground: #fafaf9;
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #1c1917;
+  --secondary-foreground: #d6d3d1;
+  
+  /* Accent colors */
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  
+  /* Muted colors */
+  --muted: #1c1917;
+  --muted-foreground: #a8a29e;
+  
+  /* Border and input colors */
+  --border: #292524;
+  --input: #1c1917;
+  --ring: #7c3aed;
+  
+  /* Card colors */
+  --card: #1c1917;
+  --card-foreground: #fafaf9;
+  
+  /* Popover colors */
+  --popover: #1c1917;
+  --popover-foreground: #fafaf9;
+  
+  /* Destructive colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #06b6d4;
   --info-foreground: #ffffff;
 }

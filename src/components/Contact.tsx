@@ -230,7 +230,7 @@ export default function Contact({ personalInfo }: ContactProps) {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-card rounded-2xl p-8"
+              className="bg-accent/10 dark:bg-gradient-to-br from-accent/10 to-background/90 rounded-2xl p-8"
             >
               <h3 className="text-2xl font-semibold mb-6 text-foreground">
                 Send a Message

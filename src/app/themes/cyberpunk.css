@@ -1,56 +1,5 @@
-/* Cyberpunk Theme - Light (neon cyberpunk aesthetic) */
+/* Cyberpunk Theme - Light (accessible light theme) */
 html[data-theme="cyberpunk"] {
-  /* Primary colors */
-  --background: #0a0a0a;
-  --foreground: #00f5ff;
-  --primary: #ff00ff;
-  --primary-foreground: #000000;
-  
-  /* Secondary colors */
-  --secondary: #1a0a1a;
-  --secondary-foreground: #ff00aa;
-  
-  /* Accent colors */
-  --accent: #00ffff;
-  --accent-foreground: #000000;
-  
-  /* Muted colors */
-  --muted: #1a0a1a;
-  --muted-foreground: #aa00aa;
-  
-  /* Border and input colors */
-  --border: #330a33;
-  --input: #1a0a1a;
-  --ring: #ff00ff;
-  
-  /* Card colors */
-  --card: #1a0a1a;
-  --card-foreground: #00f5ff;
-  
-  /* Popover colors */
-  --popover: #1a0a1a;
-  --popover-foreground: #00f5ff;
-  
-  /* Destructive colors */
-  --destructive: #ff073a;
-  --destructive-foreground: #000000;
-  
-  /* Success colors */
-  --success: #39ff14;
-  --success-foreground: #000000;
-  
-  /* Warning colors */
-  --warning: #ffff00;
-  --warning-foreground: #000000;
-  
-  /* Info colors */
-  --info: #00f5ff;
-  --info-foreground: #000000;
-}
-
-/* Cyberpunk Theme - Dark */
-html[data-theme="cyberpunk"].dark,
-html[data-theme="cyberpunk"]:is(.dark *) {
   /* Primary colors */
   --background: #f5f0ff;
   --foreground: #4a0a5a;
@@ -97,4 +46,55 @@ html[data-theme="cyberpunk"]:is(.dark *) {
   /* Info colors */
   --info: #005f8a;
   --info-foreground: #ffffff;
+}
+
+/* Cyberpunk Theme - Dark (neon cyberpunk aesthetic) */
+html[data-theme="cyberpunk"].dark,
+html[data-theme="cyberpunk"]:is(.dark *) {
+  /* Primary colors */
+  --background: #0a0a0a;
+  --foreground: #00f5ff;
+  --primary: #ff00ff;
+  --primary-foreground: #000000;
+  
+  /* Secondary colors */
+  --secondary: #1a0a1a;
+  --secondary-foreground: #ff00aa;
+  
+  /* Accent colors */
+  --accent: #00ffff;
+  --accent-foreground: #000000;
+  
+  /* Muted colors */
+  --muted: #1a0a1a;
+  --muted-foreground: #aa00aa;
+  
+  /* Border and input colors */
+  --border: #330a33;
+  --input: #1a0a1a;
+  --ring: #ff00ff;
+  
+  /* Card colors */
+  --card: #1a0a1a;
+  --card-foreground: #00f5ff;
+  
+  /* Popover colors */
+  --popover: #1a0a1a;
+  --popover-foreground: #00f5ff;
+  
+  /* Destructive colors */
+  --destructive: #ff073a;
+  --destructive-foreground: #000000;
+  
+  /* Success colors */
+  --success: #39ff14;
+  --success-foreground: #000000;
+  
+  /* Warning colors */
+  --warning: #ffff00;
+  --warning-foreground: #000000;
+  
+  /* Info colors */
+  --info: #00f5ff;
+  --info-foreground: #000000;
 }

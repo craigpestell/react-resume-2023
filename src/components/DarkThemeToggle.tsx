@@ -141,7 +141,7 @@ export default function DarkThemeToggle({
     >
       {getThemeIcon()}
       {showLabel && (
-        <span>{isDarkMode ? 'Light' : 'Dark'}</span>
+        <span>{isDarkMode ? 'Dark' : 'Light'}</span>
       )}
     </button>
   );

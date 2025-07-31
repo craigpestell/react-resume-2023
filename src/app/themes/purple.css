@@ -1,57 +1,6 @@
 /* Purple Theme - Light */
 html[data-theme="purple"] {
   /* Primary colors */
-  --background: #1e1b4b;
-  --foreground: #e5e7eb;
-  --primary: #8b5cf6;
-  --primary-foreground: #ffffff;
-  
-  /* Secondary colors */
-  --secondary: #581c87;
-  --secondary-foreground: #c4b5fd;
-  
-  /* Accent colors */
-  --accent: #a855f7;
-  --accent-foreground: #1e1b4b;
-  
-  /* Muted colors */
-  --muted: #6b21a8;
-  --muted-foreground: #94a3b8;
-  
-  /* Border and input colors */
-  --border: #7c3aed;
-  --input: #581c87;
-  --ring: #8b5cf6;
-  
-  /* Card colors */
-  --card: #581c87;
-  --card-foreground: #e5e7eb;
-  
-  /* Popover colors */
-  --popover: #581c87;
-  --popover-foreground: #e5e7eb;
-  
-  /* Destructive colors */
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  
-  /* Success colors */
-  --success: #22c55e;
-  --success-foreground: #ffffff;
-  
-  /* Warning colors */
-  --warning: #f59e0b;
-  --warning-foreground: #ffffff;
-  
-  /* Info colors */
-  --info: #06b6d4;
-  --info-foreground: #ffffff;
-}
-
-/* Purple Theme - Dark */
-html[data-theme="purple"].dark,
-html[data-theme="purple"]:is(.dark *) {
-  /* Primary colors */
   --background: #faf5ff;
   --foreground: #581c87;
   --primary: #7c3aed;
@@ -96,5 +45,56 @@ html[data-theme="purple"]:is(.dark *) {
   
   /* Info colors */
   --info: #0369a1;
+  --info-foreground: #ffffff;
+}
+
+/* Purple Theme - Dark */
+html[data-theme="purple"].dark,
+html[data-theme="purple"]:is(.dark *) {
+  /* Primary colors */
+  --background: #1e1b4b;
+  --foreground: #e5e7eb;
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary colors */
+  --secondary: #581c87;
+  --secondary-foreground: #c4b5fd;
+  
+  /* Accent colors */
+  --accent: #a855f7;
+  --accent-foreground: #1e1b4b;
+  
+  /* Muted colors */
+  --muted: #6b21a8;
+  --muted-foreground: #94a3b8;
+  
+  /* Border and input colors */
+  --border: #7c3aed;
+  --input: #581c87;
+  --ring: #8b5cf6;
+  
+  /* Card colors */
+  --card: #581c87;
+  --card-foreground: #e5e7eb;
+  
+  /* Popover colors */
+  --popover: #581c87;
+  --popover-foreground: #e5e7eb;
+  
+  /* Destructive colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Success colors */
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+  
+  /* Warning colors */
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  
+  /* Info colors */
+  --info: #06b6d4;
   --info-foreground: #ffffff;
 }
