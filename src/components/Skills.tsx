@@ -75,7 +75,7 @@ export default function Skills({ skills }: SkillsProps) {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+                    className="bg-gradient-to-br from-card to-card/10 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
                   >
                     <div className="flex items-center justify-between mb-3">
                       <h4 className="text-lg font-medium text-card-foreground">

@@ -125,7 +125,7 @@ export default function DarkThemeToggle({
 
   const getThemeIcon = () => {
     const iconClass = getIconSize();
-    return isDarkMode ? <Sun className={iconClass} /> : <Moon className={iconClass} />;
+    return isDarkMode ? <Sun className={iconClass} /> : <Sun className={iconClass} />;
   };
 
   const getThemeLabel = () => {

@@ -24,9 +24,9 @@ export default function Projects({ projects }: ProjectsProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className={`bg-card rounded-xl overflow-hidden shadow-lg transition-all duration-300`}
+      className={`bg-gradient-to-br from-card to-card/10 rounded-xl overflow-hidden shadow-lg transition-all duration-300`}
     >
-            {/* Project Image */}
+      {/* Project Image */}
       <div className="relative h-48 md:h-56 bg-gradient-to-br from-muted to-secondary overflow-hidden">
         <Image
           src={project.imageUrl}

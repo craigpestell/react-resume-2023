@@ -44,7 +44,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
         viewport={{ once: true }}
         className="h-full"
       >
-        <div className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow h-full">
+        <div className="bg-gradient-to-br from-card to-card/10 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow h-full">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <div>
               <h3 className="text-xl font-semibold text-card-foreground mb-1">
@@ -132,7 +132,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
       viewport={{ once: true }}
       className="h-full"
     >
-      <div className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow h-full">
+      <div className="bg-gradient-to-br from-card to-card/10 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow h-full">
         <div className="flex items-start justify-between mb-4">
           <div>
             <h3 className="text-xl font-semibold text-foreground mb-1">
