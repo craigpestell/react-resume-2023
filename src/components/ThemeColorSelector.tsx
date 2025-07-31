@@ -21,14 +21,14 @@ const themeOptions = [
 ];
 
 export default function ThemeColorSelector() {
-  const [selectedTheme, setSelectedTheme] = useState('default');
+  const [selectedTheme, setSelectedTheme] = useState('nord');
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   
   // Use experiment for default theme
   const { config: themeExperiment } = useEdgeABTest('theme-default-test', {
-    defaultTheme: 'default',
-    defaultDarkMode: true
+    defaultTheme: 'nord',
+    defaultDarkMode: false
   });
 
   useEffect(() => {
@@ -37,10 +37,10 @@ export default function ThemeColorSelector() {
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
     
     // Use experiment config if no saved preference
-    const defaultTheme = savedTheme || (themeExperiment as { defaultTheme?: string })?.defaultTheme || 'default';
+    const defaultTheme = savedTheme || (themeExperiment as { defaultTheme?: string })?.defaultTheme || 'nord';
     const defaultDarkMode = savedDarkMode !== null 
       ? savedDarkMode === 'true' 
-      : (themeExperiment as { defaultDarkMode?: boolean })?.defaultDarkMode ?? true;
+      : (themeExperiment as { defaultDarkMode?: boolean })?.defaultDarkMode ?? false;
     
     setSelectedTheme(defaultTheme);
     applyTheme(defaultTheme, defaultDarkMode);
@@ -108,7 +108,7 @@ export default function ThemeColorSelector() {
     
     // Get current dark mode setting
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
-    const currentDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : true;
+    const currentDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : false;
     
     applyTheme(themeValue, currentDarkMode);
     setIsOpen(false);

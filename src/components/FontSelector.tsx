@@ -25,13 +25,13 @@ const fontOptions = [
 ];
 
 export default function FontSelector() {
-  const [selectedFont, setSelectedFont] = useState('nunito');
+  const [selectedFont, setSelectedFont] = useState('inconsolata');
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Load saved font preference
-    const savedFont = localStorage.getItem('selected-font') || 'nunito';
+    const savedFont = localStorage.getItem('selected-font') || 'inconsolata';
     setSelectedFont(savedFont);
     applyFont(savedFont);
   }, []);
@@ -85,7 +85,7 @@ export default function FontSelector() {
         aria-label="Select font"
       >
         <Type className="w-4 h-4" />
-        <span>{currentFont?.name || 'Nunito'}</span>
+        <span>{currentFont?.name || 'Inconsolata'}</span>
       </button>
 
       {isOpen && (

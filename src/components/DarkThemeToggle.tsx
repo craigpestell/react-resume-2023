@@ -21,7 +21,7 @@ export default function DarkThemeToggle({
   useEffect(() => {
     // Load saved dark mode preference
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
-    const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : true;
+    const defaultDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : false;
     setIsDarkMode(defaultDarkMode);
   }, []);
 
@@ -54,7 +54,7 @@ export default function DarkThemeToggle({
     localStorage.setItem('selected-dark-mode', newDarkMode.toString());
     
     // Apply dark mode to current theme
-    const currentTheme = localStorage.getItem('selected-theme') || 'default';
+    const currentTheme = localStorage.getItem('selected-theme') || 'nord';
     const html = document.documentElement;
     
     // Remove all theme attributes and classes first
@@ -125,7 +125,7 @@ export default function DarkThemeToggle({
 
   const getThemeIcon = () => {
     const iconClass = getIconSize();
-    return isDarkMode ? <Sun className={iconClass} /> : <Sun className={iconClass} />;
+    return isDarkMode ? <Sun className={iconClass} /> : <Moon className={iconClass} />;
   };
 
   const getThemeLabel = () => {

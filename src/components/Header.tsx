@@ -12,10 +12,26 @@ interface HeaderProps {
 export default function Header({ onDownloadResume }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Find the current active section
+      const sections = ['about', 'skills', 'projects', 'experience', 'contact'];
+      const currentSection = sections.find(section => {
+        const element = document.querySelector(`#${section}`);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -50,7 +66,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="font-bold text-xl text-primary">
-            <Link href="/">Portfolio</Link>
+            <Link href="/">{"<CraigPestell />"}</Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -59,7 +75,11 @@ export default function Header({ onDownloadResume }: HeaderProps) {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-foreground hover:text-primary transition-colors lg:text-xl"
+                className={`text-foreground hover:text-primary transition-colors lg:text-xl relative ${
+                  activeSection === link.href.substring(1) 
+                    ? 'text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:content-[\'\']' 
+                    : ''
+                }`}
               >
                 {link.label}
               </button>
@@ -103,7 +123,11 @@ export default function Header({ onDownloadResume }: HeaderProps) {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors"
+                  className={`block w-full text-left px-4 py-2 hover:bg-muted transition-colors ${
+                    activeSection === link.href.substring(1)
+                      ? 'text-primary bg-primary/10 border-l-2 border-primary'
+                      : 'text-foreground hover:text-primary'
+                  }`}
                 >
                   {link.label}
                 </button>

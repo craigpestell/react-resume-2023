@@ -1,152 +1,102 @@
-/* Monokai Theme - Light variant (inspired by Monokai Pro light theme) */
-html[data-theme="monokai"] {
-  /* Primary colors */
-  --background: #fcfcfa;
-  --foreground: #2d2a2e;
-  --primary: #0f7173;
-  --primary-foreground: #ffffff;
-  
-  /* Secondary colors */
-  --secondary: #f4f3f0;
-  --secondary-foreground: #2d2a2e;
-  
-  /* Accent colors */
-  --accent: #7f5f00;
-  --accent-foreground: #ffffff;
-  
-  /* Muted colors */
-  --muted: #f8f7f4;
-  --muted-foreground: #6c6783;
-  
-  /* Border and input colors */
-  --border: #e8e6df;
-  --input: #ffffff;
-  --ring: #0f7173;
-  
-  /* Card colors */
-  --card: #ffffff;
-  --card-foreground: #2d2a2e;
-  
-  /* Popover colors */
-  --popover: #ffffff;
-  --popover-foreground: #2d2a2e;
-  
-  /* Destructive colors */
-  --destructive: #d70025;
-  --destructive-foreground: #ffffff;
-  
-  /* Success colors */
-  --success: #7f5f00;
-  --success-foreground: #ffffff;
-  
-  /* Warning colors */
-  --warning: #ad8900;
-  --warning-foreground: #ffffff;
-  
-  /* Info colors */
-  --info: #0f7173;
-  --info-foreground: #ffffff;
-}
-
-/* Monokai Theme - Dark variant (classic Monokai editor theme) */
-@media (prefers-color-scheme: dark) {
+/* Monokai Theme - Light variant (classic Monokai editor theme) */
+/* Monokai Theme - Dark variant (inspired by Monokai Pro light theme) */
   html[data-theme="monokai"] {
     /* Primary colors */
-    --background: #272822;
-    --foreground: #f8f8f2;
-    --primary: #66d9ef;
-    --primary-foreground: #272822;
+    --background: #fcfcfa;
+    --foreground: #2d2a2e;
+    --primary: #0f7173;
+    --primary-foreground: #ffffff;
     
     /* Secondary colors */
-    --secondary: #383830;
-    --secondary-foreground: #f8f8f2;
+    --secondary: #f4f3f0;
+    --secondary-foreground: #2d2a2e;
     
     /* Accent colors */
-    --accent: #a6e22e;
-    --accent-foreground: #272822;
+    --accent: #7f5f00;
+    --accent-foreground: #ffffff;
     
     /* Muted colors */
-    --muted: #383830;
-    --muted-foreground: #75715e;
+    --muted: #f8f7f4;
+    --muted-foreground: #6c6783;
     
     /* Border and input colors */
-    --border: #49483e;
-    --input: #383830;
-    --ring: #66d9ef;
+    --border: #e8e6df;
+    --input: #ffffff;
+    --ring: #0f7173;
     
     /* Card colors */
-    --card: #383830;
-    --card-foreground: #f8f8f2;
+    --card: #ffffff;
+    --card-foreground: #2d2a2e;
     
     /* Popover colors */
-    --popover: #383830;
-    --popover-foreground: #f8f8f2;
+    --popover: #ffffff;
+    --popover-foreground: #2d2a2e;
     
     /* Destructive colors */
-    --destructive: #f92672;
+    --destructive: #d70025;
     --destructive-foreground: #ffffff;
     
     /* Success colors */
-    --success: #a6e22e;
-    --success-foreground: #272822;
+    --success: #7f5f00;
+    --success-foreground: #ffffff;
     
     /* Warning colors */
-    --warning: #e6db74;
-    --warning-foreground: #272822;
+    --warning: #ad8900;
+    --warning-foreground: #ffffff;
     
     /* Info colors */
-    --info: #66d9ef;
-    --info-foreground: #272822;
+    --info: #0f7173;
+    --info-foreground: #ffffff;
   }
-}
 
-/* Monokai Theme - Dark */
+
 html[data-theme="monokai"].dark,
 html[data-theme="monokai"]:is(.dark *) {
   /* Primary colors */
-  --background: #f7f7f7;
-  --foreground: #272822;
-  --primary: #005f8a;
-  --primary-foreground: #ffffff;
+  --background: #272822;
+  --foreground: #f8f8f2;
+  --primary: #66d9ef;
+  --primary-foreground: #272822;
   
   /* Secondary colors */
-  --secondary: #e8e8e8;
-  --secondary-foreground: #383830;
+  --secondary: #383830;
+  --secondary-foreground: #f8f8f2;
   
   /* Accent colors */
-  --accent: #198754;
-  --accent-foreground: #ffffff;
+  --accent: #a6e22e;
+  --accent-foreground: #272822;
   
   /* Muted colors */
-  --muted: #f0f0f0;
-  --muted-foreground: #666666;
+  --muted: #383830;
+  --muted-foreground: #75715e;
   
   /* Border and input colors */
-  --border: #cccccc;
-  --input: #ffffff;
-  --ring: #0088cc;
+  --border: #49483e;
+  --input: #383830;
+  --ring: #66d9ef;
   
   /* Card colors */
-  --card: #ffffff;
-  --card-foreground: #272822;
+  --card: #383830;
+  --card-foreground: #f8f8f2;
   
   /* Popover colors */
-  --popover: #ffffff;
-  --popover-foreground: #272822;
+  --popover: #383830;
+  --popover-foreground: #f8f8f2;
   
   /* Destructive colors */
-  --destructive: #b02a37;
+  --destructive: #f92672;
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #198754;
-  --success-foreground: #ffffff;
+  --success: #a6e22e;
+  --success-foreground: #272822;
   
   /* Warning colors */
-  --warning: #b45309;
-  --warning-foreground: #ffffff;
+  --warning: #e6db74;
+  --warning-foreground: #272822;
   
   /* Info colors */
-  --info: #005f8a;
-  --info-foreground: #ffffff;
+  --info: #66d9ef;
+  --info-foreground: #272822;
 }
+
