@@ -4,7 +4,7 @@ html.dark {
   /* Primary colors */
   --background: #0f172a;
   --foreground: #f1f5f9;
-  --primary: #3b82f6;
+  --primary: #2563eb;
   --primary-foreground: #ffffff;
   
   /* Secondary colors */
@@ -33,11 +33,11 @@ html.dark {
   --popover-foreground: #f1f5f9;
   
   /* Destructive colors */
-  --destructive: #ef4444;
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #22c55e;
+  --success: #047857;
   --success-foreground: #ffffff;
   
   /* Warning colors */

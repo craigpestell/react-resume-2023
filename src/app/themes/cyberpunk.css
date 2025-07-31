@@ -87,14 +87,14 @@ html[data-theme="cyberpunk"]:is(.dark *) {
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #32cd32;
+  --success: #198754;
   --success-foreground: #ffffff;
   
   /* Warning colors */
-  --warning: #ffa500;
-  --warning-foreground: #ffffff;
+  --warning: #ff8c00;
+  --warning-foreground: #000000;
   
   /* Info colors */
-  --info: #00bfff;
+  --info: #005f8a;
   --info-foreground: #ffffff;
 }

@@ -106,7 +106,7 @@ html[data-theme="monokai"]:is(.dark *) {
   /* Primary colors */
   --background: #f7f7f7;
   --foreground: #272822;
-  --primary: #0088cc;
+  --primary: #005f8a;
   --primary-foreground: #ffffff;
   
   /* Secondary colors */
@@ -114,7 +114,7 @@ html[data-theme="monokai"]:is(.dark *) {
   --secondary-foreground: #383830;
   
   /* Accent colors */
-  --accent: #5cb85c;
+  --accent: #198754;
   --accent-foreground: #ffffff;
   
   /* Muted colors */
@@ -135,18 +135,18 @@ html[data-theme="monokai"]:is(.dark *) {
   --popover-foreground: #272822;
   
   /* Destructive colors */
-  --destructive: #d9534f;
+  --destructive: #b02a37;
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #5cb85c;
+  --success: #198754;
   --success-foreground: #ffffff;
   
   /* Warning colors */
-  --warning: #f0ad4e;
+  --warning: #b45309;
   --warning-foreground: #ffffff;
   
   /* Info colors */
-  --info: #5bc0de;
+  --info: #005f8a;
   --info-foreground: #ffffff;
 }

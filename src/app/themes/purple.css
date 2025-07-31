@@ -62,7 +62,7 @@ html[data-theme="purple"]:is(.dark *) {
   --secondary-foreground: #581c87;
   
   /* Accent colors */
-  --accent: #8b5cf6;
+  --accent: #7c3aed;
   --accent-foreground: #ffffff;
   
   /* Muted colors */
@@ -87,14 +87,14 @@ html[data-theme="purple"]:is(.dark *) {
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #16a34a;
+  --success: #047857;
   --success-foreground: #ffffff;
   
   /* Warning colors */
-  --warning: #d97706;
+  --warning: #b45309;
   --warning-foreground: #ffffff;
   
   /* Info colors */
-  --info: #0891b2;
+  --info: #0369a1;
   --info-foreground: #ffffff;
 }

@@ -54,7 +54,7 @@ html[data-theme="nord"]:is(.dark *) {
   /* Primary colors */
   --background: #eceff4;
   --foreground: #2e3440;
-  --primary: #5e81ac;
+  --primary: #4c6b8a;
   --primary-foreground: #ffffff;
   
   /* Secondary colors */
@@ -62,8 +62,8 @@ html[data-theme="nord"]:is(.dark *) {
   --secondary-foreground: #3b4252;
   
   /* Accent colors */
-  --accent: #88c0d0;
-  --accent-foreground: #ffffff;
+  --accent: #5e81ac;
+  --accent-foreground: #2e3440;
   
   /* Muted colors */
   --muted: #f0f3f6;
@@ -83,11 +83,11 @@ html[data-theme="nord"]:is(.dark *) {
   --popover-foreground: #2e3440;
   
   /* Destructive colors */
-  --destructive: #bf616a;
+  --destructive: #a54c57;
   --destructive-foreground: #ffffff;
   
   /* Success colors */
-  --success: #a3be8c;
+  --success: #4d7c4d;
   --success-foreground: #ffffff;
   
   /* Warning colors */
@@ -95,6 +95,6 @@ html[data-theme="nord"]:is(.dark *) {
   --warning-foreground: #2e3440;
   
   /* Info colors */
-  --info: #81a1c1;
+  --info: #4c6b8a;
   --info-foreground: #ffffff;
 }

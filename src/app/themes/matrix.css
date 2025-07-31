@@ -62,7 +62,7 @@ html[data-theme="matrix"]:is(.dark *) {
   --secondary-foreground: #004400;
   
   /* Accent colors */
-  --accent: #00aa00;
+  --accent: #007700;
   --accent-foreground: #ffffff;
   
   /* Muted colors */
@@ -91,10 +91,10 @@ html[data-theme="matrix"]:is(.dark *) {
   --success-foreground: #ffffff;
   
   /* Warning colors */
-  --warning: #cc8800;
+  --warning: #b45309;
   --warning-foreground: #ffffff;
   
   /* Info colors */
-  --info: #0088cc;
+  --info: #005f8a;
   --info-foreground: #ffffff;
 }

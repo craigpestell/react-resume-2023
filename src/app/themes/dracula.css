@@ -67,7 +67,7 @@ html[data-theme="dracula"]:is(.dark *) {
   
   /* Muted colors */
   --muted: #f0f0f0;
-  --muted-foreground: #6c757d;
+  --muted-foreground: #495057;
   
   /* Border and input colors */
   --border: #dee2e6;
