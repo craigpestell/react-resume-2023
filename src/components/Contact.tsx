@@ -153,16 +153,6 @@ export default function Contact({ personalInfo }: ContactProps) {
                           Show
                         </button>
                       )}
-                      {showFullPhone && (
-                        <button
-                          onClick={() => setShowFullPhone(false)}
-                          className="text-xs text-muted-foreground hover:text-success transition-colors flex items-center gap-1"
-                          aria-label="Hide phone number"
-                        >
-                          <EyeOff className="w-3 h-3" />
-                          Hide
-                        </button>
-                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -212,14 +202,29 @@ export default function Contact({ personalInfo }: ContactProps) {
                   >
                     GitHub
                   </a>
-                  <a
-                    href={personalInfo.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:text-accent/80 transition-colors"
-                  >
-                    Website
-                  </a>
+                                      <div className="flex items-center gap-2">
+                      <a 
+                        href={showFullPhone ? phoneData.telLink : '#'}
+                        className="text-muted-foreground hover:text-success transition-colors"
+                        onClick={showFullPhone ? undefined : (e) => {
+                          e.preventDefault();
+                          setShowFullPhone(true);
+                        }}
+                      >
+                        {showFullPhone ? phoneData.original : "Phone"}
+                      </a>
+                      {!showFullPhone && (
+                        <button
+                          onClick={() => setShowFullPhone(true)}
+                          className="text-xs text-muted-foreground hover:text-success transition-colors flex items-center gap-1"
+                          aria-label="Reveal full phone number"
+                        >
+                          <Eye className="w-3 h-3" />
+                          Show
+                        </button>
+                      )}
+                    </div>
+
                 </div>
               </motion.div>
             </motion.div>

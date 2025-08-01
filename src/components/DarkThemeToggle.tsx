@@ -20,13 +20,14 @@ export default function DarkThemeToggle({
 
   useEffect(() => {
     // Only set dark mode state if user has explicitly saved preferences
-    // Otherwise, let the CSS defaults (light mode) take precedence
+    // Otherwise, use the system preference
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
     if (savedDarkMode !== null) {
       setIsDarkMode(savedDarkMode === 'true');
     } else {
-      // No saved preference, default to light mode (false)
-      setIsDarkMode(false);
+      // No saved preference, use system preference
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(systemPrefersDark);
     }
   }, []);
 

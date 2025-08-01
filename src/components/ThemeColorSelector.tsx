@@ -33,7 +33,7 @@ export default function ThemeColorSelector() {
 
   useEffect(() => {
     // Only apply theme if user has explicitly saved preferences
-    // Otherwise, let the CSS defaults (Nord theme) take precedence
+    // Otherwise, let the CSS defaults (Nord theme) take precedence but apply system dark mode preference
     const savedTheme = localStorage.getItem('selected-theme');
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
     
@@ -45,9 +45,13 @@ export default function ThemeColorSelector() {
       setSelectedTheme(defaultTheme);
       applyTheme(defaultTheme, defaultDarkMode);
     } else {
-      // No saved preferences, just set the state to match CSS defaults
-      // but don't call applyTheme to avoid overriding CSS
+      // No saved preferences, use system preference for dark mode but keep Nord theme
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       setSelectedTheme('nord');
+      if (systemPrefersDark) {
+        applyTheme('nord', true);
+      }
+      // If system prefers light, CSS defaults will handle it (no need to call applyTheme)
     }
   }, [themeExperiment]);
 
@@ -111,9 +115,11 @@ export default function ThemeColorSelector() {
     setSelectedTheme(themeValue);
     localStorage.setItem('selected-theme', themeValue);
     
-    // Get current dark mode setting
+    // Get current dark mode setting or use system preference
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
-    const currentDarkMode = savedDarkMode !== null ? savedDarkMode === 'true' : false;
+    const currentDarkMode = savedDarkMode !== null 
+      ? savedDarkMode === 'true' 
+      : window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     applyTheme(themeValue, currentDarkMode);
     setIsOpen(false);
