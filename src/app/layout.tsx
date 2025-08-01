@@ -19,6 +19,7 @@ import {
   Space_Mono,
   Inconsolata
 } from 'next/font/google';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import "./globals.css";
 
 // Configure Google Fonts
@@ -186,11 +187,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" data-theme="nord">
+    <html lang="en" className="scroll-smooth" data-theme="nord" suppressHydrationWarning>
       <body
         className={`${nunito.className} ${GeistSans.className} ${inter.variable} ${roboto.variable} ${openSans.variable} ${poppins.variable} ${montserrat.variable} ${sourceSans.variable} ${nunito.variable} ${lato.variable} ${workSans.variable} ${dmSans.variable} ${plusJakarta.variable} ${outfit.variable} ${jetbrainsMono.variable} ${firaCode.variable} ${ubuntuMono.variable} ${spaceMono.variable} ${inconsolata.variable} tracking-wide antialiased`}
+        suppressHydrationWarning
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

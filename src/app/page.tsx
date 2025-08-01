@@ -10,6 +10,7 @@ import StructuredData from '@/components/StructuredData';
 import FontSelector from '@/components/FontSelector';
 import LetterSpacingSelector from '@/components/LetterSpacingSelector';
 import ThemeChooser from '@/components/ThemeChooser';
+import HydrationSafeWrapper from '@/components/HydrationSafeWrapper';
 import { portfolioData } from '@/data/portfolio';
 import { generateResume } from '@/components/ResumeGenerator';
 
@@ -40,20 +41,26 @@ export default function Home() {
               © 2025 {portfolioData.personalInfo.name}. Built with Next.js and TailwindCSS.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6">
-              <ThemeChooser 
-                showLabels={true}
-                spacing="sm"
-                darkToggleVariant="ghost"
-                darkToggleSize="sm"
-              />
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-muted-foreground">Font:</span>
-                <FontSelector />
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-muted-foreground">Spacing:</span>
-                <LetterSpacingSelector />
-              </div>
+              <HydrationSafeWrapper>
+                <ThemeChooser 
+                  showLabels={true}
+                  spacing="sm"
+                  darkToggleVariant="ghost"
+                  darkToggleSize="sm"
+                />
+              </HydrationSafeWrapper>
+              <HydrationSafeWrapper>
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm text-muted-foreground">Font:</span>
+                  <FontSelector />
+                </div>
+              </HydrationSafeWrapper>
+              <HydrationSafeWrapper>
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm text-muted-foreground">Spacing:</span>
+                  <LetterSpacingSelector />
+                </div>
+              </HydrationSafeWrapper>
             </div>
           </div>
         </div>

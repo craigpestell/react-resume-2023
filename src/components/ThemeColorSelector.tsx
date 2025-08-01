@@ -23,6 +23,7 @@ const themeOptions = [
 export default function ThemeColorSelector() {
   const [selectedTheme, setSelectedTheme] = useState('nord');
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   
   // Use experiment for default theme
@@ -32,6 +33,8 @@ export default function ThemeColorSelector() {
   });
 
   useEffect(() => {
+    setMounted(true);
+    
     // Only apply theme if user has explicitly saved preferences
     // Otherwise, let the CSS defaults (Nord theme) take precedence but apply system dark mode preference
     const savedTheme = localStorage.getItem('selected-theme');
@@ -139,12 +142,30 @@ export default function ThemeColorSelector() {
 
   const currentTheme = themeOptions.find(theme => theme.value === selectedTheme);
 
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <div className="relative">
+        <button
+          className="flex items-center space-x-2 px-3 py-2 text-sm text-muted-foreground transition-colors rounded-md"
+          disabled
+          aria-label="Loading theme selector"
+          suppressHydrationWarning
+        >
+          <Palette className="w-4 h-4" />
+          <span>Loading...</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef} suppressHydrationWarning>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted"
         aria-label="Select theme"
+        suppressHydrationWarning
       >
         <Palette className="w-4 h-4" />
         <span>{currentTheme?.name || 'Light'}</span>

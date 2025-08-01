@@ -17,8 +17,11 @@ export default function DarkThemeToggle({
   showLabel = false 
 }: DarkThemeToggleProps) {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    
     // Only set dark mode state if user has explicitly saved preferences
     // Otherwise, use the system preference
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
@@ -103,13 +106,13 @@ export default function DarkThemeToggle({
     let sizeClasses = '';
     switch (size) {
       case 'sm':
-        sizeClasses = showLabel ? 'px-2 py-1 text-sm space-x-1' : 'p-1';
+        sizeClasses = showLabel ? 'px-2 py-1 text-sm' : 'p-1';
         break;
       case 'md':
-        sizeClasses = showLabel ? 'px-3 py-2 text-sm space-x-2' : 'p-2';
+        sizeClasses = showLabel ? 'px-3 py-2 text-sm' : 'p-2';
         break;
       case 'lg':
-        sizeClasses = showLabel ? 'px-4 py-2 text-base space-x-2' : 'p-3';
+        sizeClasses = showLabel ? 'px-4 py-2 text-base' : 'p-3';
         break;
     }
 
@@ -138,12 +141,30 @@ export default function DarkThemeToggle({
     return isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
   };
 
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <button
+        className={getButtonClasses()}
+        aria-label="Loading theme toggle"
+        disabled
+        suppressHydrationWarning
+      >
+        <div className={getIconSize()} />
+        {showLabel && (
+          <span>Loading</span>
+        )}
+      </button>
+    );
+  }
+
   return (
     <button
       onClick={toggleDarkMode}
       className={getButtonClasses()}
       aria-label={getThemeLabel()}
       title={getThemeLabel()}
+      suppressHydrationWarning
     >
       {getThemeIcon()}
       {showLabel && (

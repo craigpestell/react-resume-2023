@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Disable React Strict Mode in production to prevent hydration issues
+  reactStrictMode: process.env.NODE_ENV === 'development',
+  
   // Enable experimental features for better SEO
   experimental: {
     optimizePackageImports: ['lucide-react'],

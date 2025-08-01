@@ -1,98 +1,161 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
-
-type Theme = 'light' | 'dark' | 'system';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 interface ThemeContextType {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-  toggleTheme: () => void;
-  effectiveTheme: 'light' | 'dark'; // The actual resolved theme (system resolved to light/dark)
+  isDarkMode: boolean;
+  selectedTheme: string;
+  selectedFont: string;
+  selectedSpacing: string;
+  setDarkMode: (darkMode: boolean) => void;
+  setTheme: (theme: string) => void;
+  setFont: (font: string) => void;
+  setSpacing: (spacing: string) => void;
+  isHydrated: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  if (!context) {
+  if (context === undefined) {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
 }
 
 interface ThemeProviderProps {
-  children: React.ReactNode;
-  defaultTheme?: Theme;
+  children: ReactNode;
 }
 
-export function ThemeProvider({ children, defaultTheme = 'system' }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
-  const [effectiveTheme, setEffectiveTheme] = useState<'light' | 'dark'>('light');
+export function ThemeProvider({ children }: ThemeProviderProps) {
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState('nord');
+  const [selectedFont, setSelectedFont] = useState('nunito');
+  const [selectedSpacing, setSelectedSpacing] = useState('wide');
 
-  // Load theme from localStorage on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme) {
-      setTheme(savedTheme);
+    // Load saved preferences only after hydration
+    const savedDarkMode = localStorage.getItem('selected-dark-mode');
+    const savedTheme = localStorage.getItem('selected-theme') || 'nord';
+    const savedFont = localStorage.getItem('selected-font') || 'nunito';
+    const savedSpacing = localStorage.getItem('selected-letter-spacing') || 'wide';
+
+    // Set dark mode preference
+    if (savedDarkMode !== null) {
+      setIsDarkMode(savedDarkMode === 'true');
+    } else {
+      // Use system preference
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(systemPrefersDark);
     }
+
+    setSelectedTheme(savedTheme);
+    setSelectedFont(savedFont);
+    setSelectedSpacing(savedSpacing);
+
+    // Apply initial settings
+    const darkModeToApply = savedDarkMode !== null ? savedDarkMode === 'true' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme, darkModeToApply);
+    applyFont(savedFont);
+    applySpacing(savedSpacing);
+
+    setIsHydrated(true);
   }, []);
 
-  // Apply theme changes
-  useEffect(() => {
-    const root = document.documentElement;
-    
-    const applyTheme = (themeToApply: Theme) => {
-      if (themeToApply === 'system') {
-        // Remove explicit theme and let CSS handle system preference
-        root.removeAttribute('data-theme');
-        root.classList.remove('dark');
-        
-        // Determine effective theme based on system preference
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setEffectiveTheme(systemPrefersDark ? 'dark' : 'light');
-      } else if (themeToApply === 'dark') {
-        root.setAttribute('data-theme', 'dark');
-        root.classList.add('dark');
-        setEffectiveTheme('dark');
-      } else {
-        root.setAttribute('data-theme', 'light');
-        root.classList.remove('dark');
-        setEffectiveTheme('light');
-      }
-    };
-
-    applyTheme(theme);
-    localStorage.setItem('theme', theme);
-
-    // Listen for system theme changes when in system mode
-    if (theme === 'system') {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      const handleChange = () => {
-        setEffectiveTheme(mediaQuery.matches ? 'dark' : 'light');
-      };
-      
-      mediaQuery.addEventListener('change', handleChange);
-      return () => mediaQuery.removeEventListener('change', handleChange);
+  const applyTheme = (themeValue: string, darkMode: boolean) => {
+    const html = document.documentElement;
+    html.removeAttribute('data-theme');
+    html.classList.remove('dark');
+    html.setAttribute('data-theme', themeValue);
+    if (darkMode) {
+      html.classList.add('dark');
     }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    const themeOrder: Theme[] = ['light', 'dark', 'system'];
-    const currentIndex = themeOrder.indexOf(theme);
-    const nextIndex = (currentIndex + 1) % themeOrder.length;
-    setTheme(themeOrder[nextIndex]);
   };
 
-  const value: ThemeContextType = {
-    theme,
-    setTheme,
-    toggleTheme,
-    effectiveTheme,
+  const applyFont = (fontValue: string) => {
+    const body = document.body;
+    // Remove all font classes
+    const fontClasses = [
+      'font-dmsans', 'font-firacode', 'font-sans', 'font-inconsolata',
+      'font-inter', 'font-jetbrains', 'font-lato', 'font-montserrat',
+      'font-nunito', 'font-opensans', 'font-outfit', 'font-plusjakarta',
+      'font-poppins', 'font-roboto', 'font-sourcesans', 'font-spacemono',
+      'font-ubuntu', 'font-worksans'
+    ];
+    fontClasses.forEach(cls => body.classList.remove(cls));
+    
+    // Add selected font class
+    const fontClassMap: Record<string, string> = {
+      dmsans: 'font-dmsans', firacode: 'font-firacode', geist: 'font-sans',
+      inconsolata: 'font-inconsolata', inter: 'font-inter', jetbrains: 'font-jetbrains',
+      lato: 'font-lato', montserrat: 'font-montserrat', nunito: 'font-nunito',
+      opensans: 'font-opensans', outfit: 'font-outfit', plusjakarta: 'font-plusjakarta',
+      poppins: 'font-poppins', roboto: 'font-roboto', sourcesans: 'font-sourcesans',
+      spacemono: 'font-spacemono', ubuntu: 'font-ubuntu', worksans: 'font-worksans'
+    };
+    const fontClass = fontClassMap[fontValue];
+    if (fontClass) {
+      body.classList.add(fontClass);
+    }
+  };
+
+  const applySpacing = (spacingValue: string) => {
+    const body = document.body;
+    const spacingClasses = ['tracking-tighter', 'tracking-tight', 'tracking-normal', 'tracking-wide', 'tracking-wider', 'tracking-widest'];
+    spacingClasses.forEach(cls => body.classList.remove(cls));
+    
+    const spacingClassMap: Record<string, string> = {
+      tighter: 'tracking-tighter',
+      tight: 'tracking-tight',
+      normal: 'tracking-normal',
+      wide: 'tracking-wide',
+      wider: 'tracking-wider',
+      widest: 'tracking-widest'
+    };
+    const spacingClass = spacingClassMap[spacingValue];
+    if (spacingClass) {
+      body.classList.add(spacingClass);
+    }
+  };
+
+  const setDarkMode = (darkMode: boolean) => {
+    setIsDarkMode(darkMode);
+    localStorage.setItem('selected-dark-mode', darkMode.toString());
+    applyTheme(selectedTheme, darkMode);
+  };
+
+  const setTheme = (theme: string) => {
+    setSelectedTheme(theme);
+    localStorage.setItem('selected-theme', theme);
+    applyTheme(theme, isDarkMode);
+  };
+
+  const setFont = (font: string) => {
+    setSelectedFont(font);
+    localStorage.setItem('selected-font', font);
+    applyFont(font);
+  };
+
+  const setSpacing = (spacing: string) => {
+    setSelectedSpacing(spacing);
+    localStorage.setItem('selected-letter-spacing', spacing);
+    applySpacing(spacing);
   };
 
   return (
-    <ThemeContext.Provider value={value}>
+    <ThemeContext.Provider value={{
+      isDarkMode,
+      selectedTheme,
+      selectedFont,
+      selectedSpacing,
+      setDarkMode,
+      setTheme,
+      setFont,
+      setSpacing,
+      isHydrated
+    }}>
       {children}
     </ThemeContext.Provider>
   );

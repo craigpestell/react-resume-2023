@@ -25,13 +25,16 @@ const fontOptions = [
 ];
 
 export default function FontSelector() {
-  const [selectedFont, setSelectedFont] = useState('inconsolata');
+  const [selectedFont, setSelectedFont] = useState('nunito');
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setMounted(true);
+    
     // Load saved font preference
-    const savedFont = localStorage.getItem('selected-font') || 'inconsolata';
+    const savedFont = localStorage.getItem('selected-font') || 'nunito';
     setSelectedFont(savedFont);
     applyFont(savedFont);
   }, []);
@@ -77,15 +80,33 @@ export default function FontSelector() {
 
   const currentFont = fontOptions.find(font => font.value === selectedFont);
 
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <div className="relative">
+        <button
+          className="flex items-center space-x-2 px-3 py-2 text-sm text-muted-foreground transition-colors rounded-md"
+          disabled
+          aria-label="Loading font selector"
+          suppressHydrationWarning
+        >
+          <Type className="w-4 h-4" />
+          <span>Loading...</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef} suppressHydrationWarning>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted"
         aria-label="Select font"
+        suppressHydrationWarning
       >
         <Type className="w-4 h-4" />
-        <span>{currentFont?.name || 'Inconsolata'}</span>
+        <span>{currentFont?.name || 'Nunito'}</span>
       </button>
 
       {isOpen && (

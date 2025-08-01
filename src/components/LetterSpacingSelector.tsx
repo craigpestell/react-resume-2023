@@ -15,9 +15,12 @@ const letterSpacingOptions = [
 export default function LetterSpacingSelector() {
   const [selectedSpacing, setSelectedSpacing] = useState('wide');
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setMounted(true);
+    
     // Load saved letter spacing preference
     const savedSpacing = localStorage.getItem('selected-letter-spacing') || 'wide';
     setSelectedSpacing(savedSpacing);
@@ -65,12 +68,30 @@ export default function LetterSpacingSelector() {
 
   const currentSpacing = letterSpacingOptions.find(spacing => spacing.value === selectedSpacing);
 
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <div className="relative">
+        <button
+          className="flex items-center space-x-2 px-3 py-2 text-sm text-muted-foreground transition-colors rounded-md"
+          disabled
+          aria-label="Loading letter spacing selector"
+          suppressHydrationWarning
+        >
+          <Type className="w-4 h-4" />
+          <span>Loading...</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef} suppressHydrationWarning>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted"
         aria-label="Adjust letter spacing"
+        suppressHydrationWarning
       >
         <Type className="w-4 h-4" />
         <span>{currentSpacing?.name || 'Wide'}</span>

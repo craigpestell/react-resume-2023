@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Download, Menu, X } from 'lucide-react';
-import DarkThemeToggle from './DarkThemeToggle';
+import DarkThemeToggleSimple from './DarkThemeToggleSimple';
 
 interface HeaderProps {
   onDownloadResume: () => void;
@@ -65,7 +65,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl text-primary">
+          <div className="font-bold text-xl text-foreground hover:text-primary">
             <Link href="/">{"<CraigPestell />"}</Link>
           </div>
 
@@ -87,9 +87,9 @@ export default function Header({ onDownloadResume }: HeaderProps) {
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-4">
             {/* Theme Toggle */}
-            <DarkThemeToggle size="md" variant="secondary" />
+            <DarkThemeToggleSimple size="md" variant="secondary" />
 
             {/* Download Resume Button */}
             <button
