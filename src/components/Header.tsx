@@ -94,7 +94,7 @@ export default function Header({ onDownloadResume }: HeaderProps) {
             {/* Download Resume Button */}
             <button
               onClick={onDownloadResume}
-              className="hidden md:flex items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
+              className="hidden lg:flex items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors"
             >
               <Download className="w-4 h-4" />
               <span>Resume</span>

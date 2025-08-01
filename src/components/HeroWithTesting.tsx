@@ -50,7 +50,7 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
   };
 
   const getButtonStyles = (style: string, isPrimary = true) => {
-    const baseClasses = "px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2";
+    const baseClasses = "px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2";
     
     switch (style) {
       case 'gradient':

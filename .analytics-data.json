@@ -196,5 +196,18 @@
       "user_id": "06a9682d-04de-45a2-8c3b-f690cdc546c4",
       "experiments": []
     }
+  },
+  {
+    "experimentId": "hero-cta-test",
+    "variantId": "control",
+    "eventType": "resume_download",
+    "userId": "user-1754006275247",
+    "timestamp": 1754006275247,
+    "data": {
+      "variant": "control",
+      "buttonText": "Download Resume",
+      "user_id": "d6b640cb-8402-48d4-8857-fbe8aca0f02a",
+      "experiments": []
+    }
   }
 ]
