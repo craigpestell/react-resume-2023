@@ -94,7 +94,7 @@ export default function LetterSpacingSelector() {
         suppressHydrationWarning
       >
         <Type className="w-4 h-4" />
-        <span>{currentSpacing?.name || 'Wide'}</span>
+        <span>{currentSpacing?.name || 'normal'}</span>
       </button>
 
       {isOpen && (

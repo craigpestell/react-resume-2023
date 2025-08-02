@@ -33,14 +33,14 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState('nord');
   const [selectedFont, setSelectedFont] = useState('inconsolata');
-  const [selectedSpacing, setSelectedSpacing] = useState('wide');
+  const [selectedSpacing, setSelectedSpacing] = useState('normal');
 
   useEffect(() => {
     // Load saved preferences only after hydration
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
     const savedTheme = localStorage.getItem('selected-theme') || 'nord';
     const savedFont = localStorage.getItem('selected-font') || 'inconsolata';
-    const savedSpacing = localStorage.getItem('selected-letter-spacing') || 'wide';
+    const savedSpacing = localStorage.getItem('selected-letter-spacing') || 'normal';
 
     // Set dark mode preference
     if (savedDarkMode !== null) {
