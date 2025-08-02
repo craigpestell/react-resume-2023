@@ -20,6 +20,7 @@ import {
   Inconsolata
 } from 'next/font/google';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import PerformanceMonitor from '@/components/PerformanceMonitor';
 import "./globals.css";
 
 // Configure Google Fonts
@@ -194,6 +195,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           {children}
+          <PerformanceMonitor />
         </ThemeProvider>
       </body>
     </html>

@@ -2,12 +2,14 @@
 
 import Header from '@/components/Header';
 import Hero from '@/components/HeroWithTesting';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
-import Experience from '@/components/Experience';
-import Contact from '@/components/Contact';
 import StructuredData from '@/components/StructuredData';
-import FooterControls from '@/components/FooterControls';
+import { 
+  SmartSkillsSection,
+  SmartProjectsSection,
+  SmartExperienceSection,
+  SmartContactSection,
+  SmartFooterControlsSection
+} from '@/components/SmartLazyComponents';
 import { portfolioData } from '@/data/portfolio';
 import { generateResume } from '@/components/ResumeGenerator';
 
@@ -21,14 +23,14 @@ export default function Home() {
       <StructuredData personalInfo={portfolioData.personalInfo} />
       <Header onDownloadResume={handleDownloadResume} />
       <Hero personalInfo={portfolioData.personalInfo} onDownloadResume={handleDownloadResume} />
-      <Skills skills={portfolioData.skills} />
-      <Projects projects={portfolioData.projects} />
-      <Experience 
+      <SmartSkillsSection skills={portfolioData.skills} />
+      <SmartProjectsSection projects={portfolioData.projects} />
+      <SmartExperienceSection 
         experience={portfolioData.experience} 
         education={portfolioData.education} 
       />
       
-      <Contact personalInfo={portfolioData.personalInfo} />
+      <SmartContactSection personalInfo={portfolioData.personalInfo} />
       
       {/* Footer */}
       <footer className="bg-card text-card-foreground py-8">
@@ -37,7 +39,7 @@ export default function Home() {
             <p className="text-muted-foreground text-center md:text-left">
               © 2025 {portfolioData.personalInfo.name}. Built with Next.js and TailwindCSS.
             </p>
-            <FooterControls />
+            <SmartFooterControlsSection />
           </div>
         </div>
       </footer>
