@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ExternalLink, Download } from 'lucide-react';
 import Image from 'next/image';
 import { PersonalInfo } from '@/data/portfolio';
@@ -73,12 +72,7 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* Profile Image */}
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
+          <div className="mb-8">
             <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-primary to-accent p-1">
               {personalInfo.profileImage ? (
                 <Image 
@@ -95,40 +89,25 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
                 </div>
               )}
             </div>
-          </motion.div>
+          </div>
 
           {/* Name and Title */}
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-6"
-          >
+          <div className="mb-6">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               {personalInfo.name}
             </h1>
             <h2 className="text-2xl md:text-3xl text-muted-foreground font-light">
               {personalInfo.title}
             </h2>
-          </motion.div>
+          </div>
 
           {/* Summary */}
-          <motion.p
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
-          >
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
             {personalInfo.summary}
-          </motion.p>
+          </p>
 
           {/* Social Links */}
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex justify-center space-x-6 mb-8"
-          >
+          <div className="flex justify-center space-x-6 mb-8">
             <a
               href={personalInfo.github}
               target="_blank"
@@ -167,15 +146,10 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
             >
               <ExternalLink className="w-6 h-6 text-card-foreground" />
             </a>
-          </motion.div>
+          </div>
 
           {/* CTA Buttons - A/B Tested */}
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {/* Primary CTA - varies based on experiment */}
             <button
               onClick={handleDownloadResume}
@@ -211,18 +185,13 @@ export default function Hero({ personalInfo, onDownloadResume }: HeroProps) {
                 </button>
               </>
             )}
-          </motion.div>
+          </div>
 
           {/* Experiment indicator (only in development) */}
           {process.env.NODE_ENV === 'development' && variantId && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="mt-4 text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block"
-            >
+            <div className="mt-4 text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block">
               Experiment: {variantId}
-            </motion.div>
+            </div>
           )}
         </div>
       </div>
