@@ -13,7 +13,7 @@ const letterSpacingOptions = [
 ];
 
 export default function LetterSpacingSelector() {
-  const [selectedSpacing, setSelectedSpacing] = useState('wide');
+  const [selectedSpacing, setSelectedSpacing] = useState('normal');
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -22,7 +22,7 @@ export default function LetterSpacingSelector() {
     setMounted(true);
     
     // Load saved letter spacing preference
-    const savedSpacing = localStorage.getItem('selected-letter-spacing') || 'wide';
+    const savedSpacing = localStorage.getItem('selected-letter-spacing') || 'normal';
     setSelectedSpacing(savedSpacing);
     applyLetterSpacing(savedSpacing);
   }, []);

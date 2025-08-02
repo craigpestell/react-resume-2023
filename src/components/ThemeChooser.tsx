@@ -48,35 +48,16 @@ export default function ThemeChooser({
 
   return (
     <div className={getContainerClasses()}>
-      {showLabels && layout === 'horizontal' ? (
+      {showLabels ? (
         <>
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-muted-foreground">Mode:</span>
-            <DarkThemeToggle 
-              size={darkToggleSize} 
-              variant={darkToggleVariant}
-              showLabel={false}
-            />
-          </div>
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-muted-foreground">Theme:</span>
-            <ThemeColorSelector />
-          </div>
-        </>
-      ) : showLabels && layout === 'vertical' ? (
-        <>
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-muted-foreground">Mode:</span>
-            <DarkThemeToggle 
-              size={darkToggleSize} 
-              variant={darkToggleVariant}
-              showLabel={false}
-            />
-          </div>
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-muted-foreground">Theme:</span>
-            <ThemeColorSelector />
-          </div>
+          <span className="text-sm text-muted-foreground">Mode:</span>
+          <DarkThemeToggle 
+            size={darkToggleSize} 
+            variant={darkToggleVariant}
+            showLabel={false}
+          />
+          <span className="text-sm text-muted-foreground">Theme:</span>
+          <ThemeColorSelector />
         </>
       ) : (
         <>

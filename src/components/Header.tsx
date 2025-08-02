@@ -65,9 +65,9 @@ export default function Header({ onDownloadResume }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl text-foreground hover:text-primary">
-            <Link href="/">{"<CraigPestell />"}</Link>
-          </div>
+          <Link href="/" className="font-bold text-xl text-foreground hover:text-primary">
+            {"<CraigPestell />"}
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">

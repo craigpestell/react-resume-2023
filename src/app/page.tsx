@@ -7,10 +7,7 @@ import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import StructuredData from '@/components/StructuredData';
-import FontSelector from '@/components/FontSelector';
-import LetterSpacingSelector from '@/components/LetterSpacingSelector';
-import ThemeChooser from '@/components/ThemeChooser';
-import HydrationSafeWrapper from '@/components/HydrationSafeWrapper';
+import FooterControls from '@/components/FooterControls';
 import { portfolioData } from '@/data/portfolio';
 import { generateResume } from '@/components/ResumeGenerator';
 
@@ -40,28 +37,7 @@ export default function Home() {
             <p className="text-muted-foreground text-center md:text-left">
               © 2025 {portfolioData.personalInfo.name}. Built with Next.js and TailwindCSS.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-6">
-              <HydrationSafeWrapper>
-                <ThemeChooser 
-                  showLabels={true}
-                  spacing="sm"
-                  darkToggleVariant="ghost"
-                  darkToggleSize="sm"
-                />
-              </HydrationSafeWrapper>
-              <HydrationSafeWrapper>
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm text-muted-foreground">Font:</span>
-                  <FontSelector />
-                </div>
-              </HydrationSafeWrapper>
-              <HydrationSafeWrapper>
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm text-muted-foreground">Spacing:</span>
-                  <LetterSpacingSelector />
-                </div>
-              </HydrationSafeWrapper>
-            </div>
+            <FooterControls />
           </div>
         </div>
       </footer>
