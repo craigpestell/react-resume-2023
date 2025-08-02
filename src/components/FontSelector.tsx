@@ -25,7 +25,7 @@ const fontOptions = [
 ];
 
 export default function FontSelector() {
-  const [selectedFont, setSelectedFont] = useState('nunito');
+  const [selectedFont, setSelectedFont] = useState('inconsolata');
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ export default function FontSelector() {
     setMounted(true);
     
     // Load saved font preference
-    const savedFont = localStorage.getItem('selected-font') || 'nunito';
+    const savedFont = localStorage.getItem('selected-font') || 'inconsolata';
     setSelectedFont(savedFont);
     applyFont(savedFont);
   }, []);
@@ -106,7 +106,7 @@ export default function FontSelector() {
         suppressHydrationWarning
       >
         <Type className="w-4 h-4" />
-        <span>{currentFont?.name || 'Nunito'}</span>
+        <span>{currentFont?.name || 'inconsolata'}</span>
       </button>
 
       {isOpen && (

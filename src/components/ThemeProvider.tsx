@@ -32,14 +32,14 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   const [isHydrated, setIsHydrated] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState('nord');
-  const [selectedFont, setSelectedFont] = useState('nunito');
+  const [selectedFont, setSelectedFont] = useState('inconsolata');
   const [selectedSpacing, setSelectedSpacing] = useState('wide');
 
   useEffect(() => {
     // Load saved preferences only after hydration
     const savedDarkMode = localStorage.getItem('selected-dark-mode');
     const savedTheme = localStorage.getItem('selected-theme') || 'nord';
-    const savedFont = localStorage.getItem('selected-font') || 'nunito';
+    const savedFont = localStorage.getItem('selected-font') || 'inconsolata';
     const savedSpacing = localStorage.getItem('selected-letter-spacing') || 'wide';
 
     // Set dark mode preference
@@ -88,12 +88,24 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     
     // Add selected font class
     const fontClassMap: Record<string, string> = {
-      dmsans: 'font-dmsans', firacode: 'font-firacode', geist: 'font-sans',
-      inconsolata: 'font-inconsolata', inter: 'font-inter', jetbrains: 'font-jetbrains',
-      lato: 'font-lato', montserrat: 'font-montserrat', nunito: 'font-nunito',
-      opensans: 'font-opensans', outfit: 'font-outfit', plusjakarta: 'font-plusjakarta',
-      poppins: 'font-poppins', roboto: 'font-roboto', sourcesans: 'font-sourcesans',
-      spacemono: 'font-spacemono', ubuntu: 'font-ubuntu', worksans: 'font-worksans'
+      dmsans: 'font-dmsans', 
+      firacode: 'font-firacode', 
+      geist: 'font-sans',
+      inconsolata: 'font-inconsolata', 
+      inter: 'font-inter', 
+      jetbrains: 'font-jetbrains',
+      lato: 'font-lato', 
+      montserrat: 'font-montserrat', 
+      nunito: 'font-nunito',
+      opensans: 'font-opensans', 
+      outfit: 'font-outfit', 
+      plusjakarta: 'font-plusjakarta',
+      poppins: 'font-poppins', 
+      roboto: 'font-roboto', 
+      sourcesans: 'font-sourcesans',
+      spacemono: 'font-spacemono', 
+      ubuntu: 'font-ubuntu', 
+      worksans: 'font-worksans'
     };
     const fontClass = fontClassMap[fontValue];
     if (fontClass) {
