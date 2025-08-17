@@ -75,10 +75,10 @@ export default function Header({ onDownloadResume }: HeaderProps) {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className={`text-foreground hover:text-primary transition-colors lg:text-xl relative ${
+                className={`text-foreground hover:text-primary transition-colors lg:text-xl relative  cursor-pointer ${
                   activeSection === link.href.substring(1) 
                     ? 'text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:content-[\'\']' 
-                    : ''
+                    : 'hover:font-semibold'
                 }`}
               >
                 {link.label}

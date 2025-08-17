@@ -102,7 +102,7 @@ export const SmartSkillsSection = ({ skills }: { skills: Skill[] }) => {
   });
 
   return (
-    <div ref={elementRef}>
+    <div ref={elementRef} id="skills">
       {isIntersecting ? (
         <Suspense fallback={<SkillsLoader />}>
           <LazySkills skills={skills} />
@@ -120,7 +120,7 @@ export const SmartProjectsSection = ({ projects }: { projects: Project[] }) => {
   });
 
   return (
-    <div ref={elementRef}>
+    <div ref={elementRef} id="projects">
       {isIntersecting ? (
         <Suspense fallback={<ProjectsLoader />}>
           <LazyProjects projects={projects} />
@@ -144,7 +144,7 @@ export const SmartExperienceSection = ({
   });
 
   return (
-    <div ref={elementRef}>
+    <div ref={elementRef} id="experience">
       {isIntersecting ? (
         <Suspense fallback={<ExperienceLoader />}>
           <LazyExperience experience={experience} education={education} />
@@ -162,7 +162,7 @@ export const SmartContactSection = ({ personalInfo }: { personalInfo: PersonalIn
   });
 
   return (
-    <div ref={elementRef}>
+    <div ref={elementRef} id="contact">
       {isIntersecting ? (
         <Suspense fallback={<ContactLoader />}>
           <LazyContact personalInfo={personalInfo} />

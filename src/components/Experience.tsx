@@ -182,7 +182,7 @@ export default function ExperienceSection({ experience, education }: ExperienceP
   );
 
   return (
-    <section id="experience" className="py-20 bg-background">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
